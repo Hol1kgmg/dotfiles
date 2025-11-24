@@ -3,39 +3,51 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self, nixpkgs }:
+    inputs@{ nixpkgs, flake-parts, home-manager, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+      inherit (import ./home/options.nix) username;
+      system = builtins.currentSystem;
     in
-    {
-      formatter.${system} = pkgs.nixfmt-rfc-style;
-      packages.${system}.my-packages = pkgs.buildEnv {
-        name = "my-packages-list";
-        paths = with pkgs; [
-          git
-          curl
-          nixfmt-rfc-style
-          # ここにパッケージを追記していく
-        ];
-      };
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
 
-      # nix flake updateコマンドのalias
-      apps.${system}.update = {
-        type = "app";
-        program = toString (
-          pkgs.writeShellScript "update-script" ''
-            set -e
-            echo "Updating flake..."
-            nix flake update
-            echo "Updating profile..."
-            nix profile upgrade my-packages
-            echo "Update complete!"
-          ''
-        );
+      perSystem =
+        { pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt-rfc-style;
+
+          apps.default = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "update-script" ''
+                set -e
+                echo "Updating flake..."
+                nix flake update
+                echo "Updating home-manager..."
+                nix run nixpkgs#home-manager -- switch --flake .#${username} --impure
+                echo "Update complete!"
+              ''
+            );
+          };
+        };
+
+      flake = {
+        homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home ];
+        };
       };
     };
 }
