@@ -4,14 +4,24 @@
 git clone https://github.com/Hol1kgmg/dotfiles.git
 ```
 
-2. set up
-nix flaskのupdate専用コマンド
-```.zsh
-nix run .#update
-```
-<!--TODO-->
+# HOW USE
 
-3.Directory structure
+home-manager 設定を適用
+```.zsh
+home-manager switch --flake .#$(whoami) --impure
+```
+
+flake更新 + home-manager適用（一括実行）
+```.zsh
+nix run --impure
+```
+
+フォーマット
+```.zsh
+nix fmt
+```
+
+# Directory structure
 ```.md
 dotfiles/
 ├── flake.nix                    # エントリーポイント
