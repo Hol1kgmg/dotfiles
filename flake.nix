@@ -25,6 +25,7 @@
     let
       inherit (import ./home/options.nix) username;
       system = builtins.currentSystem;
+      hostname = "mac-book-pro";
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -65,8 +66,8 @@
           extraSpecialArgs = { inherit inputs; };
           modules = [ ./home ];
         };
-        darwinConfigurations.${username} = nix-darwin.lib.darwinSystem {
-          system = system;
+        darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+          inherit system;
           modules = [ ./nix-darwin ];
         };
       };

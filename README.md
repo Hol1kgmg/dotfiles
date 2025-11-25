@@ -27,7 +27,8 @@ nix run nixpkgs#home-manager -- switch --flake .#$(whoami) --impure
 
 ### 5. nix-darwinの適用（システムレベル設定）
 ```.zsh
-nix run nix-darwin -- switch --flake .#$(whoami) --impure
+# 初回のみ（パスワード入力が求められます）
+sudo nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake . --impure
 ```
 
 ---
@@ -41,7 +42,8 @@ home-manager switch --flake .#$(whoami) --impure
 
 ### nix-darwin 設定を適用
 ```.zsh
-darwin-rebuild switch --flake .#$(whoami) --impure
+# システム設定の変更時（パスワード入力が求められます）
+sudo darwin-rebuild switch --flake . --impure
 ```
 
 ### flake更新 + home-manager適用（一括実行）
