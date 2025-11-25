@@ -1,5 +1,5 @@
 {
   imports = [
-    ./dev
+    ./git.nix
   ];
 }
