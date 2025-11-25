@@ -30,9 +30,8 @@ dotfiles/
 │
 ├── darwin/                      # nix-darwin設定（システムレベル）
 │   ├── default.nix             # darwinConfigurationのメイン
-│   ├── system.nix              # システム全体の設定
 │   ├── homebrew.nix            # Homebrew管理（GUI appなど）
-│   └── modules/
+│   └── system/
 │       ├── preferences.nix     # macOS Defaults（Dock, Finder等）
 │       ├── keyboard.nix        # キーボード・ショートカット
 │       ├── networking.nix      # ネットワーク設定
