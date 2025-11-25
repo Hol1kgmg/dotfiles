@@ -8,10 +8,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, flake-parts, home-manager, ... }:
+    inputs@{
+      nixpkgs,
+      flake-parts,
+      home-manager,
+      nix-darwin,
+      ...
+    }:
     let
       inherit (import ./home/options.nix) username;
       system = builtins.currentSystem;
@@ -47,6 +57,10 @@
           pkgs = import nixpkgs { inherit system; };
           extraSpecialArgs = { inherit inputs; };
           modules = [ ./home ];
+        };
+        darwinConfigurations.${username} = nix-darwin.lib.darwinSystem {
+          system = system;
+          modules = [ ./nix-darwin ];
         };
       };
     };
