@@ -1,22 +1,55 @@
-# Quick Start
-1. git clone 
+# セットアップ手順
+
+## 初回構築（新しいmacOSマシン）
+
+### 1. Nixのインストール
 ```.zsh
-git clone https://github.com/Hol1kgmg/dotfiles.git
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
-# HOW USE
+### 2. リポジトリのクローン
+```.zsh
+git clone https://github.com/Hol1kgmg/dotfiles.git
+cd dotfiles
+```
 
-home-manager 設定を適用
+### 3. 環境変数の設定（必要に応じて）
+```.zsh
+export GIT_USERNAME="Your Name"
+export GIT_EMAIL="you@example.com"
+export GIT_SIGNINGKEY="your-key"
+```
+
+### 4. home-managerの適用
+```.zsh
+nix run nixpkgs#home-manager -- switch --flake .#$(whoami) --impure
+```
+
+### 5. nix-darwinの適用（システムレベル設定）
+```.zsh
+nix run nix-darwin -- switch --flake .#$(whoami) --impure
+```
+
+---
+
+## 日常的な使い方（構築済み環境）
+
+### home-manager 設定を適用
 ```.zsh
 home-manager switch --flake .#$(whoami) --impure
 ```
 
-flake更新 + home-manager適用（一括実行）
+### nix-darwin 設定を適用
+```.zsh
+darwin-rebuild switch --flake .#$(whoami) --impure
+```
+
+### flake更新 + home-manager適用（一括実行）
 ```.zsh
 nix run --impure
 ```
 
-フォーマット
+### フォーマット
 ```.zsh
 nix fmt
 ```

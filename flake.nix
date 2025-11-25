@@ -35,7 +35,14 @@
       perSystem =
         { pkgs, ... }:
         {
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.writeShellScriptBin "formatter" ''
+            # 引数がない場合は全ての.nixファイルをフォーマット
+            if [ $# -eq 0 ]; then
+              ${pkgs.nixfmt-rfc-style}/bin/nixfmt **/*.nix
+            else
+              ${pkgs.nixfmt-rfc-style}/bin/nixfmt "$@"
+            fi
+          '';
 
           apps.default = {
             type = "app";
