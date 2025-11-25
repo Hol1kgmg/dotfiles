@@ -1,3 +1,14 @@
 {
-  imports = [ ];
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+    };
+  };
+
+  imports = [
+    ./cask
+    ./brew
+  ];
 }
