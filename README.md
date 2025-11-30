@@ -13,17 +13,18 @@ git clone https://github.com/Hol1kgmg/dotfiles.git
 cd dotfiles
 ```
 
-### 3. 環境変数の設定（必要に応じて）
-```.zsh
-export GIT_USERNAME="Hol1kgmg"
-export GIT_EMAIL="you@example.com"
-export GIT_SIGNINGKEY="your-key"
-```
-
-### 4. home-managerの適用
+### 3. home-managerの適用
 ```.zsh
 nix run nixpkgs#home-manager -- switch --flake .#$(whoami) --impure
 ```
+
+### 4. Git設定（初回のみ）
+```.zsh
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+> **Note**: Git設定は手動で行います。環境変数 `GIT_USERNAME` と `GIT_EMAIL` を設定している場合は、この手順をスキップできます。
 
 ### 5. nix-darwinの適用（システムレベル設定）
 初回のみ（パスワード入力が求められます）
