@@ -30,6 +30,15 @@ dotfiles/
         ├── dev/                 # 開発環境
         │   ├── default.nix
         │   └── git.nix          # Git設定
+        ├── editor/              # エディタ設定
+        │   └── default.nix      # 将来的にvscode、neovim等を追加予定
+        ├── terminal/            # ターミナルエミュレータ設定
+        │   ├── default.nix
+        │   ├── wezterm.nix      # WezTerm設定（programs.wezterm）
+        │   └── configs/
+        │       └── wezterm/     # WezTerm Lua設定ファイル
+        │           ├── wezterm.lua    # メイン設定（フォント、透過、タブ等）
+        │           └── keybinds.lua   # キーバインド設定
         └── shell/               # シェル環境
             ├── default.nix
             └── zsh/             # Zsh設定（モジュール分割）
