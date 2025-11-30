@@ -1,5 +1,8 @@
 # プロジェクト概要
-- 目的説明
+NixとHome-Managerを使ったmacOS開発環境のdotfiles管理プロジェクト
+
+# ディレクトリ構造
+詳細は [DIRECTORY_STRUCTURE.md](./DIRECTORY_STRUCTURE.md) を参照してください。
 
 # 作業ルール
 1. 実装プラン提案
