@@ -4,7 +4,9 @@
 dotfiles/
 ├── flake.nix                    # エントリーポイント
 ├── flake.lock                   # 依存関係ロックファイル
+├── .mcp.json                    # MCP server設定（Claude Code）
 ├── README.md                    # プロジェクト概要・セットアップ手順
+├── DEVELOPMENT.md               # 開発者向けガイド
 ├── CLAUDE.md                    # Claude Code用プロジェクト指示
 ├── MANUAL_SETUP.md              # 手動セットアップ手順
 ├── DIRECTORY_STRUCTURE.md       # このファイル
