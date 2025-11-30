@@ -6,9 +6,6 @@
     "docker-desktop"
     "smoothcsv"
 
-    # ターミナル
-    "wezterm"
-
     # AIエージェント
     "claude-code"
 
