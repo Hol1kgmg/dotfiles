@@ -1,14 +1,14 @@
-# プロジェクト概要
-NixとHome-Managerを使ったmacOS開発環境のdotfiles管理プロジェクト
+# Project Overview
+Dotfiles management project for macOS development environment using Nix and Home-Manager
 
-# ディレクトリ構造
-詳細は [DIRECTORY_STRUCTURE.md](./DIRECTORY_STRUCTURE.md) を参照してください。
+# Directory Structure
+See [DIRECTORY_STRUCTURE.md](./DIRECTORY_STRUCTURE.md) for details.
 
-# 作業ルール
-1. 実装プラン提案
-2. 承認待ち
-3. 実装開始
+# Work Rules
+1. Propose implementation plan
+2. Wait for approval
+3. Start implementation
 
-# 言語設定
-- 回答：日本語
-- 思考：英語（トークン削減）
+# Language Settings
+- Responses: Japanese
+- Thinking: English (for token reduction)
