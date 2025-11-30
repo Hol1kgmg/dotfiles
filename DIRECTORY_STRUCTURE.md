@@ -35,6 +35,7 @@ dotfiles/
         ├── terminal/            # ターミナルエミュレータ設定
         │   ├── default.nix
         │   ├── wezterm.nix      # WezTerm設定（programs.wezterm）
+        │   ├── zellij.nix       # Zellij設定（programs.zellij）
         │   └── configs/
         │       └── wezterm/     # WezTerm Lua設定ファイル
         │           ├── wezterm.lua    # メイン設定（フォント、透過、タブ等）

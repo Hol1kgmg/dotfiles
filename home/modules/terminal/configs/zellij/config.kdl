@@ -1,0 +1,61 @@
+// Zellij設定ファイル
+// Ctrl → Option (Alt) キーバインド変更
+
+keybinds {
+    normal {
+        // Ctrlキーバインドを無効化
+        unbind "Ctrl p"
+        unbind "Ctrl t"
+        unbind "Ctrl n"
+        unbind "Ctrl h"
+        unbind "Ctrl s"
+        unbind "Ctrl o"
+        unbind "Ctrl q"
+
+        // Option (Alt) キーバインドに変更
+        bind "Alt p" { SwitchToMode "Pane"; }
+        bind "Alt t" { SwitchToMode "Tab"; }
+        bind "Alt n" { SwitchToMode "Resize"; }
+        bind "Alt h" { SwitchToMode "Move"; }
+        bind "Alt s" { SwitchToMode "Scroll"; }
+        bind "Alt o" { SwitchToMode "Session"; }
+        bind "Alt q" { Quit; }
+    }
+
+    // 各モードでCtrl gを無効化してAlt gに変更（モード終了用）
+    pane {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+
+    tab {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+
+    resize {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+
+    move {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+
+    scroll {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+
+    session {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+}
+
+// その他の設定
+default_mode "normal"
+mouse_mode true
+pane_frames true
+copy_on_select true
