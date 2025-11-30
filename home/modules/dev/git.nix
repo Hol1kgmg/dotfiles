@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   inherit (import ../../options.nix) gitUsername gitEmail gitSigningkey;
 in
@@ -7,19 +7,13 @@ in
     enable = true;
 
     # GPG署名設定（GIT_SIGNINGKEYが設定されている場合のみ有効）
-    signing = {
+    signing = lib.mkIf (gitSigningkey != "") {
       key = gitSigningkey;
-      signByDefault = gitSigningkey != "";
+      signByDefault = true;
     };
 
     # 設定（新しいAPI）
     settings = {
-      # ユーザー情報（環境変数から取得）
-      user = {
-        name = gitUsername;
-        email = gitEmail;
-      };
-
       # 基本設定
       init.defaultBranch = "main";
       pull.rebase = false;
@@ -34,6 +28,12 @@ in
         ci = "commit";
         unstage = "reset HEAD --";
         last = "log -1 HEAD";
+      };
+    } // lib.optionalAttrs (gitUsername != "" && gitEmail != "") {
+      # 環境変数が設定されている場合のみuser設定を追加
+      user = {
+        name = gitUsername;
+        email = gitEmail;
       };
     };
   };
