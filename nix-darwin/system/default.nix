@@ -14,5 +14,9 @@
   imports = [
     ./security.nix
     ./keyboard.nix
+    ./dock.nix
+    ./finder.nix
+    ./trackpad.nix
+    ./custom.nix
   ];
 }

@@ -21,8 +21,12 @@ dotfiles/
 │   │       └── default.nix
 │   └── system/                  # システム設定
 │       ├── default.nix
-│       ├── keyboard.nix         # キーボード・ショートカット
-│       └── security.nix         # セキュリティ設定
+│       ├── security.nix         # セキュリティ設定
+│       ├── keyboard.nix         # キーボード・テキスト入力設定
+│       ├── dock.nix             # Dock設定
+│       ├── finder.nix           # Finder設定
+│       ├── trackpad.nix         # トラックパッド設定
+│       └── custom.nix           # CustomUserPreferences（非標準設定）
 │
 └── home/                        # home-manager設定（ユーザーレベル）
     ├── default.nix              # home-manager統合ポイント
