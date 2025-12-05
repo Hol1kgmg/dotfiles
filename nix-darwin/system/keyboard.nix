@@ -40,10 +40,10 @@
     # キー長押し時のアクセント文字表示を無効化
     ApplePressAndHoldEnabled = false;
 
-    # キーリピート開始までの遅延（15が標準、小さいほど速い）
-    InitialKeyRepeat = 12;
+    # キーリピート開始までの遅延（15=標準、10=最速推奨）
+    InitialKeyRepeat = 10;
 
-    # キーリピートの速度（2が標準、小さいほど速い）
+    # キーリピートの速度（2=標準、1=最速）
     KeyRepeat = 1;
 
     # インライン予測テキストを表示
@@ -61,20 +61,19 @@
     };
   };
 
-  # ========================================
-  # 今後の実装予定（Phase 3）
-  # ========================================
-  # 詳細は keyboard_implementation_plan.md を参照
-  #
-  # Phase 3: キーボードショートカット設定（要詳細調査）
-  # - Launchpad表示 : ⌥ + space
-  # - アプリのショートカット（Safari等）
-  # - フルスクリーンの表示 : option + a
-  #   → system.defaults.CustomUserPreferences."com.apple.symbolichotkeys"
-  #
-  # 対応不要項目（ユーザー要望により）:
-  # - caps lockキーでABC入力モードと切り替える
-  # - 書類ごとに入力ソースを自動で切り替える
-  # - 提案された返信を表示
+  # ====================================
+  # Safari設定
+  # ====================================
+
+  system.defaults.CustomUserPreferences."com.apple.Safari" = {
+    # タブのレイアウトをコンパクトにする（macOS Sequoia 15.xまで有効）
+    EnableNarrowTabs = true;
+
+    # キーボードショートカット（日本語環境専用）
+    NSUserKeyEquivalents = {
+      "サイドバーを表示" = "@s";
+      "サイドバーを隠す" = "@s";
+    };
+  };
 
 }
