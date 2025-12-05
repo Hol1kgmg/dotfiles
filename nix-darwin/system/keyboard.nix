@@ -41,7 +41,7 @@
     ApplePressAndHoldEnabled = false;
 
     # キーリピート開始までの遅延（15=標準、10=最速推奨）
-    InitialKeyRepeat = 10;
+    InitialKeyRepeat = 15;
 
     # キーリピートの速度（2=標準、1=最速）
     KeyRepeat = 1;
