@@ -11,8 +11,16 @@
 
     # Caps LockキーをControlキーにリマップ
     remapCapsLockToControl = true;
+  };
 
-    # TODO: fn / 地球儀キーを押して : 何もしない
+  # ========================================
+  # Fn/地球儀キーの設定
+  # ========================================
+
+  system.defaults.hitoolbox = {
+    # Fn/地球儀キーを押したときの動作
+    AppleFnUsageType = "Do Nothing";
+    # 他の選択肢: "Change Input Source", "Show Emoji & Symbols", "Start Dictation"
   };
 
   # ========================================
@@ -38,21 +46,35 @@
     # キーリピートの速度（2が標準、小さいほど速い）
     KeyRepeat = 1;
 
-    # TODO: 未実装項目
-    # - メニューバーに入力メニューを表示 : false
-    # - caps lockキーでABC入力モードと切り替える : false
-    # - 書類ごとに入力ソースを自動で切り替える : false
-    # - インライン予測テキストを表示 : false
-    # - 提案された返信を表示 : false
+    # インライン予測テキストを表示
+    NSAutomaticInlinePredictionEnabled = false;
   };
 
   # ========================================
-  # キーボードショートカット設定
+  # メニューバー設定
   # ========================================
 
-  # TODO: 未実装項目
+  system.defaults.CustomUserPreferences = {
+    # メニューバーに入力メニューを表示しない
+    "com.apple.TextInputMenu" = {
+      visible = false;
+    };
+  };
+
+  # ========================================
+  # 今後の実装予定（Phase 3）
+  # ========================================
+  # 詳細は keyboard_implementation_plan.md を参照
+  #
+  # Phase 3: キーボードショートカット設定（要詳細調査）
   # - Launchpad表示 : ⌥ + space
-  # - アプリのショートカット
-  #     - safari : サイドバーを表示/非表示 : cmd + s
+  # - アプリのショートカット（Safari等）
   # - フルスクリーンの表示 : option + a
+  #   → system.defaults.CustomUserPreferences."com.apple.symbolichotkeys"
+  #
+  # 対応不要項目（ユーザー要望により）:
+  # - caps lockキーでABC入力モードと切り替える
+  # - 書類ごとに入力ソースを自動で切り替える
+  # - 提案された返信を表示
+
 }
