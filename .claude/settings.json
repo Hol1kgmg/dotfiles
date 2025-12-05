@@ -1,4 +1,20 @@
 {
   "alwaysThinkingEnabled": true,
-  "enableAllProjectMcpServers": true
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "nixos"
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "WebFetch(domain:github.com)",
+      "mcp__nixos__darwin_search",
+      "mcp__nixos__darwin_options_by_prefix",
+      "mcp__nixos__darwin_info",
+      "WebSearch",
+      "Write(**/*.md)"
+    ],
+    "deny": [],
+    "ask": []
+  }
 }
