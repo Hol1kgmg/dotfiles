@@ -72,7 +72,24 @@
     # キーボードショートカット（日本語環境専用）
     NSUserKeyEquivalents = {
       "サイドバーを表示" = "@s";
-      "サイドバーを隠す" = "@s";
+      "サイドバーを非表示" = "@s";
+    };
+  };
+
+  # ====================================
+  # Spotlight設定
+  # ====================================
+
+  system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
+    AppleSymbolicHotKeys = {
+      # Spotlightを呼び出す (cmd + space)
+      "64" = {
+        enabled = 1;
+        value = {
+          parameters = [65 49 1048576];
+          type = "standard";
+        };
+      };
     };
   };
 
