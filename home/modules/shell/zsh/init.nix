@@ -2,7 +2,7 @@
 
 {
   # カスタム初期化スクリプト (.zshrc)
-  programs.zsh.initContent = ''
+  programs.zsh.initExtra = ''
     # カスタム関数やスクリプトをここに追加
 
     # 例: 便利な関数
