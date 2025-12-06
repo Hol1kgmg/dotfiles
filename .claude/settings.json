@@ -8,12 +8,9 @@
     "allow": [
       "Bash(git add:*)",
       "WebFetch(domain:github.com)",
-      "mcp__nixos__nixos_search",
-      "mcp__nixos__home_manager_info",
-      "mcp__nixos__darwin_search",
-      "mcp__nixos__darwin_options_by_prefix",
-      "mcp__nixos__darwin_info",
+      "mcp__nixos__*",
       "WebSearch",
+      "Write(*.md)",
       "Write(**/*.md)"
     ],
     "deny": [],
