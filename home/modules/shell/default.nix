@@ -3,6 +3,7 @@
 {
   imports = [
     ./zsh
+    ./oh-my-posh.nix
   ];
 
   # シェル関連のCLIツール
