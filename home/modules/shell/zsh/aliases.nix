@@ -3,20 +3,17 @@
 {
   # エイリアス定義
   programs.zsh.shellAliases = {
-    # 基本コマンド
-    # ll = "ls -la";
-    # la = "ls -A";
-    # l = "ls -CF";
-
     # Git関連
-    # g = "git";
-    # gs = "git status";
-    # ga = "git add";
-    # gc = "git commit";
-    # gp = "git push";
+    g = "git";
+    gm = "git merge";
+    gm-dev = "git merge develop";
+    gbdel = "git branch --merge|egrep -v '\\*|develop|main'|xargs git branch -d";
+    greset = "git reset --soft HEAD^";
+    groot = "git rev-parse --show-toplevel";
 
-    # その他
-    # .. = "cd ..";
-    # ... = "cd ../..";
+    # 開発ツール
+    ld = "lazygit";
+    dc = "docker compose";
+    z = "zellij";
   };
 }
