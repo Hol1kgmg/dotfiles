@@ -19,16 +19,6 @@ in
       pull.rebase = false;
       push.default = "current";
       core.editor = "vim";
-
-      # エイリアス
-      alias = {
-        st = "status";
-        co = "checkout";
-        br = "branch";
-        ci = "commit";
-        unstage = "reset HEAD --";
-        last = "log -1 HEAD";
-      };
     } // lib.optionalAttrs (gitUsername != "" && gitEmail != "") {
       # 環境変数が設定されている場合のみuser設定を追加
       user = {
