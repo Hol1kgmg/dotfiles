@@ -12,6 +12,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,7 +28,7 @@
     }:
     let
       inherit (import ./home/options.nix) username;
-      system = builtins.currentSystem;
+      system = "aarch64-darwin";
       hostname = "mac-book-pro";
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -62,7 +66,10 @@
 
       flake = {
         homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+          };
           extraSpecialArgs = { inherit inputs; };
           modules = [ ./home ];
         };

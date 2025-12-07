@@ -8,7 +8,8 @@
     "allow": [
       "Bash(git add:*)",
       "WebFetch(domain:github.com)",
-      "mcp__nixos__*",
+      "WebFetch(domain:nixos.wiki)",
+      "mcp__nixos",
       "WebSearch",
       "Write(*.md)",
       "Write(**/*.md)"
