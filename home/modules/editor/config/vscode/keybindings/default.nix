@@ -75,26 +75,6 @@
     # ============================================
     # Git操作
     # ============================================
-
-    # ステージング/ステージ解除の切り替え
-    {
-      key = "space";
-      command = "git.stage";
-      when = "scmProvider == git && scmResourceGroup == workingTree";
-    }
-    {
-      key = "space";
-      command = "git.unstage";
-      when = "scmProvider == git && scmResourceGroup == index";
-    }
-
-    # 差分を表示
-    {
-      key = "right";
-      command = "git.openChange";
-      when = "scmProvider == git && scmResourceFocus";
-    }
-
     # Gitページを表示
     {
       key = "cmd+shift+g";
@@ -107,7 +87,7 @@
 
     # ターミナルを開く
     {
-      key = "/";
+      key = "alt+/";
       command = "workbench.action.terminal.focus";
     }
   ];
