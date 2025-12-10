@@ -20,6 +20,10 @@
     "workbench.iconTheme" = "catppuccin-mocha";
     "workbench.colorTheme" = "Kanagawa Wave";  # Kanagawaテーマを使用
 
+    # ターミナル設定
+    "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono'";
+    "terminal.integrated.fontSize" = 13;
+
     # その他
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
