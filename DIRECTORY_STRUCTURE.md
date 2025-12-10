@@ -5,8 +5,11 @@ dotfiles/
 ├── flake.nix                    # エントリーポイント
 ├── flake.lock                   # 依存関係ロックファイル
 ├── .mcp.json                    # MCP server設定（Claude Code）
+├── .claude/                     # Claude Code設定
+├── LICENSE                      # ライセンスファイル
 ├── README.md                    # プロジェクト概要・セットアップ手順
 ├── DEVELOPMENT.md               # 開発者向けガイド
+├── DEVELOPMENT_PLAN.md          # 開発計画
 ├── CLAUDE.md                    # Claude Code用プロジェクト指示
 ├── MANUAL_SETUP.md              # 手動セットアップ手順
 ├── DIRECTORY_STRUCTURE.md       # このファイル
@@ -16,9 +19,7 @@ dotfiles/
 │   ├── homebrew/                # Homebrew管理
 │   │   ├── default.nix
 │   │   ├── brew/                # CLI tools
-│   │   │   └── default.nix
 │   │   └── cask/                # GUI apps
-│   │       └── default.nix
 │   └── system/                  # システム設定
 │       ├── default.nix
 │       ├── security.nix         # セキュリティ設定
@@ -35,37 +36,49 @@ dotfiles/
         ├── default.nix
         ├── dev/                 # 開発環境
         │   ├── default.nix
-        │   └── git.nix          # Git設定
+        │   ├── git.nix          # Git設定
+        │   ├── mise.nix         # Mise（開発ツールバージョン管理）
+        │   └── packages.nix     # 開発パッケージ定義
         ├── editor/              # エディタ設定
-        │   └── default.nix      # 将来的にvscode、neovim等を追加予定
+        │   ├── default.nix
+        │   └── config/
+        │       └── vscode/      # VSCode設定
+        │           ├── default.nix
+        │           ├── extensions/      # 拡張機能設定
+        │           ├── keybindings/     # キーバインド設定
+        │           └── settings/        # エディタ設定
+        │               ├── default.nix
+        │               ├── editor.nix   # エディタ固有設定
+        │               └── languages.nix # 言語別設定
+        ├── fonts/               # フォント設定
+        ├── lib/                 # ユーティリティライブラリ
         ├── terminal/            # ターミナルエミュレータ設定
         │   ├── default.nix
         │   ├── wezterm.nix      # WezTerm設定（programs.wezterm）
         │   ├── zellij.nix       # Zellij設定（programs.zellij）
         │   └── configs/
-        │       └── wezterm/     # WezTerm Lua設定ファイル
-        │           ├── wezterm.lua    # メイン設定（フォント、透過、タブ等）
-        │           └── keybinds.lua   # キーバインド設定
+        │       ├── wezterm/     # WezTerm Lua設定ファイル
+        │       └── zellij/      # Zellij設定ファイル
         └── shell/               # シェル環境
             ├── default.nix
+            ├── oh-my-posh.nix   # プロンプトテーマ設定
+            ├── configs/         # シェル追加設定
             └── zsh/             # Zsh設定（モジュール分割）
                 ├── default.nix  # 基本設定・統合
                 ├── env.nix      # 環境変数 (.zshenv)
-                ├── aliases.nix  # エイリアス定義
-                └── init.nix     # カスタム初期化 (.zshrc)
+                └── aliases.nix  # エイリアス定義
 ```
 
 ## 主要ディレクトリの説明
 
+### .claude/
+
+Claude Code 設定ディレクトリ。Claude AI アシスタントの動作設定を管理。
+
 ### nix-darwin/
-macOSシステムレベルの設定を管理。Homebrew、キーボード設定、セキュリティ設定など。
+
+macOS システムレベルの設定を管理。Homebrew、キーボード設定、セキュリティ設定など。
 
 ### home/
-ユーザーレベルの設定を管理。開発ツール、シェル環境など。
 
-### home/modules/shell/zsh/
-Zsh設定を役割ごとに分割：
-- **env.nix**: 環境変数（PATH等）
-- **aliases.nix**: コマンドエイリアス
-- **init.nix**: カスタム関数・初期化スクリプト
-- **default.nix**: 上記を統合し、基本設定を定義
+ユーザーレベルの設定を管理。開発ツール、シェル環境、エディタなど。
