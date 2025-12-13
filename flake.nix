@@ -29,7 +29,7 @@
     let
       inherit (import ./home/options.nix) username;
       system = "aarch64-darwin";
-      hostname = "mac-book-pro";
+      hostname = "default";
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
