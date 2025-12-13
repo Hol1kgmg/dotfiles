@@ -29,7 +29,7 @@ git config --global user.email "your.email@example.com"
 ### 5. nix-darwinの適用（システムレベル設定）
 初回のみ（パスワード入力が求められます）
 ```.zsh
-sudo nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake . --impure
+sudo nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure
 ```
 
 ### 6. 手動対応が必要な項目
@@ -47,7 +47,7 @@ home-manager switch --flake .#$(whoami) --impure
 ### nix-darwin 設定を適用
 システム設定の変更時（パスワード入力が求められます）
 ```.zsh
-sudo darwin-rebuild switch --flake . --impure
+sudo darwin-rebuild switch --flake .#default --impure
 ```
 
 ### flake更新 + home-manager適用（一括実行）
