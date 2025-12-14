@@ -64,17 +64,23 @@
   # ====================================
   # Safari設定
   # ====================================
+  # 注: sudo実行時はmacOSのサンドボックス保護により設定できないため自動的にスキップ
 
-  system.defaults.CustomUserPreferences."com.apple.Safari" = {
-    # タブのレイアウトをコンパクトにする（macOS Sequoia 15.xまで有効）
-    EnableNarrowTabs = true;
+  system.defaults.CustomUserPreferences."com.apple.Safari" =
+    # sudo実行を検出（SUDO_USERが設定されている場合）
+    if builtins.getEnv "SUDO_USER" != "" then
+      { }
+    else
+      {
+        # タブのレイアウトをコンパクトにする（macOS Sequoia 15.xまで有効）
+        EnableNarrowTabs = true;
 
-    # キーボードショートカット（日本語環境専用）
-    NSUserKeyEquivalents = {
-      "サイドバーを表示" = "@s";
-      "サイドバーを非表示" = "@s";
-    };
-  };
+        # キーボードショートカット（日本語環境専用）
+        NSUserKeyEquivalents = {
+          "サイドバーを表示" = "@s";
+          "サイドバーを非表示" = "@s";
+        };
+      };
 
   # ====================================
   # Spotlight設定
@@ -86,7 +92,11 @@
       "64" = {
         enabled = 1;
         value = {
-          parameters = [65 49 1048576];
+          parameters = [
+            65
+            49
+            1048576
+          ];
           type = "standard";
         };
       };
