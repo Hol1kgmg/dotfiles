@@ -1,5 +1,6 @@
 {
   imports = [
+    ./browser
     ./dev
     ./shell
     ./editor
