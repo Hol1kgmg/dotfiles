@@ -26,13 +26,20 @@ git config --global user.email "your.email@example.com"
 
 > **Note**: Git設定は手動で行います。環境変数 `GIT_USERNAME` と `GIT_EMAIL` を設定している場合は、この手順をスキップできます。
 
-### 5. nix-darwinの適用（システムレベル設定）
+### 5. Homebrewのインストール
+```.zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+> **Note**: nix-darwinの設定でHomebrewモジュールを使用しているため、事前にHomebrewのインストールが必要です。
+
+### 6. nix-darwinの適用（システムレベル設定）
 初回のみ（パスワード入力が求められます）
 ```.zsh
 sudo nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure
 ```
 
-### 6. 手動対応が必要な項目
+### 7. 手動対応が必要な項目
 [MANUAL_SETUP.md](./MANUAL_SETUP.md)の内容を参考に対応
 
 ---
