@@ -68,6 +68,7 @@
         homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [ inputs.nix-vscode-extensions.overlays.default ];
           };
           extraSpecialArgs = { inherit inputs; };
