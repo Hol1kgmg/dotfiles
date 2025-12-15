@@ -18,10 +18,12 @@
 - [ ] プラグイン管理の設定
 - [ ] キーマッピングの設定
 
-### 2. GitHub MCP
+### 2. GitHub MCP（優先度: 低）
 - [ ] GitHub MCPの設定を追加
 - [ ] 必要な認証情報の設定
 - [ ] MCPサーバーの統合
+
+**Note:** 各リポジトリ単位でトークン管理が推奨されているため、dotfilesでの一元管理には適していない。そのため優先度を低に設定。
 
 ## 完了タスク
 
@@ -31,3 +33,10 @@
 - [x] 設定ファイルの分割（editor.nix、languages.nix）
 - [x] 不要な設定の削除（200行→46行、77%削減）
 - [x] **キーバインドの設定**（14個のキーバインド実装）
+
+### Git設定管理 ✅
+- [x] `home/secrets.nix.example`テンプレートの作成
+- [x] `home/secrets.nix`の作成（Git管理外）
+- [x] `.gitignore`に`home/secrets.nix`を追加
+- [x] `home/modules/secrets.nix`の実装（環境変数経由でGit情報を管理）
+- [x] Git情報のNix管理への移行（オプション2: home.sessionVariables方式）

@@ -32,8 +32,15 @@ dotfiles/
 └── home/                        # home-manager設定（ユーザーレベル）
     ├── default.nix              # home-manager統合ポイント
     ├── options.nix              # 環境変数・機密情報
+    ├── secrets/                 # 機密情報管理（Git管理外）
+    │   ├── default.nix          # 実際の機密情報（.gitignore対象）
+    │   └── default.nix.example  # テンプレートファイル
     └── modules/
         ├── default.nix
+        ├── secrets.nix          # 環境変数経由の機密情報管理
+        ├── browser/             # ブラウザ設定
+        │   ├── default.nix
+        │   └── safari.nix       # Safari設定
         ├── dev/                 # 開発環境
         │   ├── default.nix
         │   ├── git.nix          # Git設定
@@ -51,7 +58,6 @@ dotfiles/
         │               ├── editor.nix   # エディタ固有設定
         │               └── languages.nix # 言語別設定
         ├── fonts/               # フォント設定
-        ├── lib/                 # ユーティリティライブラリ
         ├── terminal/            # ターミナルエミュレータ設定
         │   ├── default.nix
         │   ├── wezterm.nix      # WezTerm設定（programs.wezterm）
