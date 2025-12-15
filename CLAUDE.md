@@ -9,6 +9,14 @@ See [DIRECTORY_STRUCTURE.md](./DIRECTORY_STRUCTURE.md) for details.
 2. Wait for approval
 3. Start implementation
 
+# Tool Usage Policy
+**Always use dedicated tools for file operations:**
+- File reading → `Read` tool
+- File search → `Glob` tool
+- Content search → `Grep` tool
+- File editing → `Edit` tool
+- File writing → `Write` tool
+
 # Language Settings
 - Responses: Japanese
 - Thinking: English (for token reduction)

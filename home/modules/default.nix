@@ -1,5 +1,6 @@
 {
   imports = [
+    ./secrets.nix
     ./browser
     ./dev
     ./shell
