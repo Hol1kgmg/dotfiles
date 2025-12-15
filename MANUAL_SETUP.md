@@ -4,21 +4,22 @@ nix-darwin/home-manager では自動化できない項目の手動設定手順�
 
 ---
 
-## 1. macOSシステム設定
+## 1. macOS システム設定
 
 nix-darwin で自動化できない設定項目：
 
-### 入力メニュー関連
-- メニューバーに入力メニューを表示
-- 書類ごとに入力ソースを自動で切り替える
+### gh コマンドでアカウントログイン
 
-→ `システム設定 → キーボード → 入力ソース` で手動設定
+```.zsh
+gh auth login
+```
 
-### キーボードショートカット
-- Launchpad表示ショートカット
-- アプリケーション固有のショートカット
-
-→ `システム設定 → キーボード → キーボードショートカット` で手動設定
+```.zsh
+? Where do you use GitHub? - GitHub.com
+? What is your preferred protocol for Git operations on this host? - HTTPS
+? Authenticate Git with your GitHub credentials? - Yes
+? How would you like to authenticate GitHub CLI? - Login with a web browser
+```
 
 ---
 
@@ -26,11 +27,8 @@ nix-darwin で自動化できない設定項目：
 
 初回セットアップ完了後、以下を確認：
 
-- [ ] 必要なキーボードショートカットを設定した
+- [ ] gh コマンドでログインしました
 
 ---
 
 ## 参考
-
-詳細な実装予定項目は以下を参照：
-- キーボード設定: `nix-darwin/system/keyboard.nix`
