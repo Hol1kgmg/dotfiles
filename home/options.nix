@@ -1,9 +1,16 @@
+let
+  homeDir = builtins.getEnv "HOME";
+  secretsPath = "${homeDir}/dotfiles/home/secrets";
+  secrets = if builtins.pathExists secretsPath
+    then import secretsPath
+    else { gitUsername = ""; gitEmail = ""; gitSigningkey = ""; };
+in
 {
   # general
   username = builtins.getEnv "USER";
 
-  # git（環境変数から取得。未設定の場合は手動設定が保持される）
-  gitUsername = builtins.getEnv "GIT_USERNAME";
-  gitEmail = builtins.getEnv "GIT_EMAIL";
-  gitSigningkey = builtins.getEnv "GIT_SIGNINGKEY";
+  # git（secrets.nixから取得）
+  gitUsername = secrets.gitUsername;
+  gitEmail = secrets.gitEmail;
+  gitSigningkey = secrets.gitSigningkey;
 }

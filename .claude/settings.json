@@ -1,12 +1,14 @@
 {
   "alwaysThinkingEnabled": true,
   "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": [
-    "nixos"
-  ],
+  "enabledMcpjsonServers": ["nixos"],
   "permissions": {
     "allow": [
       "Bash(git add:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:nixos.wiki)",
       "mcp__nixos",

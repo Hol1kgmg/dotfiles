@@ -2,20 +2,7 @@
 
 ## 初回構築（新しい macOS マシン）
 
-### 1. Nix のインストール
-
-```.zsh
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-### 2. リポジトリのクローン
-
-```.zsh
-git clone https://github.com/Hol1kgmg/dotfiles.git
-cd dotfiles
-```
-
-### 3. フルディスクアクセスの設定
+### 1. フルディスクアクセスの設定
 
 Safari 設定などの自動適用には、ターミナルにフルディスクアクセス権限が必要です。
 
@@ -27,20 +14,40 @@ open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
 
 > **Note**: ターミナルの再起動後、次のステップに進んでください。
 
-### 4. home-manager の適用
+### 2. Nix のインストール
+
+```.zsh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+### 3. リポジトリのクローン
+
+```.zsh
+git clone https://github.com/Hol1kgmg/dotfiles.git
+cd dotfiles
+```
+
+### 4. Git 設定（初回のみ）
+
+Git のユーザー情報を設定します。
+
+```.zsh
+cp home/secrets/default.nix.example home/secrets/default.nix
+```
+
+gitUsername と gitEmail を編集
+
+```.zsh
+vim home/secrets/default.nix
+```
+
+> **Note**: `home/secrets/default.nix` は `.gitignore` されているため、リポジトリにコミットされません。
+
+### 5. home-manager の適用
 
 ```.zsh
 nix run nixpkgs#home-manager -- switch --flake .#$(whoami) --impure
 ```
-
-### 5. Git 設定（初回のみ）
-
-```.zsh
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
-```
-
-> **Note**: Git 設定は手動で行います。環境変数 `GIT_USERNAME` と `GIT_EMAIL` を設定している場合は、この手順をスキップできます。
 
 ### 6. Homebrew のインストール
 
