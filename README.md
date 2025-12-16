@@ -87,8 +87,10 @@ sudo darwin-rebuild switch --flake .#default --impure
 
 ### flake 更新 + home-manager 適用（一括実行）
 
+> **⚠️ 警告**: このコマンドは `flake.lock` を最新版に更新します。依存関係の破壊的変更により、動作していた機能が壊れる可能性があります。日常的な設定変更には上記の `home-manager switch` または `darwin-rebuild switch` を使用してください。
+
 ```.zsh
-nix run --impure
+nix run .#default --impure
 ```
 
 ### nix の古い環境のリセット
