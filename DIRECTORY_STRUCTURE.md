@@ -38,9 +38,11 @@ dotfiles/
     └── modules/
         ├── default.nix
         ├── secrets.nix          # 環境変数経由の機密情報管理
-        ├── browser/             # ブラウザ設定
+        ├── system/              # システムUI・外観設定
         │   ├── default.nix
-        │   └── safari.nix       # Safari設定
+        │   ├── browser/         # ブラウザ設定(safari)
+        │   ├── dock/            # Dock設定（dockutil）
+        │   └── fonts/           # フォント設定
         ├── dev/                 # 開発環境
         │   ├── default.nix
         │   ├── git.nix          # Git設定
@@ -57,7 +59,6 @@ dotfiles/
         │               ├── default.nix
         │               ├── editor.nix   # エディタ固有設定
         │               └── languages.nix # 言語別設定
-        ├── fonts/               # フォント設定
         ├── terminal/            # ターミナルエミュレータ設定
         │   ├── default.nix
         │   ├── wezterm.nix      # WezTerm設定（programs.wezterm）
