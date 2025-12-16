@@ -1,9 +1,15 @@
 let
   homeDir = builtins.getEnv "HOME";
   secretsPath = "${homeDir}/dotfiles/home/secrets";
-  secrets = if builtins.pathExists secretsPath
-    then import secretsPath
-    else { gitUsername = ""; gitEmail = ""; gitSigningkey = ""; };
+  secrets =
+    if builtins.pathExists secretsPath then
+      import secretsPath
+    else
+      {
+        gitUsername = "";
+        gitEmail = "";
+        gitSigningkey = "";
+      };
 in
 {
   # general
