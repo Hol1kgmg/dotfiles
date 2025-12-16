@@ -59,27 +59,16 @@
     "com.apple.TextInputMenu" = {
       visible = false;
     };
-  };
 
-  # ====================================
-  # Spotlight設定
-  # ====================================
-
-  system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
-    AppleSymbolicHotKeys = {
-      # Spotlightを呼び出す (cmd + space)
-      "64" = {
-        enabled = 1;
-        value = {
-          parameters = [
-            65
-            49
-            1048576
-          ];
-          type = "standard";
-        };
-      };
-    };
+    # ========================================
+    # キーボードショートカット設定の注意
+    # ========================================
+    # 警告: "com.apple.symbolichotkeys" を設定すると、AppleSymbolicHotKeys全体が上書きされます。
+    # 一部のショートカットだけを設定した場合、他のデフォルトショートカット
+    # (Mission Control、Expose、Spotlightなど)が無効になります。
+    #
+    # 特定のショートカットを変更したい場合は、必要なショートカットを全て明示的に定義してください。
+    # デフォルト設定を使いたい場合は、com.apple.symbolichotkeysの設定を追加しないでください。
   };
 
 }
