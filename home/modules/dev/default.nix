@@ -1,7 +1,8 @@
 {
   imports = [
     ./git.nix
-    ./packages.nix
+    ./gh.nix
+    ./uv.nix
     ./mise.nix
     ./ghq-zoxide.nix
   ];
