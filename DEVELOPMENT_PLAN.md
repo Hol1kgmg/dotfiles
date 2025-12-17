@@ -27,6 +27,14 @@
 
 ## 完了タスク
 
+### ghqとzoxideの導入 ✅
+- [x] ghqの設定追加（リポジトリ管理ツール）
+- [x] zoxideの設定追加（高速ディレクトリ移動）
+- [x] `home/modules/dev/ghq-zoxide.nix`に統合実装
+- [x] ghqとzoxideの自動同期機能（`__zoxide_add_missing`）
+- [x] カスタム`cd`と`cdi`コマンドの実装
+- [x] ghqルートディレクトリを`~/dev`に設定
+
 ### VSCode設定 ✅
 - [x] ディレクトリ構造の改修
 - [x] 拡張機能の整理
