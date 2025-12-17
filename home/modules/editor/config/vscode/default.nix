@@ -9,8 +9,6 @@
 
   # VSCode基本設定
   programs.vscode = {
-    enable = true;
-    package = pkgs.vscode;
     mutableExtensionsDir = false;
 
     profiles.default = {
