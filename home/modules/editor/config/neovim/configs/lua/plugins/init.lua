@@ -30,6 +30,40 @@ require("lazy").setup({
       vim.cmd.colorscheme("kanagawa-wave")
     end,
   },
+
+  -- アイコン
+  {
+    "echasnovski/mini.icons",
+    version = false,
+    config = function()
+      require("mini.icons").setup()
+    end,
+  },
+
+  -- ファイラー
+  {
+    "echasnovski/mini.files",
+    version = false,
+    dependencies = { "echasnovski/mini.icons" },
+    config = function()
+      require("mini.files").setup({
+        -- カスタマイズオプション
+        mappings = {
+          go_in = "<Tab>",
+          go_out = "<S-Tab>",
+        },
+        options = {
+          use_as_default_explorer = true,
+        },
+        windows = {
+          preview = true,
+          width_focus = 30,
+          width_nofocus = 15,
+          width_preview = 50,
+        },
+      })
+    end,
+  },
 }, {
   -- lazy.nvimのオプション設定
   ui = {
