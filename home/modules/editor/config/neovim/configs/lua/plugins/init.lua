@@ -13,7 +13,7 @@ require("lazy").setup({
         keywordStyle = { italic = true },
         statementStyle = { bold = true },
         typeStyle = {},
-        transparent = false, -- 背景を透過しない
+        transparent = true, -- 背景を透過する
         dimInactive = false, -- 非アクティブウィンドウを暗くしない
         terminalColors = true,
         colors = {
