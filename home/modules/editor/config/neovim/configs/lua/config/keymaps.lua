@@ -34,3 +34,21 @@ end, { desc = "ファイラーを開く（現在のファイル）" })
 keymap.set("n", "<leader>E", function()
   require("mini.files").open()
 end, { desc = "ファイラーを開く（cwd）" })
+
+-- ファジーファインダー（fff.nvim）
+keymap.set("n", "<leader>ff", "<cmd>FFFFind<CR>", { desc = "ファイル検索" })
+keymap.set("n", "<leader>fb", "<cmd>FFFFind buffer<CR>", { desc = "バッファ一覧" })
+keymap.set("n", "<leader>fh", "<cmd>FFFFind oldfiles<CR>", { desc = "最近開いたファイル" })
+
+-- snacks.nvim（ターミナル・Git）
+keymap.set("n", "<leader>gg", function()
+  Snacks.lazygit()
+end, { desc = "LazyGit" })
+
+keymap.set("n", "<leader>gB", function()
+  Snacks.gitbrowse()
+end, { desc = "Gitブラウザで開く" })
+
+keymap.set("n", "<leader>t", function()
+  Snacks.terminal()
+end, { desc = "ターミナルを開く" })
