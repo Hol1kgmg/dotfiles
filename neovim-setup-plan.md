@@ -157,64 +157,71 @@ gcc         - コメントトグル
    - `:Lazy` コマンドが使えるか確認
    - lazy.nvim healthcheck ✅
 
-### Step 2: カラースキーム導入
-9. ⬜ カラースキームプラグイン選定・追加
-10. ⬜ **Neovim起動 & 配色確認**
+### Step 2: カラースキーム導入✅
+9. ✅ カラースキームプラグイン選定・追加（kanagawa.nvim）
+10. ✅ **Neovim起動 & 配色確認**
    - テーマが正しく適用されているか
+   - kanagawa-wave適用済み
 
-### Step 3: ファイラー（oil.nvim）導入
-11. ⬜ oil.nvimプラグイン追加
-12. ⬜ キーマッピング設定（`<leader>e`でoil.nvim起動）
-13. ⬜ **oil.nvim動作確認**
-   - ファイルブラウザが開く
+### Step 3: ファイラー（mini.files + mini.icons）導入✅
+11. ✅ mini.files + mini.iconsプラグイン追加
+12. ✅ キーマッピング設定（`<leader>e`/`<leader>E`でmini.files起動）
+13. ✅ **mini.files動作確認**
+   - ファイルブラウザが開く（カラム表示）
    - ファイル操作（移動、リネーム、削除）が動作
+   - アイコン表示が正常に動作
 
-### Step 4: 依存ツール & Telescope導入
-14. ⬜ `default.nix` に依存ツール追加（ripgrep, fd）
-15. ⬜ Telescopeプラグイン追加
-16. ⬜ **rebuild & Telescope動作確認**
-   - `:Telescope find_files` でファイル検索
-   - `:Telescope live_grep` でgrep検索
+### Step 4: ファジーファインダー（fff.nvim + snacks.nvim）導入✅
+14. ✅ `default.nix` に依存ツール追加（ripgrep, fd, lazygit）
+15. ✅ fff.nvim + snacks.nvimプラグイン追加
+16. ✅ キーマッピング設定（fff.nvim, snacks.nvim）
+17. ✅ **動作確認**
+   - `<leader>ff` でファイル検索
+   - `<leader>fb` でバッファ一覧
+   - `<leader>fh` で最近開いたファイル
+   - `<leader>gg` でLazyGit起動
+   - `<leader>t` でターミナル起動
+   - `:FFFHealth` で健全性チェック
 
 ### Step 5: Treesitter導入
-17. ⬜ `default.nix` にtree-sitter-cli追加
-18. ⬜ Treesitterプラグイン追加（6言語対応）
-19. ⬜ **rebuild & シンタックスハイライト確認**
+18. ⬜ `default.nix` にtree-sitter-cli追加
+19. ⬜ Treesitterプラグイン追加（6言語対応）
+20. ⬜ **rebuild & シンタックスハイライト確認**
    - 各言語ファイルでハイライト動作確認
 
 ### Step 6: LSPサーバー導入
-20. ⬜ `default.nix` にLSPサーバー追加（6言語）
-21. ⬜ LSPConfigプラグイン追加（基本設定のみ）
-22. ⬜ **rebuild & LSP動作確認**
+21. ⬜ `default.nix` にLSPサーバー追加（6言語）
+22. ⬜ LSPConfigプラグイン追加（基本設定のみ）
+23. ⬜ **rebuild & LSP動作確認**
    - 各言語ファイルで `:LspInfo` 確認
    - `gd`（定義ジャンプ）、`K`（ホバー）動作確認
 
 ### Step 7: 補完機能導入
-23. ⬜ nvim-cmp + 各種ソース追加
-24. ⬜ スニペットエンジン追加
-25. ⬜ **補完動作確認**
+24. ⬜ nvim-cmp + 各種ソース追加
+25. ⬜ スニペットエンジン追加
+26. ⬜ **補完動作確認**
    - コード入力時に補完メニュー表示確認
    - スニペット展開確認
 
 ### Step 8: 編集補助プラグイン導入
-26. ⬜ オートペア、コメント、surround追加
-27. ⬜ **編集機能確認**
+27. ⬜ オートペア、コメント、surround追加
+28. ⬜ **編集機能確認**
    - 括弧の自動閉じ
    - `gcc` でコメントトグル
    - surround操作
 
 ### Step 9: UI・Git統合
-28. ⬜ ステータスライン、Git差分表示追加
-29. ⬜ which-key追加（オプション）
-30. ⬜ **UI・Git機能確認**
+29. ⬜ ステータスライン、Git差分表示追加
+30. ⬜ which-key追加（オプション）
+31. ⬜ **UI・Git機能確認**
    - ステータスライン表示
    - Git差分の視覚化
 
 ### Step 10: 最終確認・完了
-31. ⬜ 全機能の統合テスト
-32. ⬜ 各言語での実作業テスト
-33. ⬜ プランドキュメント削除
-34. ⬜ `DEVELOPMENT_PLAN.md` 更新
+32. ⬜ 全機能の統合テスト
+33. ⬜ 各言語での実作業テスト
+34. ⬜ プランドキュメント削除
+35. ⬜ `DEVELOPMENT_PLAN.md` 更新
 
 ## 検討事項
 

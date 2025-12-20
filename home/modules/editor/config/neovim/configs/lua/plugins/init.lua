@@ -64,6 +64,44 @@ require("lazy").setup({
       })
     end,
   },
+
+  -- QoL機能集（snacks.nvim）
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      -- 必須機能
+      notifier = { enabled = true },
+      terminal = { enabled = true },
+
+      -- Git統合
+      lazygit = { enabled = true },
+      gitbrowse = { enabled = true },
+
+      -- オプション機能
+      bigfile = { enabled = true },  -- 大規模ファイル対応
+      scroll = { enabled = false },
+      indent = { enabled = false },
+    },
+  },
+
+  -- ファジーファインダー（fff.nvim）
+  {
+    "dmtrKovalenko/fff.nvim",
+    lazy = false,  -- プラグイン自身が遅延読み込みを実装
+    dependencies = {
+      "folke/snacks.nvim",  -- 画像プレビュー用
+    },
+    build = ":lua require('fff.download').download_or_build_binary()",
+    opts = {
+      default_file_explorer = false,  -- mini.filesを優先
+      debug = {
+        enabled = true,      -- ベータ版のため協力が推奨される
+        show_scores = true,  -- スコアリングシステム最適化のため
+      },
+    },
+  },
 }, {
   -- lazy.nvimのオプション設定
   ui = {

@@ -107,6 +107,12 @@ nix fmt
 
 ---
 
+## トラブルシューティング
+
+Neovim環境で問題が発生した場合は、[NEOVIM_TROUBLESHOOTING.md](./NEOVIM_TROUBLESHOOTING.md) を参照してください。
+
+---
+
 ## ディレクトリ構造
 
 詳細は [DIRECTORY_STRUCTURE.md](./DIRECTORY_STRUCTURE.md) を参照してください。
