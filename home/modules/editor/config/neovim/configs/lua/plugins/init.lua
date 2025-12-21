@@ -128,6 +128,7 @@ require("lazy").setup({
       notifier = { enabled = true },
       terminal = { enabled = true },
       picker = { enabled = true },  -- バッファピッカー
+      dashboard = { enabled = true },  -- ダッシュボード
 
       -- Git統合
       lazygit = { enabled = true },
