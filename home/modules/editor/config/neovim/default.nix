@@ -15,6 +15,8 @@
     ripgrep     # fff.nvim内部で使用（高速grep）
     fd          # fff.nvim内部で使用（高速find）
     lazygit     # snacks.lazygit用
+
+    tree-sitter # tree-sitter-cli
   ];
 
   # Lua設定ファイルを配置

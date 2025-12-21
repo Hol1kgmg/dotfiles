@@ -21,4 +21,4 @@ require("config.options")
 require("config.keymaps")
 
 -- プラグイン設定読み込み
-require("plugins")
+require("lazy-setup")
