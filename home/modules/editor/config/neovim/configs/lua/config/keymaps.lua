@@ -22,6 +22,8 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "to right window" })
 keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "previous buffer" })
 keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next buffer" })
 
+keymap.set("n", "<leader>bq", "<cmd>bd<cr>", { desc = "quit buffer" })
+
 -- インデント調整（ビジュアルモード）
 keymap.set("v", "<", "<gv", { desc = "Reduce indentation" })
 keymap.set("v", ">", ">gv", { desc = "Increase indent" })
@@ -39,11 +41,14 @@ keymap.set("n", "<leader>E", function()
   require("mini.files").open()
 end, { desc = "open filer (cwd)" })
 
--- ファジーファインダー（fff.nvim）
+-- Fuzzy Finder（fff.nvim）
 keymap.set("n", "<leader>ff", "<cmd>FFFFind<CR>", { desc = "fzf" })
 keymap.set("n", "<leader><leader>", "<cmd>FFFFind<CR>", { desc = "fzf" })
-keymap.set("n", "<leader>fb", "<cmd>FFFFind buffer<CR>", { desc = "buffer list" })
-keymap.set("n", "<leader>fh", "<cmd>FFFFind oldfiles<CR>", { desc = "history - open files" })
+keymap.set("n", "<leader>fh", "<cmd>FFFHealth<CR>", { desc = "FFF health check" })
+
+-- snacks.picker
+keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "buffer list" })
+
 
 -- snacks.nvim（ターミナル・Git）
 keymap.set("n", "<leader>gg", function()

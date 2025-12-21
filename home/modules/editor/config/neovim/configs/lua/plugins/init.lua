@@ -30,7 +30,8 @@ require("lazy").setup({
       vim.cmd.colorscheme("kanagawa-wave")
     end,
   },
-
+  
+  ----mini plugin
   -- アイコン
   {
     "echasnovski/mini.icons",
@@ -39,6 +40,58 @@ require("lazy").setup({
       require("mini.icons").setup()
     end,
   },
+
+  -- buffer view
+  {
+    "echasnovski/mini.tabline",
+    version = false,
+    config = function()
+      require("mini.tabline").setup()
+    end,
+  },
+  
+  -- キーバインドヘルプ（mini.clue）
+  {
+    "echasnovski/mini.clue",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      local miniclue = require("mini.clue")
+      miniclue.setup({
+        -- トリガー設定
+        triggers = {
+          -- Leader triggers
+          { mode = "n", keys = "<Leader>" },
+          { mode = "x", keys = "<Leader>" },
+          -- g key
+          { mode = "n", keys = "g" },
+          { mode = "x", keys = "g" },
+          -- Window commands
+          { mode = "n", keys = "<C-w>" },
+          -- z key
+          { mode = "n", keys = "z" },
+          { mode = "x", keys = "z" },
+        },
+        -- キーバインド説明
+        clues = {
+          -- グループラベルのみ定義（個別キーマップはkeymaps.luaのdescを自動参照）
+          { mode = "n", keys = "<Leader>f", desc = "+Find" },
+          { mode = "n", keys = "<Leader>L", desc = "+Lazy.nvim" },
+          { mode = "n", keys = "<Leader>g", desc = "+Git" },
+          { mode = "n", keys = "<leader>b", desc = "+Buffer"},
+          
+          -- デフォルトヘルプ
+          miniclue.gen_clues.g(),
+          miniclue.gen_clues.windows(),
+          miniclue.gen_clues.z(),
+        },
+        window = {
+          delay = 300,  -- 300ミリ秒後に表示
+        },
+      })
+    end,
+  },
+
 
   -- ファイラー
   {
@@ -74,6 +127,7 @@ require("lazy").setup({
       -- 必須機能
       notifier = { enabled = true },
       terminal = { enabled = true },
+      picker = { enabled = true },  -- バッファピッカー
 
       -- Git統合
       lazygit = { enabled = true },
@@ -86,7 +140,7 @@ require("lazy").setup({
     },
   },
 
-  -- ファジーファインダー（fff.nvim）
+  -- Fuzzy Finder（fff.nvim）
   {
     "dmtrKovalenko/fff.nvim",
     lazy = false,  -- プラグイン自身が遅延読み込みを実装
@@ -101,54 +155,6 @@ require("lazy").setup({
         show_scores = true,  -- スコアリングシステム最適化のため
       },
     },
-  },
-
-  -- キーバインドヘルプ（mini.clue）
-  {
-    "echasnovski/mini.clue",
-    version = false,
-    event = "VeryLazy",
-    config = function()
-      local miniclue = require("mini.clue")
-      miniclue.setup({
-        -- トリガー設定
-        triggers = {
-          -- Leader triggers
-          { mode = "n", keys = "<Leader>" },
-          { mode = "x", keys = "<Leader>" },
-          -- g key
-          { mode = "n", keys = "g" },
-          { mode = "x", keys = "g" },
-          -- Window commands
-          { mode = "n", keys = "<C-w>" },
-          -- z key
-          { mode = "n", keys = "z" },
-          { mode = "x", keys = "z" },
-        },
-        -- キーバインド説明
-        clues = {
-          -- グループラベルのみ定義（個別キーマップはkeymaps.luaのdescを自動参照）
-          { mode = "n", keys = "<Leader>f", desc = "+Find（検索）" },
-          { mode = "n", keys = "<Leader>L", desc = "+Lazy.nvim" },
-          { mode = "n", keys = "<Leader>g", desc = "+Git" },
-          -- デフォルトヘルプ
-          miniclue.gen_clues.g(),
-          miniclue.gen_clues.windows(),
-          miniclue.gen_clues.z(),
-        },
-        -- ウィンドウ設定（右下に配置）
-        window = {
-          delay = 300,  -- 300ミリ秒後に表示
-        --   config = {
-        --     anchor = "SE",  -- South-East（右下）
-        --     row = "auto",
-        --     col = "auto",
-        --     width = "auto",
-        --     border = "rounded",
-        --   },
-        },
-      })
-    end,
   },
 }, {
   -- lazy.nvimのオプション設定
