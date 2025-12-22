@@ -1,3 +1,5 @@
+-- 一般的なキーマップ
+
 local keymap = vim.keymap
 
 -- 基本操作

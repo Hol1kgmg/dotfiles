@@ -17,6 +17,17 @@
     lazygit     # snacks.lazygit用
 
     tree-sitter # tree-sitter-cli
+
+    # LSPサーバー（9言語）
+    nodePackages.typescript-language-server  # TypeScript/TSX
+    pyright                                  # Python
+    nil                                      # Nix
+    nodePackages.yaml-language-server        # YAML
+    taplo                                    # TOML
+    nodePackages.vscode-langservers-extracted # JSON/HTML/CSS/ESLint
+    nodePackages.vim-language-server         # Vim
+    lua-language-server                      # Lua
+    marksman                                 # Markdown
   ];
 
   # Lua設定ファイルを配置
