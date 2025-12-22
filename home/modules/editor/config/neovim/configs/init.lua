@@ -19,6 +19,10 @@ vim.opt.runtimepath:prepend(lazypath)
 -- 基本設定読み込み
 require("config.options")
 require("config.keymaps")
+require("config.lsp")
+
+-- カスタムコマンド読み込み
+require("config.custom-command")
 
 -- プラグイン設定読み込み
 require("lazy-setup")
