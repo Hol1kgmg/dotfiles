@@ -37,5 +37,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>fm", function()
       vim.lsp.buf.format({ async = true })
     end, "format")
+
+
   end,
 })
+
+-- LSP custom command
+keymap.set("n", "<leader>il", "<cmd>LspInfo<cr>", { desc = "LSP Info" })
+keymap.set("n", "<leader>rl", "<cmd>LspRestart<cr>", { desc = "LSP Restart" })
