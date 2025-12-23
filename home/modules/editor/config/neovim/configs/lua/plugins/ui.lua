@@ -46,10 +46,26 @@ return {
           { mode = "n", keys = "<Leader>f", desc = "+Find" },
           { mode = "n", keys = "<Leader>L", desc = "+Lazy.nvim" },
           { mode = "n", keys = "<Leader>g", desc = "+Git" },
-          { mode = "n", keys = "<leader>b", desc = "+Buffer"},
+          { mode = "n", keys = "<leader>b", desc = "+Buffer" },
+          { mode = "n", keys = "<leader>r", desc = "+Re-Action" },
+          { mode = "n", keys = "<leader>i", desc = "+Info-View" },
+
+          -- gキーマップ（よく使うもののみ手動定義）
+          -- LSP関連
+          { mode = "n", keys = "gd", desc = "go to definition" },
+          { mode = "n", keys = "gr", desc = "find references" },
+          { mode = "n", keys = "gD", desc = "go to declaration" },
+          { mode = "n", keys = "gi", desc = "go to implementation" },
+          -- ファイル・URL操作
+          { mode = "n", keys = "gf", desc = "go to file" },
+          { mode = "n", keys = "gx", desc = "open URL" },
+          -- 編集・検索操作
+          { mode = "n", keys = "gcc", desc = "toggle comment" },
+          { mode = "n", keys = "gq", desc = "format text" },
+          { mode = "n", keys = "g*", desc = "search word forward" },
+          { mode = "n", keys = "g#", desc = "search word backward" },
 
           -- デフォルトヘルプ
-          miniclue.gen_clues.g(),
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.z(),
         },
