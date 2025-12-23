@@ -6,6 +6,7 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "save" })
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit" })
 keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "quit(not save)" })
+keymap.set("t", "<C-\\>", "<C-\\><C-n>", { desc = "exit terminal mode"})
 
 -- 検索ハイライトをクリア
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
