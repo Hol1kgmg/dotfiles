@@ -46,6 +46,7 @@ return {
           { mode = "n", keys = "<Leader>f", desc = "+Find" },
           { mode = "n", keys = "<Leader>L", desc = "+Lazy.nvim" },
           { mode = "n", keys = "<Leader>g", desc = "+Git" },
+          { mode = "n", keys = "<Leader>c", desc = "+Claude Code" },
           { mode = "n", keys = "<leader>b", desc = "+Buffer" },
           { mode = "n", keys = "<leader>r", desc = "+Re-Action" },
           { mode = "n", keys = "<leader>i", desc = "+Info-View" },
