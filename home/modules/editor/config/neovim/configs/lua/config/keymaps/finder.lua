@@ -18,3 +18,4 @@ keymap.set("n", "<leader>fh", "<cmd>FFFHealth<CR>", { desc = "FFF health check" 
 
 -- snacks.picker
 keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "buffer list" })
+keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "live grep" })
