@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>rn", vim.lsp.buf.rename, "rename")
 
     -- 診断
-    map("n", "<leader>d", vim.diagnostic.open_float, "show diagnostic")
+    map("n", "<leader>ds", vim.diagnostic.open_float, "show diagnostic")
     map("n", "[d", vim.diagnostic.goto_prev, "previous diagnostic")
     map("n", "]d", vim.diagnostic.goto_next, "next diagnostic")
     map("n", "<leader>dl", vim.diagnostic.setloclist, "diagnostic list")
