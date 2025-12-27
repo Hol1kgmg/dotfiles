@@ -20,7 +20,11 @@ end
 
 -- 診断表示設定
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = {
+   format = function(diagnostic)
+      return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+    end,
+  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "✘",
