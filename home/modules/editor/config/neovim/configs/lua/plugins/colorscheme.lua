@@ -24,6 +24,12 @@ return {
             },
           },
         },
+        overrides = function(_colors)
+          return {
+            NormalFloat = { bg = "none" },
+            FloatBorder = { bg = "none" },
+          }
+        end,
       })
       -- カラースキームを適用
       vim.cmd.colorscheme("kanagawa-wave")

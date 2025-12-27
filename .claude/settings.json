@@ -22,6 +22,7 @@
       "Bash(grep:*)",
       "Bash(grep -r:*)",
       "Bash(grep -i:*)",
+      "Bash(grep -n:*)",
       "Bash(which:*)",
       "Bash(type:*)",
       "Bash(source ~/.zshrc)",
