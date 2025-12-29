@@ -8,7 +8,7 @@
 
 ### ターゲット
 - **ユーザーレベル**: Neovim使用経験あり
-- **対象言語**: TypeScript, Python, Nix, JSON, Lua, Markdown
+- **対象言語**: TypeScript/TSX, Python, Nix, YAML, TOML, JSON, Vim, Lua, Markdown
 - **プラグイン数**: 12-16個程度（軽量構成）
 - **管理方法**: Nix + lazy.nvim ハイブリッド
 
@@ -25,12 +25,22 @@ home/modules/editor/config/neovim/
 ├── default.nix              # Nix設定（programs.neovim + 依存ツール）
 └── configs/                 # Lua設定ファイル群
     ├── init.lua             # エントリーポイント
-    └── lua/
-        ├── config/
-        │   ├── options.lua  # Neovim基本オプション設定
-        │   └── keymaps.lua  # キーマッピング定義
-        └── plugins/
-            └── init.lua     # lazy.nvim設定 + プラグイン定義
+    ├── lua/
+    │   ├── config/
+    │   │   ├── options.lua  # Neovim基本オプション設定
+    │   │   └── keymaps.lua  # キーマッピング定義
+    │   ├── lazy-setup.lua   # lazy.nvim設定とオプション
+    │   └── plugins/         # プラグイン定義（機能別に分割）
+    │       ├── colorscheme.lua  # カラースキーム
+    │       ├── ui.lua           # UI・キーヘルプ
+    │       ├── editor.lua       # エディタ機能
+    │       └── navigation.lua   # ファイル操作・検索
+    └── snippets/            # カスタムスニペット（言語別）
+        ├── lua.lua
+        ├── typescript.lua
+        ├── python.lua
+        ├── nix.lua
+        └── markdown.lua
 ```
 
 ## 実装方針
@@ -183,45 +193,63 @@ gcc         - コメントトグル
    - `<leader>t` でターミナル起動
    - `:FFFHealth` で健全性チェック
 
-### Step 5: Treesitter導入
-18. ⬜ `default.nix` にtree-sitter-cli追加
-19. ⬜ Treesitterプラグイン追加（6言語対応）
-20. ⬜ **rebuild & シンタックスハイライト確認**
+### Step 5: Treesitter導入 + プラグイン設定モジュール化✅
+18. ✅ `default.nix` にtree-sitter-cli追加
+19. ✅ Treesitterプラグイン追加（10言語対応: TypeScript/TSX, Python, Nix, YAML, TOML, JSON, Vim, Lua, Markdown）
+20. ✅ プラグイン設定を機能別に分割
+   - `colorscheme.lua`: カラースキーム（kanagawa.nvim）
+   - `ui.lua`: UI・キーヘルプ（mini.icons, mini.tabline, mini.clue, snacks.nvim）
+   - `editor.lua`: エディタ機能（nvim-treesitter）
+   - `navigation.lua`: ファイル操作・検索（mini.files, fff.nvim）
+   - `lazy-setup.lua`: lazy.nvim設定とオプション
+21. ✅ **シンタックスハイライト & 設定確認**
    - 各言語ファイルでハイライト動作確認
+   - モジュール化された設定が正常に読み込まれることを確認
 
-### Step 6: LSPサーバー導入
-21. ⬜ `default.nix` にLSPサーバー追加（6言語）
-22. ⬜ LSPConfigプラグイン追加（基本設定のみ）
-23. ⬜ **rebuild & LSP動作確認**
+### Step 6: LSPサーバー導入✅
+22. ✅ `default.nix` にLSPサーバー追加（対応言語）
+23. ✅ LSPConfigプラグイン追加（基本設定のみ）
+24. ✅ **rebuild & LSP動作確認**
    - 各言語ファイルで `:LspInfo` 確認
    - `gd`（定義ジャンプ）、`K`（ホバー）動作確認
 
-### Step 7: 補完機能導入
-24. ⬜ nvim-cmp + 各種ソース追加
-25. ⬜ スニペットエンジン追加
-26. ⬜ **補完動作確認**
+### Step 7: 補完機能導入✅
+25. ✅ blink.cmp + 各種ソース追加（snippets, lsp, path, buffer）
+26. ✅ スニペットエンジン追加（LuaSnip + friendly-snippets）
+27. ✅ カスタムスニペットディレクトリ作成・設定
+   - `snippets/lua.lua`: Lua用スニペット
+   - `snippets/typescript.lua`: TypeScript/JavaScript用スニペット
+   - `snippets/python.lua`: Python用スニペット
+   - `snippets/nix.lua`: Nix用スニペット
+   - `snippets/markdown.lua`: Markdown用スニペット
+28. ✅ **補完動作確認**
    - コード入力時に補完メニュー表示確認
-   - スニペット展開確認
+   - スニペット展開確認（friendly-snippets + カスタムスニペット）
 
-### Step 8: 編集補助プラグイン導入
-27. ⬜ オートペア、コメント、surround追加
-28. ⬜ **編集機能確認**
-   - 括弧の自動閉じ
-   - `gcc` でコメントトグル
-   - surround操作
+### Step 8: 編集補助プラグイン導入✅
+29. ✅ オートペア追加（nvim-autopairs, nvim-ts-autotag）
+30. ✅ コメント、surround追加（mini.comment, mini.surround）
+31. ✅ **編集機能確認**
+   - 括弧の自動閉じ ✅
+   - HTMLタグの自動閉じ ✅
+   - `gcc` でコメントトグル ✅
+   - surround操作（`sa`, `sd`, `sr`） ✅
 
-### Step 9: UI・Git統合
-29. ⬜ ステータスライン、Git差分表示追加
-30. ⬜ which-key追加（オプション）
-31. ⬜ **UI・Git機能確認**
-   - ステータスライン表示
-   - Git差分の視覚化
+### Step 9: UI・Git統合✅
+32. ✅ ステータスライン追加（lualine.nvim）
+33. ✅ Git差分表示追加（gitsigns.nvim）
+34. ✅ gitsignsキーマップを`lua/config/keymaps/git.lua`に移動
+35. ✅ **UI・Git機能確認**
+   - ステータスライン表示（mode, branch, diff, diagnostics, filename, progress, location）
+   - Git差分の視覚化（add, change, delete, untracked）
+   - ハンク間の移動（`]c`, `[c`）
+   - Git操作（`<leader>hs/hr/hp/hb/hd`等）
 
 ### Step 10: 最終確認・完了
-32. ⬜ 全機能の統合テスト
-33. ⬜ 各言語での実作業テスト
-34. ⬜ プランドキュメント削除
-35. ⬜ `DEVELOPMENT_PLAN.md` 更新
+36. ⬜ 全機能の統合テスト
+37. ⬜ 各言語での実作業テスト
+38. ⬜ プランドキュメント削除
+39. ⬜ `DEVELOPMENT_PLAN.md` 更新
 
 ## 検討事項
 
@@ -229,12 +257,14 @@ gcc         - コメントトグル
 - ✅ 配置場所: `home/modules/editor/config/neovim/`
 - ✅ プラグイン管理: Nix + lazy.nvim ハイブリッド
 - ✅ 初期構成: 最小構成（12-16個程度）
-- ✅ 対象言語: TypeScript, Python, Nix, JSON, Lua, Markdown
+- ✅ 対象言語: TypeScript/TSX, Python, Nix, YAML, TOML, JSON, Vim, Lua, Markdown
+- ✅ カラースキーム: kanagawa.nvim（kanagawa-wave）
+- ✅ プラグイン設定: 機能別モジュール化（colorscheme, ui, editor, navigation）
+- ✅ 補完エンジン: blink.cmp（super-tabキーマップ）
+- ✅ スニペット: LuaSnip + friendly-snippets + カスタムスニペット（言語別ファイル管理）
 
 ### 未決定（実装時に決定）
-- ⬜ 具体的なプラグイン選定
 - ⬜ Nix LSPサーバー: `nil` vs `nixd`
-- ⬜ カラースキーム: Catppuccin Mocha（VSCode統一）で確定するか
 - ⬜ フォーマッター管理: Nixで追加するか、null-ls/conform.nvim使うか
 
 ## 参考資料
