@@ -2,6 +2,10 @@
 
 local keymap = vim.keymap
 
+-- s キーを無効化（mini.surroundのデフォルトキーマップを使用するため）
+keymap.set("n", "s", "<Nop>", { desc = "Disabled for mini.surround" })
+keymap.set("x", "s", "<Nop>", { desc = "Disabled for mini.surround" })
+
 -- インデント調整（ビジュアルモード）
 keymap.set("v", "<", "<gv", { desc = "Reduce indentation" })
 keymap.set("v", ">", ">gv", { desc = "Increase indent" })
