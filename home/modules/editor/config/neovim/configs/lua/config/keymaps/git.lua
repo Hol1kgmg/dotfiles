@@ -12,11 +12,6 @@ keymap.set("n", "<leader>gB", function()
   Snacks.gitbrowse()
 end, { desc = "Git open browser" })
 
--- ターミナル
-keymap.set("n", "<leader>t", function()
-  Snacks.terminal()
-end, { desc = "open terminal" })
-
 -- Gitsigns キーマップ設定（バッファローカル）
 M.setup_gitsigns_keymaps = function(bufnr)
   local gs = package.loaded.gitsigns
