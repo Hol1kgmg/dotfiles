@@ -88,7 +88,7 @@ return {
       notifier = { enabled = true },
       terminal = { enabled = true },
       picker = { enabled = true },  -- バッファピッカー
-      dashboard = { enabled = true },  -- ダッシュボード
+      dashboard = { enabled = false },
 
       -- Git統合
       lazygit = { enabled = true },
@@ -99,6 +99,75 @@ return {
       scroll = { enabled = false },
       indent = { enabled = false },
     },
+  },
+
+  -- ダッシュボード
+  -- Docs: https://github.com/goolord/alpha-nvim
+  {
+    "goolord/alpha-nvim",
+    dependencies = { "echasnovski/mini.icons" },
+    config = function()
+      local alpha = require("alpha")
+      local dashboard = require("alpha.themes.dashboard")
+
+      -- ASCIIアート読み込み
+      local ascii_art_path = vim.fn.stdpath("config") .. "/AA-dashboard.txt"
+      if vim.fn.filereadable(ascii_art_path) == 1 then
+        dashboard.section.header.val = vim.fn.readfile(ascii_art_path)
+      else
+        -- フォールバック用のシンプルなロゴ
+        dashboard.section.header.val = {
+          "                                                     ",
+          "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+          "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+          "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+          "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+          "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+          "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+          "                                                     ",
+        }
+      end
+
+      -- ボタン設定（Nerd Fonts）
+      dashboard.section.buttons.val = {
+        dashboard.button("f", "󰱼  Find file", ":lua require('fff').find_files()<CR>"),
+        dashboard.button("n", "󰈔  New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("r", "󰋚  Recent files", ":lua Snacks.picker.recent()<CR>"),
+        dashboard.button("g", "󱎸  Find text", ":lua require('fff').grep()<CR>"),
+        dashboard.button("c", "  Configuration", ":lua MiniFiles.open(vim.fn.expand('~/dotfiles/home/modules/editor/config/neovim/configs/init.lua'))<CR>"),
+        dashboard.button("u", "󰚰  Update plugins", ":Lazy sync <CR>"),
+        dashboard.button("q", "󰗼  Quit", ":qa<CR>"),
+      }
+
+      -- フッター設定
+      local function footer()
+        local total_plugins = require("lazy").stats().count
+        local datetime = os.date(" %Y-%m-%d   %H:%M:%S")
+        local version = vim.version()
+        local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+
+        return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
+      end
+
+      dashboard.section.footer.val = footer()
+
+      -- レイアウト調整
+      dashboard.section.header.opts.hl = "Type"
+      dashboard.section.buttons.opts.hl = "Keyword"
+      dashboard.section.footer.opts.hl = "Comment"
+
+      -- 余白調整
+      dashboard.config.layout = {
+        { type = "padding", val = 2 },
+        dashboard.section.header,
+        { type = "padding", val = 2 },
+        dashboard.section.buttons,
+        { type = "padding", val = 1 },
+        dashboard.section.footer,
+      }
+
+      alpha.setup(dashboard.config)
+    end,
   },
 
   -- ステータスライン
