@@ -51,6 +51,7 @@ dotfiles/
         ├── editor/              # エディタ設定
         │   ├── default.nix
         │   └── config/
+        │       ├── neovim/      # Neovim設定（詳細は後述）
         │       └── vscode/      # VSCode設定
         │           ├── default.nix
         │           ├── extensions/      # 拡張機能設定
@@ -89,3 +90,53 @@ macOS システムレベルの設定を管理。Homebrew、キーボード設定
 ### home/
 
 ユーザーレベルの設定を管理。開発ツール、シェル環境、エディタなど。
+
+## Neovim設定の詳細
+
+Neovimの設定は `home/modules/editor/config/neovim/` 以下で管理されています。
+
+```
+neovim/
+├── default.nix              # Nix設定（パッケージ、プラグイン管理）
+└── configs/                 # Lua設定ファイル群
+    ├── init.lua             # エントリーポイント
+    ├── lazy-setup.lua       # lazy.nvimプラグインマネージャ設定
+    ├── lua/
+    │   ├── config/          # 基本設定
+    │   │   ├── options.lua  # Neovim基本オプション
+    │   │   ├── lsp.lua      # LSP共通設定
+    │   │   ├── keymaps/     # キーマップ設定（カテゴリ別）
+    │   │   │   ├── init.lua      # キーマップ統合
+    │   │   │   ├── basic.lua     # 基本操作（移動、保存など）
+    │   │   │   ├── editing.lua   # 編集操作（コメント、囲み操作など）
+    │   │   │   ├── window.lua    # ウィンドウ・タブ操作
+    │   │   │   ├── lsp.lua       # LSP操作（定義ジャンプ、リネームなど）
+    │   │   │   ├── finder.lua    # ファイル検索（Telescope）
+    │   │   │   ├── ai.lua        # AI統合（Claude Code）
+    │   │   │   └── info.lua      # 情報表示（diagnostics、git）
+    │   │   └── custom-command/   # カスタムコマンド
+    │   │       ├── init.lua           # コマンド統合
+    │   │       ├── health-check.lua   # プラグイン診断コマンド
+    │   │       ├── lsp-info.lua       # LSP情報表示コマンド
+    │   │       └── lsp-restart.lua    # LSP再起動コマンド
+    │   └── plugins/         # プラグイン設定
+    │       ├── colorscheme.lua    # カラースキーム（Catppuccin）
+    │       ├── ui.lua             # UI関連（alpha、lualine、gitsigns）
+    │       ├── editor.lua         # 編集機能（blink.cmp、mini）
+    │       ├── navigation.lua     # ナビゲーション（Telescope、neo-tree）
+    │       └── ai.lua             # AI統合（claude-code-nvim）
+    └── snippets/            # LuaSnipスニペット定義
+        ├── lua.lua          # Lua言語スニペット
+        ├── nix.lua          # Nix言語スニペット
+        ├── python.lua       # Python言語スニペット
+        ├── typescript.lua   # TypeScript言語スニペット
+        ├── markdown.lua     # Markdown言語スニペット
+        └── folder.lua       # フォルダ固有スニペット
+```
+
+### 設定の構成方針
+
+- **モジュール分割**: 機能ごとにファイルを分割し、保守性を向上
+- **カテゴリ別キーマップ**: 操作種別ごとにキーマップを整理
+- **プラグイン設定の分離**: UI、エディタ、ナビゲーション、AIなど用途別に分類
+- **カスタムコマンド**: 診断やLSP管理のための独自コマンドを実装
