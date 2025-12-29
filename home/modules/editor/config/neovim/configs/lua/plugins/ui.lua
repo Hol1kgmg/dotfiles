@@ -50,6 +50,7 @@ return {
           { mode = "n", keys = "<leader>b", desc = "+Buffer" },
           { mode = "n", keys = "<leader>r", desc = "+Re-Action" },
           { mode = "n", keys = "<leader>i", desc = "+Info-View" },
+          { mode = "n", keys = "<leader>h", desc = "+Hunk" },
 
           -- gキーマップ（よく使うもののみ手動定義）
           -- LSP関連
@@ -97,6 +98,30 @@ return {
       bigfile = { enabled = true },  -- 大規模ファイル対応
       scroll = { enabled = false },
       indent = { enabled = false },
+    },
+  },
+
+  -- ステータスライン
+  -- Docs: https://github.com/nvim-lualine/lualine.nvim
+  {
+    'nvim-lualine/lualine.nvim',
+    event = "VeryLazy",
+    dependencies = { 'echasnovski/mini.icons' },
+    opts = {
+      options = {
+        theme = 'auto',
+        component_separators = { left = '|', right = '|' },
+        section_separators = { left = '', right = '' },
+        globalstatus = true,
+      },
+      sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
+      },
     },
   },
 }
