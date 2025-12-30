@@ -27,6 +27,7 @@ config.show_new_tab_button_in_tab_bar = false
 ----------------------------------------------------
 config.font = wezterm.font("PlemolJP Console NF")
 config.font_size = 13.0
+config.adjust_window_size_when_changing_font_size = false
 
 ----------------------------------------------------
 -- キーバインド設定
@@ -35,5 +36,15 @@ config.disable_default_key_bindings = false
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
+
+----------------------------------------------------
+-- イベントハンドラ
+----------------------------------------------------
+-- フォントサイズトグル
+wezterm.on('toggle-font-size', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  overrides.font_size = not overrides.font_size and 18.0 or nil
+  window:set_config_overrides(overrides)
+end)
 
 return config

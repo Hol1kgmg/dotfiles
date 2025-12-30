@@ -96,6 +96,9 @@ return {
 
       -- オプション機能
       bigfile = { enabled = true },  -- 大規模ファイル対応
+      zen = {
+        enabled = true,
+      },
       scroll = { enabled = false },
       indent = { enabled = false },
     },

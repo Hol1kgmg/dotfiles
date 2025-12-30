@@ -14,6 +14,9 @@ return {
 		{ key = "LeftArrow", mods = "SUPER", action = act.AdjustPaneSize({ "Left", 1 }) },
 		{ key = "]", mods = "ALT|SUPER", action = act.ActivatePaneDirection("Right") },
 		{ key = "RightArrow", mods = "SUPER", action = act.AdjustPaneSize({ "Right", 1 }) },
+
+		-- Zenモードフォントサイズトグル（Neovimから呼び出し用）
+		{ key = ";", mods = "CTRL", action = act.EmitEvent "toggle-font-size" },
 	},
 
 	key_tables = {
