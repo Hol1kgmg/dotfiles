@@ -1,0 +1,27 @@
+// 開発用3タブレイアウト
+// タブ1: nvim（エディタ）
+// タブ2: claude（AIアシスタント）
+// タブ3: nvt（nvim + ターミナルバッファ）
+
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+
+    tab name="nvim" {
+        pane name="nvim" command="nvim"
+    }
+
+    tab name="claude" {
+        pane name="claude" command="claude"
+    }
+
+    tab name="terminal" {
+        pane name="terminal" command="zsh" {
+            args "-i" "-c" "nvt"
+        }
+    }
+}
