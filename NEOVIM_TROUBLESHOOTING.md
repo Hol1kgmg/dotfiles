@@ -59,6 +59,27 @@ fff.nvimのRustバックエンドバイナリが正しくダウンロードま�
 :Lazy sync
 ```
 
+#### 方法4: 上記の方法がすべて失敗する場合（バイナリファイル破損時）
+
+バイナリファイルが破損している場合（`segment '__DATA_CONST' load command content extends beyond end of file`というエラー）、ターミナルから直接削除して再インストールします。
+
+```zsh
+# 1. 破損したバイナリを削除
+rm -rf ~/.local/share/nvim/lazy/fff.nvim/target
+
+# 2. プラグインとキャッシュを完全削除
+rm -rf ~/.local/share/nvim/lazy/fff.nvim
+rm -rf ~/.cache/nvim
+
+# 3. プラグインを再インストール
+nvim --headless "+Lazy! sync" +qa
+
+# 4. 動作確認
+nvim --headless "+lua require('fff')" "+lua print('fff.nvim loaded successfully')" +qa
+```
+
+エラーなく`fff.nvim loaded successfully`と表示されれば成功です。
+
 ### 確認コマンド
 
 - **バイナリの存在確認**
