@@ -18,9 +18,7 @@ config.macos_window_background_blur = 20
 ----------------------------------------------------
 -- タブバー設定
 ----------------------------------------------------
-config.show_tabs_in_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
-config.show_new_tab_button_in_tab_bar = false
+config.enable_tab_bar = false
 
 ----------------------------------------------------
 -- フォント設定
