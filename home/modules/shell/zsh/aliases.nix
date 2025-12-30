@@ -12,7 +12,8 @@
     groot = "git rev-parse --show-toplevel";
 
     # 開発ツール
-    ld = "lazygit";
+    lg = "lazygit";
+    ld = "lazydocker";
     dc = "docker compose";
     z = "zellij";
   };
