@@ -4,6 +4,7 @@
   imports = [
     ./env.nix
     ./aliases.nix
+    ./functions.nix
   ];
 
   # zsh基本設定

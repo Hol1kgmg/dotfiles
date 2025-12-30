@@ -15,7 +15,10 @@
     lg = "lazygit";
     ld = "lazydocker";
     dc = "docker compose";
-    z = "zellij";
+    za = "zellij a";
+
+    # nvim
+    nvt = "nvim -c 'terminal' -c 'startinsert'";
 
     # nix
     nix-store-gc = "nix store gc";

@@ -4,6 +4,7 @@
   imports = [
     ./zsh
     ./oh-my-posh.nix
+    ./fzf.nix
   ];
 
   # シェル関連のCLIツール
