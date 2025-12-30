@@ -16,5 +16,8 @@
     ld = "lazydocker";
     dc = "docker compose";
     z = "zellij";
+
+    # nix
+    nix-store-gc = "nix store gc";
   };
 }
