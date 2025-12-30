@@ -4,6 +4,9 @@ Dotfiles management project for macOS development environment using Nix and Home
 # Directory Structure
 See [DIRECTORY_STRUCTURE.md](./DIRECTORY_STRUCTURE.md) for details.
 
+# Troubleshooting
+- Neovim related issues: See [NEOVIM_TROUBLESHOOTING.md](./NEOVIM_TROUBLESHOOTING.md)
+
 # Work Rules
 1. Propose implementation plan
 2. Wait for approval
