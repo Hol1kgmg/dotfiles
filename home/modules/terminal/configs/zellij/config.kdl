@@ -26,6 +26,7 @@ keybinds {
     pane {
         unbind "Ctrl g"
         bind "Alt g" { SwitchToMode "Normal"; }
+        bind "z" { TogglePaneFrames; }
     }
 
     tab {
@@ -57,5 +58,5 @@ keybinds {
 // その他の設定
 default_mode "normal"
 mouse_mode true
-pane_frames true
+pane_frames false
 copy_on_select true

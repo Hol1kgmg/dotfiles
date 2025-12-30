@@ -19,3 +19,8 @@ keymap.set("n", "<leader>bq", function()
     vim.cmd("bd")   -- 通常バッファは警告あり
   end
 end, { desc = "quit buffer" })
+
+-- Zenモード
+keymap.set("n", "<leader>z", function()
+  Snacks.zen()
+end, { desc = "toggle zen mode" })
