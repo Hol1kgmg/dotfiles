@@ -109,7 +109,7 @@ nix fmt
 
 ## トラブルシューティング
 
-Neovim環境で問題が発生した場合は、[NEOVIM_TROUBLESHOOTING.md](./NEOVIM_TROUBLESHOOTING.md) を参照してください。
+問題が発生した場合は、[SETUP_TROUBLESHOOTING.md](./SETUP_TROUBLESHOOTING.md) を参照してください。
 
 ---
 
