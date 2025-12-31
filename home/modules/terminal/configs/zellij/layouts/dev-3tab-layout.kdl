@@ -4,24 +4,29 @@
 // タブ3: nvt（nvim + ターミナルバッファ）
 
 layout {
-    default_tab_template {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        children
+  default_tab_template {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
     }
 
-    tab name="nvim" {
-        pane name="nvim" command="nvim"
-    }
+    children
 
-    tab name="claude" {
-        pane name="claude" command="claude"
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
     }
+  }
 
-    tab name="terminal" {
-        pane name="terminal" command="zsh" {
-            args "-i" "-c" "nvt"
-        }
+  tab name="nvim" {
+    pane name="nvim" command="nvim"
+  }
+
+  tab name="claude" {
+    pane name="claude" command="claude"
+  }
+
+  tab name="terminal" {
+    pane name="terminal" command="zsh" {
+        args "-i" "-c" "nvt"
     }
+  }
 }
