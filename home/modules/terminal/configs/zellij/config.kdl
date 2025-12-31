@@ -55,6 +55,9 @@ keybinds {
     }
 }
 
+// テーマを適用
+theme "ayu-custom"
+
 // その他の設定
 default_mode "normal"
 mouse_mode true
