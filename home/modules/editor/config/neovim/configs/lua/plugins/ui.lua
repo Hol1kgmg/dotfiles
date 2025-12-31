@@ -44,7 +44,7 @@ return {
         clues = {
           -- グループラベルのみ定義（個別キーマップはkeymaps.luaのdescを自動参照）
           { mode = "n", keys = "<Leader>f", desc = "+Find" },
-          { mode = "n", keys = "<Leader>L", desc = "+Lazy.nvim" },
+          { mode = "n", keys = "<Leader>l", desc = "+Lazy" },
           { mode = "n", keys = "<Leader>g", desc = "+Git" },
           { mode = "n", keys = "<Leader>c", desc = "+Claude Code" },
           { mode = "n", keys = "<leader>b", desc = "+Buffer" },

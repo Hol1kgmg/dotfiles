@@ -12,8 +12,8 @@ keymap.set("t", "<C-\\>", "<C-\\><C-n>", { desc = "exit terminal mode"})
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 -- Lazy.nvim
-keymap.set("n", "<leader>Ll", "<cmd>Lazy<cr>", { desc = "open Lazy.nvim"})
-keymap.set("n", "<leader>Lu", "<cmd>Lazy update<cr>", { desc = "open Lazy update"})
+keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "open Lazy.nvim"})
+keymap.set("n", "<leader>lu", "<cmd>Lazy update<cr>", { desc = "open Lazy update"})
 
 -- ターミナル
 keymap.set("n", "<leader>t", function()
@@ -31,5 +31,10 @@ keymap.set("n", "<leader>T", function()
   vim.api.nvim_buf_set_name(bufnr, "Terminal " .. term_count)
   vim.cmd("startinsert")
 end, { desc = "open terminal (buffer)" })
+
+-- lazydocker
+keymap.set("n", "<leader>ld", function()
+  Snacks.terminal("lazydocker", { win = { position = "float" } })
+end, { desc = "open lazydocker" })
 
 

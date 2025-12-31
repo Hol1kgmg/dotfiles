@@ -15,7 +15,11 @@
     lg = "lazygit";
     ld = "lazydocker";
     dc = "docker compose";
+
+    # zellij
     za = "zellij a";
+    zl = "zellij ls";
+    zda = "zellij delete-all-sessions";
 
     # nvim
     nvt = "nvim -c 'terminal' -c 'startinsert'";
