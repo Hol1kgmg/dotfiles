@@ -1,3 +1,5 @@
+![Neovim Screenshot](assets/nvim_screen_shot.png)
+
 # セットアップ手順
 
 ## 初回構築（新しい macOS マシン）
