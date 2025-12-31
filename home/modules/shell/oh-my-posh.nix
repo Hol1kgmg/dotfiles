@@ -6,6 +6,6 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    useTheme = "wholespace";
+    configFile = ./configs/wholespace-custom.json;
   };
 }
