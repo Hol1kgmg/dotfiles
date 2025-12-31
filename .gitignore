@@ -1,15 +1,20 @@
+# Template Settings
+
 result
 .direnv
 
-# Secrets - Git管理外（--impureフラグで読み込み）
-home/secrets/default.nix
-
-# Claude Code - プロジェクト設定以外を無視
+## Claude Code - プロジェクト設定以外を無視
 .claude/*
 !.claude/settings.json
 
 ### macOS ###
-# General
+## General
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Unique Settings
+## Secrets - Git管理外（--impureフラグで読み込み）
+home/secrets/default.nix
+
+
