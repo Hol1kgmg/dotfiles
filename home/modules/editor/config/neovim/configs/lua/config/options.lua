@@ -30,6 +30,9 @@ opt.undofile = true       -- undoファイルを作成
 opt.scrolloff = 8         -- スクロール時の余白
 opt.sidescrolloff = 8
 
+-- シェル
+opt.shell = "zsh"              -- ターミナルでzshを使用
+
 -- その他
 opt.clipboard = "unnamedplus"  -- システムクリップボードを使用
 opt.mouse = "a"                -- マウスサポート
