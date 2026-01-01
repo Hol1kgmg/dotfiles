@@ -3,5 +3,6 @@
     ./browser
     ./fonts
     ./dock
+    ./window
   ];
 }
