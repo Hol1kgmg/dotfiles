@@ -7,8 +7,17 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 return {
   -- nix default.nix
-  s("default", fmt("default.nix")),
+  s("default", {
+    t("default.nix")
+  }),
 
   -- lua init.lua
-  s("init", fmt("init.lua")),
+  s("init", {
+    t("init.lua")
+  }),
+
+  -- React project directories
+  s("components-set", {
+    t({"components/", "hooks/", "libs/", "types/"})
+  }),
 }
