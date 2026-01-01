@@ -67,7 +67,15 @@ nix run nixpkgs#home-manager -- switch --flake .#$(whoami) --impure
 sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure
 ```
 
-### 8. 手動対応が必要な項目
+### 8. home-manager の再適用（Homebrew アプリへの設定反映）
+
+nix-darwin で Homebrew 経由のアプリ（Rectangle など）がインストールされた後、設定を反映させます。
+
+```.zsh
+home-manager switch --flake .#$(whoami) --impure
+```
+
+### 9. 手動対応が必要な項目
 
 [MANUAL_SETUP.md](./MANUAL_SETUP.md)の内容を参考に対応
 
