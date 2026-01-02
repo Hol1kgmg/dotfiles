@@ -12,7 +12,7 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "to right window" })
 keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "previous buffer" })
 keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next buffer" })
 
-keymap.set("n", "<leader>bq", function()
+keymap.set("n", "<leader>q", function()
   if vim.bo.buftype == "terminal" then
     vim.cmd("bd!")  -- ターミナルは強制削除
   else
