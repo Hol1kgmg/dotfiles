@@ -1,6 +1,11 @@
 {lib, ...}: {
-  # Rectangle設定をhome.activationで適用
-  # nix-darwinはsudo実行必須のため、ユーザーレベルの設定はhome-managerで管理
+# windowマネージャー Rectangle設定
+# help: キーバインド
+# Left Half   : ctrl + alt + h
+# Right Half  : ctrl + alt + l
+# Max Size    : ctrl + a
+# Next Display: ctrl + u
+
 
   home.activation.rectangleSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
     # Rectangle設定を適用

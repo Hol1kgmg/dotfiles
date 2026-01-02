@@ -159,6 +159,9 @@ return {
         history = true, -- スニペット履歴
         updateevents = "TextChanged,TextChangedI", -- リアルタイム更新
       })
+
+      -- ファイルタイプ継承設定
+      luasnip.filetype_extend("typescriptreact", { "typescript" })
     end,
   },
 
