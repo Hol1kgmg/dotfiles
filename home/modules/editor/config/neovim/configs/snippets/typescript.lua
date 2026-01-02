@@ -5,6 +5,8 @@ local t = ls.text_node
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
+-- typescriptreact.lua が継承しています
+
 return {
   -- Console log
   s("log", fmt("console.log({});", { i(1) })),
@@ -65,4 +67,15 @@ return {
 
   -- Export default
   s("expd", fmt("export default {}", { i(0) })),
+
+  -- React Component Sample
+  s("component-sample", fmt([[
+    export const {} = ({}) => {{
+      return (
+        <div>
+          {}
+        </div>
+      );
+    }};
+  ]], { i(1, "Component"), i(2, "Props"), i(0) })),
 }
