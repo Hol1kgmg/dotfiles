@@ -5,5 +5,6 @@
     ./uv.nix
     ./mise.nix
     ./ghq-zoxide.nix
+    ./packages.nix
   ];
 }
