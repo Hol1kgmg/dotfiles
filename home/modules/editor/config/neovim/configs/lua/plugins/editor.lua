@@ -63,7 +63,21 @@ return {
   {
     'echasnovski/mini.comment',
     event = "VeryLazy",
-    opts = {},
+    dependencies = {
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        opts = {
+          enable_autocmd = false,
+        },
+      },
+    },
+    opts = {
+      options = {
+        custom_commentstring = function()
+          return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
+        end,
+      },
+    },
   },
 
   -- 囲み操作
@@ -81,10 +95,12 @@ return {
   -- 補完エンジン
   -- Docs: https://cmp.saghen.dev/
   -- Note: buildフィールドを削除し、GitHubリリース版のプリビルドバイナリを使用
+  -- Copilot統合はai.luaで設定
   {
     'saghen/blink.cmp',
     version = 'v0.*',
     event = { "InsertEnter", "CmdLineEnter" },
+    dependencies = { "giuxtaposition/blink-cmp-copilot" },
     opts = {
       -- キーマップ設定（デフォルト使用）
       -- カスタマイズ方法: https://cmp.saghen.dev/configuration/keymap.html#default
@@ -98,10 +114,18 @@ return {
 
       -- 補完ソース設定
       sources = {
-        default = { "snippets", "lsp", "path", "buffer" },
+        default = { "copilot", "snippets", "lsp", "path", "buffer" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,  -- 優先度を高く設定
+            async = true,
+          },
+        },
         per_filetype = {
-          markdown = { "snippets", "lsp", "path" },
-          mdx = { "snippets", "lsp", "path" },
+          markdown = { "copilot", "snippets", "lsp", "path" },
+          mdx = { "copilot", "snippets", "lsp", "path" },
         },
       },
 

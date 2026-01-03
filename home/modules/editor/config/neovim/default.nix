@@ -18,7 +18,7 @@
 
     tree-sitter # tree-sitter-cli
 
-    # LSPサーバー（9言語）
+    # LSPサーバー（10言語）
     nodePackages.typescript-language-server  # TypeScript/TSX
     pyright                                  # Python
     nil                                      # Nix
@@ -28,6 +28,7 @@
     nodePackages.vim-language-server         # Vim
     lua-language-server                      # Lua
     marksman                                 # Markdown
+    nodePackages."@tailwindcss/language-server" # Tailwind CSS
   ];
 
   # Lua設定ファイルを配置
