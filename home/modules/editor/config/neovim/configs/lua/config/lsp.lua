@@ -131,8 +131,31 @@ vim.lsp.config.marksman = {
   on_attach = on_attach,
 }
 
+-- Tailwind CSS
+vim.lsp.config.tailwindcss = {
+  cmd = { "tailwindcss-language-server", "--stdio" },
+  filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+  -- postcss.config.mjsを含む設定ファイルからプロジェクトルートを検出
+  root_dir = vim.fs.root(0, {
+    "tailwind.config.js",
+    "tailwind.config.cjs",
+    "tailwind.config.mjs",
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "postcss.config.mjs",
+    "postcss.config.cjs"
+  }),
+  on_attach = on_attach,
+  settings = {
+    tailwindCSS = {
+      -- カスタムクラス属性の補完を有効化
+      classAttributes = { "class", "className", "classList", "ngClass" },
+    },
+  },
+}
+
 -- 全LSPサーバーを有効化
-local servers = { "ts_ls", "pyright", "nil_ls", "yamlls", "taplo", "jsonls", "vimls", "lua_ls", "marksman" }
+local servers = { "ts_ls", "pyright", "nil_ls", "yamlls", "taplo", "jsonls", "vimls", "lua_ls", "marksman", "tailwindcss" }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
