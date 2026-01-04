@@ -15,9 +15,13 @@
     # 指定したアプリをDockに追加
     $DOCKUTIL --add "/System/Applications/Apps.app" --no-restart
     $DOCKUTIL --add "/Applications/Safari.app" --no-restart
-    $DOCKUTIL --add "/System/Applications/System Settings.app" --no-restart
+    $DOCKUTIL --add "/Applications/Google Chrome.app" --no-restart
+    $DOCKUTIL --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
     $DOCKUTIL --add "${config.home.homeDirectory}/.nix-profile/Applications/Visual Studio Code.app" --no-restart
     $DOCKUTIL --add "/Applications/WezTerm.app" --no-restart
+
+    # フォルダを追加
+    $DOCKUTIL --add "${config.home.homeDirectory}/Downloads" --no-restart
 
     # Dockを再起動して変更を適用
     /usr/bin/killall Dock
