@@ -12,11 +12,15 @@ keybinds {
         unbind "Ctrl o"
         unbind "Ctrl q"
 
+        // tab切り替えキーバインドを追加
+        bind "Alt h" { MoveFocusOrTab "Left"; }
+        bind "Alt l" { MoveFocusOrTab "Right"; }
+
         // Option (Alt) キーバインドに変更
         bind "Alt p" { SwitchToMode "Pane"; }
         bind "Alt t" { SwitchToMode "Tab"; }
         bind "Alt n" { SwitchToMode "Resize"; }
-        bind "Alt h" { SwitchToMode "Move"; }
+        // bind "Alt h" { SwitchToMode "Move"; }
         bind "Alt s" { SwitchToMode "Scroll"; }
         bind "Alt o" { SwitchToMode "Session"; }
         bind "Alt q" { Quit; }
