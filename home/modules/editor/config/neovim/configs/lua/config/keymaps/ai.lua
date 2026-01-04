@@ -2,27 +2,14 @@
 
 local keymap = vim.keymap
 
--- Copilot トグル機能
-local copilot_enabled = false
-
-local function toggle_copilot()
-  if copilot_enabled then
-    -- Copilot を停止
-    vim.cmd("Copilot disable")
-    vim.cmd("Copilot stop")
-    copilot_enabled = false
-    vim.notify("Copilot: OFF", vim.log.levels.INFO)
-  else
-    -- Copilot を起動
-    vim.cmd("Copilot auth")
-    vim.cmd("Copilot enable")
-    copilot_enabled = true
-    vim.notify("Copilot: ON", vim.log.levels.INFO)
-  end
-end
-
 -- Copilot
-keymap.set("n", "<leader>co", toggle_copilot, { desc = "toggle Copilot on/off" })
+keymap.set("n", "<leader>co", function()
+  if _G.toggle_copilot_completion then
+    _G.toggle_copilot_completion()
+  else
+    vim.notify("Copilot toggle function is not available", vim.log.levels.ERROR)
+  end
+end, { desc = "toggle Copilot completion" })
 
 -- Claude Code
 keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "toggle Claude Code" })
