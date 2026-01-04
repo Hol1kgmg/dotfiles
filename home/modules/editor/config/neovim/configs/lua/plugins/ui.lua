@@ -47,7 +47,7 @@ return {
           { mode = "n", keys = "<Leader>F", desc = "+Force-Action"},
           { mode = "n", keys = "<Leader>l", desc = "+Lazy" },
           { mode = "n", keys = "<Leader>g", desc = "+Git" },
-          { mode = "n", keys = "<Leader>c", desc = "+Claude Code" },
+          { mode = "n", keys = "<Leader>c", desc = "+Coding Agent" },
           { mode = "n", keys = "<Leader>r", desc = "+Re-Action" },
           { mode = "n", keys = "<Leader>i", desc = "+Info-View" },
           { mode = "n", keys = "<Leader>d", desc = "+Diagnostics"},

@@ -2,10 +2,10 @@
 return {
   -- GitHub Copilot
   -- Docs: https://github.com/zbirenbaum/copilot.lua
+  -- Note: デフォルトでは起動しない。<leader>coで手動切り替え
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "InsertEnter",
     opts = {
       suggestion = {
         enabled = false,  -- blink.cmp経由で使用するため無効化
