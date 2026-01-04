@@ -11,6 +11,20 @@ keymap.set("n", "<leader>E", function()
   require("mini.files").open()
 end, { desc = "open filer (cwd)" })
 
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniFilesBufferCreate',
+  callback = function(args)
+    local buf_id = args.data.buf_id
+    local MiniFiles = require('mini.files')
+
+    keymap.set('n', 'J', 'j', { buffer = buf_id, desc = "Move down" })
+    keymap.set('n', 'K', 'k', { buffer = buf_id, desc = "Move up" })
+
+    keymap.set('n', '<Tab>', MiniFiles.go_in, { buffer = buf_id, desc = "Go in (enter dir)" })
+    keymap.set('n', '<S-Tab>', MiniFiles.go_out, { buffer = buf_id, desc = "Go out (parent dir)" })
+  end,
+})
+
 -- Fuzzy Finder（fff.nvim）
 keymap.set("n", "<leader>ff", "<cmd>FFFFind<CR>", { desc = "fzf" })
 keymap.set("n", "<leader><leader>", "<cmd>FFFFind<CR>", { desc = "fzf" })

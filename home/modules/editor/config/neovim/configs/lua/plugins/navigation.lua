@@ -9,8 +9,8 @@ return {
       require("mini.files").setup({
         -- カスタマイズオプション
         mappings = {
-          go_in = "<Tab>",
-          go_out = "<S-Tab>",
+          go_in = '',  -- lを無効化してカーソル移動として使用
+          go_out = '', -- hを無効化してカーソル移動として使用
         },
         options = {
           use_as_default_explorer = true,
