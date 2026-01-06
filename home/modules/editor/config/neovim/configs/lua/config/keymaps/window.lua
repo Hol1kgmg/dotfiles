@@ -20,7 +20,7 @@ keymap.set("n", "<Space>y", function()
 end, { desc = "copy file path" ,silent = true })
 
 -- Buffer削除
-keymap.set("n", "<leader>q", function()
+keymap.set("n", "q", function()
   if vim.bo.buftype == "terminal" then
     vim.cmd("bd!")  -- ターミナルは強制削除
   else

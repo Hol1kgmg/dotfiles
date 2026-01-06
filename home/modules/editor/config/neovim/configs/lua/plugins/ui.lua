@@ -44,7 +44,6 @@ return {
         clues = {
           -- グループラベルのみ定義（個別キーマップはkeymaps.luaのdescを自動参照）
           { mode = "n", keys = "<Leader>f", desc = "+Find" },
-          { mode = "n", keys = "<Leader>F", desc = "+Force-Action"},
           { mode = "n", keys = "<Leader>l", desc = "+Lazy" },
           { mode = "n", keys = "<Leader>g", desc = "+Git" },
           { mode = "n", keys = "<Leader>c", desc = "+Coding Agent" },
@@ -137,11 +136,21 @@ return {
         dashboard.button("f", "󰱼  Find file", ":lua require('fff').find_files()<CR>"),
         dashboard.button("n", "󰈔  New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("r", "󰋚  Recent files", ":lua Snacks.picker.recent()<CR>"),
-        dashboard.button("g", "󱎸  Find text", ":lua require('fff').grep()<CR>"),
-        dashboard.button("c", "  Configuration", ":lua MiniFiles.open(vim.fn.expand('~/dotfiles/home/modules/editor/config/neovim/configs/init.lua'))<CR>"),
+        dashboard.button("g", "󱎸  Find text", ":lua Snacks.picker.grep()<CR>"),
+        dashboard.button("c", "  Configuration", ":lua MiniFiles.open(vim.fn.stdpath('config') .. '/init.lua')<CR>"),
         dashboard.button("u", "󰚰  Update plugins", ":Lazy sync <CR>"),
         dashboard.button("q", "󰗼  Quit", ":qa<CR>"),
       }
+
+      -- alphaバッファでmini.clueのトリガーを有効化
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'alpha',
+        callback = function()
+          vim.schedule(function()
+            require('mini.clue').ensure_buf_triggers()
+          end)
+        end
+      })
 
       -- フッター設定
       local function footer()
