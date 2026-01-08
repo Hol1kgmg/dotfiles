@@ -92,6 +92,16 @@ return {
     opts = {},
   },
 
+  -- 関数説明プラグイン
+  -- Docs: https://github.com/kkoomen/vim-doge
+  {
+    'kkoomen/vim-doge',
+    lazy = false,
+    config = function()
+      vim.cmd([[call doge#install()]])
+    end
+  },
+
   -- 補完エンジン
   -- Docs: https://cmp.saghen.dev/
   -- Note: buildフィールドを削除し、GitHubリリース版のプリビルドバイナリを使用
@@ -140,10 +150,10 @@ return {
             copilot = {
               name = "copilot",
               module = "blink-cmp-copilot",
-              score_offset = 100,  -- 優先度を高く設定
+              score_offset = 100, -- 優先度を高く設定
               async = true,
               enabled = function()
-                return copilot_enabled  -- local変数を直接参照
+                return copilot_enabled -- local変数を直接参照
               end,
             },
           },
@@ -205,7 +215,7 @@ return {
 
       -- 基本設定
       luasnip.config.setup({
-        history = true, -- スニペット履歴
+        history = true,                            -- スニペット履歴
         updateevents = "TextChanged,TextChangedI", -- リアルタイム更新
       })
 
