@@ -34,6 +34,10 @@ return {
           -- g key
           { mode = "n", keys = "g" },
           { mode = "x", keys = "g" },
+          -- d key
+          { mode = "n", keys = "d" },
+          { mode = "x", keys = "d" },
+
           -- Window commands
           { mode = "n", keys = "<C-w>" },
           -- z key
@@ -48,31 +52,33 @@ return {
           { mode = "n", keys = "<Leader>g", desc = "+Git" },
           { mode = "n", keys = "<Leader>c", desc = "+Coding Agent" },
           { mode = "n", keys = "<Leader>r", desc = "+Re-Action" },
+          { mode = "n", keys = "<leader>m", desc = "+Make Action" },
           { mode = "n", keys = "<Leader>i", desc = "+Info-View" },
-          { mode = "n", keys = "<Leader>d", desc = "+Diagnostics"},
+          { mode = "n", keys = "<Leader>d", desc = "+Diagnostics" },
           { mode = "n", keys = "<Leader>h", desc = "+Hunk" },
 
           -- gキーマップ（よく使うもののみ手動定義）
           -- LSP関連
-          { mode = "n", keys = "gd", desc = "go to definition" },
-          { mode = "n", keys = "gr", desc = "find references" },
-          { mode = "n", keys = "gD", desc = "go to declaration" },
-          { mode = "n", keys = "gi", desc = "go to implementation" },
+          { mode = "n", keys = "gd",        desc = "go to definition" },
+          { mode = "n", keys = "gr",        desc = "find references" },
+          { mode = "n", keys = "gD",        desc = "go to declaration" },
+          { mode = "n", keys = "gi",        desc = "go to implementation" },
           -- ファイル・URL操作
-          { mode = "n", keys = "gf", desc = "go to file" },
-          { mode = "n", keys = "gx", desc = "open URL" },
+          { mode = "n", keys = "gf",        desc = "go to file" },
+          { mode = "n", keys = "gx",        desc = "open URL" },
           -- 編集・検索操作
-          { mode = "n", keys = "gcc", desc = "toggle comment" },
-          { mode = "n", keys = "gq", desc = "format text" },
-          { mode = "n", keys = "g*", desc = "search word forward" },
-          { mode = "n", keys = "g#", desc = "search word backward" },
+          { mode = "n", keys = "gcc",       desc = "toggle comment" },
+          { mode = "n", keys = "gq",        desc = "format text" },
+          { mode = "n", keys = "g*",        desc = "search word forward" },
+          { mode = "n", keys = "g#",        desc = "search word backward" },
+
 
           -- デフォルトヘルプ
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.z(),
         },
         window = {
-          delay = 300,  -- 300ミリ秒後に表示
+          delay = 300, -- 300ミリ秒後に表示
         },
       })
     end,
@@ -87,7 +93,7 @@ return {
       -- 必須機能
       notifier = { enabled = true },
       terminal = { enabled = true },
-      picker = { enabled = true },  -- バッファピッカー
+      picker = { enabled = true }, -- バッファピッカー
       dashboard = { enabled = false },
 
       -- Git統合
@@ -95,7 +101,7 @@ return {
       gitbrowse = { enabled = true },
 
       -- オプション機能
-      bigfile = { enabled = true },  -- 大規模ファイル対応
+      bigfile = { enabled = true }, -- 大規模ファイル対応
       zen = {
         enabled = true,
       },
@@ -183,27 +189,77 @@ return {
     end,
   },
 
+  -- LSP診断・定義参照など
+  {
+    "folke/trouble.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = function()
+      -- 共通のfloatウィンドウ設定
+      local shared_float_win = {
+        type = "float",
+        focus = true,
+        relative = "editor",
+        border = "single",
+        title = "Trouble.nvim",
+        title_pos = "center",
+        position = { 0, -2 },
+        size = { width = 0.3, height = 0.3 },
+        zindex = 200,
+      }
+
+      return {
+        focus = true,
+        keys = {
+          ["<cr>"] = "jump_close",
+          ["<esc>"] = "close"
+        },
+        win = shared_float_win,
+
+        modes = {
+          symbols = {
+            focus = true,
+            win = shared_float_win,
+          }
+        }
+      }
+    end,
+    cmd = "Trouble",
+  },
+
   -- ステータスライン
   -- Docs: https://github.com/nvim-lualine/lualine.nvim
   {
     'nvim-lualine/lualine.nvim',
     event = "VeryLazy",
-    dependencies = { 'echasnovski/mini.icons' },
-    opts = {
-      options = {
+    dependencies = { 'echasnovski/mini.icons', 'folke/trouble.nvim' },
+    opts = function(_, opts)
+      local trouble = require("trouble")
+      local symbols = trouble.statusline({
+        mode = "lsp_document_symbols",
+        groups = {},
+        title = false,
+        filter = { range = true },
+        format = "{kind_icon}{symbol.name:Normal}",
+        hl_group = "lualine_c_normal",
+      })
+
+      opts.options = {
         theme = 'auto',
         component_separators = { left = '|', right = '|' },
         section_separators = { left = '', right = '' },
         globalstatus = true,
-      },
-      sections = {
+      }
+      opts.sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
+        lualine_c = {
+          'filename',
+          { symbols.get, cond = symbols.has },
+        },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
-      },
-    },
+      }
+    end,
   },
 }
