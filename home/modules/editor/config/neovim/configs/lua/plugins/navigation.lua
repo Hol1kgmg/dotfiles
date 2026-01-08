@@ -70,8 +70,8 @@ return {
 
         float = {
           padding = 1,
-          -- max_width = 0.8,
-          -- max_height = 0.8,
+          max_width = 0.9,
+          max_height = 0.9,
           border = "single",
 
           preview_split = "right",
