@@ -37,10 +37,10 @@ keymap.set("n", "<leader>rl", "<cmd>LspRestart<cr>", { desc = "LSP Restart" })
 
 
 -- trouble.nvim
-keymap.set("n", "dd", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics" })
+keymap.set("n", "de", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics" })
 keymap.set("n", "dr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "References" })
 keymap.set("n", "di", "<cmd>Trouble lsp_implementations toggle<cr>", { desc = "Implementation" })
-keymap.set("n", "dD", "<cmd>Trouble lsp_definitions toggle<cr>", { desc = "Definition" })
+keymap.set("n", "dE", "<cmd>Trouble lsp_definitions toggle<cr>", { desc = "Definition" })
 keymap.set("n", "dt", "<cmd>Trouble lsp_type_definitions toggle<cr>", { desc = "Type Definitions" })
 keymap.set("n", "ds", "<cmd>Trouble symbols toggle<cr>", { desc = "Document Symbols" })
 keymap.set("n", "dc", "<cmd>Trouble lsp_incoming_calls toggle<cr>", { desc = "Incoming Calls" })
