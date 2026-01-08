@@ -14,10 +14,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- 定義・参照
-    map("n", "gd", vim.lsp.buf.definition, "go to definition")
-    map("n", "gr", vim.lsp.buf.references, "find references")
     map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
-    map("n", "gi", vim.lsp.buf.implementation, "go to implementation")
 
     -- ホバー・シグネチャヘルプ
     map("n", "K", vim.lsp.buf.hover, "hover documentation")
@@ -27,21 +24,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "code action")
     map("n", "<leader>rn", vim.lsp.buf.rename, "rename")
 
-    -- 診断
-    map("n", "<leader>ds", vim.diagnostic.open_float, "show diagnostic")
-    map("n", "[d", vim.diagnostic.goto_prev, "previous diagnostic")
-    map("n", "]d", vim.diagnostic.goto_next, "next diagnostic")
-    map("n", "<leader>dl", vim.diagnostic.setloclist, "diagnostic list")
-
     -- フォーマット
-    map("n", "<leader>fm", function()
+    map("n", "<leader>mf", function()
       vim.lsp.buf.format({ async = true })
     end, "format")
-
-
   end,
 })
 
 -- LSP custom command
 keymap.set("n", "<leader>il", "<cmd>LspInfo<cr>", { desc = "LSP Info" })
 keymap.set("n", "<leader>rl", "<cmd>LspRestart<cr>", { desc = "LSP Restart" })
+
+
+-- trouble.nvim
+keymap.set("n", "dd", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics" })
+keymap.set("n", "dr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "References" })
+keymap.set("n", "di", "<cmd>Trouble lsp_implementations toggle<cr>", { desc = "Implementation" })
+keymap.set("n", "dD", "<cmd>Trouble lsp_definitions toggle<cr>", { desc = "Definition" })
+keymap.set("n", "dt", "<cmd>Trouble lsp_type_definitions toggle<cr>", { desc = "Type Definitions" })
+keymap.set("n", "ds", "<cmd>Trouble symbols toggle<cr>", { desc = "Document Symbols" })
+keymap.set("n", "dc", "<cmd>Trouble lsp_incoming_calls toggle<cr>", { desc = "Incoming Calls" })
+keymap.set("n", "dC", "<cmd>Trouble lsp_outgoing_calls toggle<cr>", { desc = "Outgoing Calls" })
+
+
+
+
+
