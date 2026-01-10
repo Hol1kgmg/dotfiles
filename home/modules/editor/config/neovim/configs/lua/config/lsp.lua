@@ -9,7 +9,7 @@ local LSP_CONFIG = {
 local git_root = vim.fs.root(0, { ".git" })
 
 -- LSP起動時のハンドラー設定
-local on_attach = function(client, bufnr)
+local on_attach = function(client)
   if LSP_CONFIG.show_attach_notification then
     vim.notify(
       string.format("LSP '%s' attached", client.name),
@@ -57,14 +57,14 @@ vim.lsp.config.pyright = {
 }
 
 -- Nix
-vim.lsp.config.nil_ls = {
-  cmd = { "nil" },
+vim.lsp.config.nixd = {
+  cmd = { "nixd" },
   filetypes = { "nix" },
-  root_dir = vim.fs.root(0, { "flake.nix", "default.nix", "shell.nix" }),
+  root_dir = vim.fs.root(0, { "flake.nix", "default.nix", "shell.nix", ".nixd.json" }),
   on_attach = on_attach,
   settings = {
-    ["nil"] = {
-      formatting = { command = { "nixpkgs-fmt" } },
+    nixd = {
+      formatting = { command = { "nixfmt" } },
     },
   },
 }
@@ -155,7 +155,7 @@ vim.lsp.config.tailwindcss = {
 }
 
 -- 全LSPサーバーを有効化
-local servers = { "ts_ls", "pyright", "nil_ls", "yamlls", "taplo", "jsonls", "vimls", "lua_ls", "marksman", "tailwindcss" }
+local servers = { "ts_ls", "pyright", "nixd", "yamlls", "taplo", "jsonls", "vimls", "lua_ls", "marksman", "tailwindcss" }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
