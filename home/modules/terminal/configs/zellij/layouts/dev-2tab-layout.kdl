@@ -1,7 +1,6 @@
 // 開発用3タブレイアウト
 // タブ1: nvim（エディタ）
-// タブ2: claude（AIアシスタント）
-// タブ3: nvt（nvim + ターミナルバッファ）
+// タブ2: nvt（nvim + ターミナルバッファ）
 
 layout {
   default_tab_template {
@@ -18,10 +17,6 @@ layout {
 
   tab name="nvim" {
     pane name="nvim" command="nvim"
-  }
-
-  tab name="claude" {
-    pane name="claude" command="claude"
   }
 
   tab name="terminal" {
