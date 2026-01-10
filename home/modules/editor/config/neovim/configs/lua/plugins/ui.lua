@@ -148,14 +148,75 @@ return {
         dashboard.button("q", "󰗼  Quit", ":qa<CR>"),
       }
 
+      -- 空バッファかどうかを判定
+      local function is_empty_buffer()
+        return vim.bo.buftype == ""
+          and vim.fn.expand("%") == ""
+          and vim.fn.line("$") == 1
+          and vim.fn.getline(1) == ""
+      end
+
+      -- 空バッファならalphaを表示
+      local function show_alpha_if_empty()
+        vim.schedule(function()
+          if is_empty_buffer() then
+            require("alpha").start()
+          end
+        end)
+      end
+
+      local augroup = vim.api.nvim_create_augroup("AlphaConfig", { clear = true })
+
       -- alphaバッファでmini.clueのトリガーを有効化
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'alpha',
+      vim.api.nvim_create_autocmd("FileType", {
+        group = augroup,
+        pattern = "alpha",
         callback = function()
           vim.schedule(function()
-            require('mini.clue').ensure_buf_triggers()
+            require("mini.clue").ensure_buf_triggers()
           end)
-        end
+        end,
+      })
+
+      -- alpha表示時はtablineを非表示、終了時は再表示
+      vim.api.nvim_create_autocmd("User", {
+        group = augroup,
+        pattern = { "AlphaReady", "AlphaClosed" },
+        callback = function(event)
+          vim.opt.showtabline = event.match == "AlphaReady" and 0 or 2
+        end,
+      })
+
+      -- lazy.nvimのウィンドウが閉じられた時にalphaを再表示
+      vim.api.nvim_create_autocmd("FileType", {
+        group = augroup,
+        pattern = "lazy",
+        callback = function()
+          vim.api.nvim_create_autocmd("BufWinLeave", {
+            group = augroup,
+            buffer = 0,
+            once = true,
+            callback = show_alpha_if_empty,
+          })
+        end,
+      })
+
+      -- 最後のバッファを閉じた時にalphaを表示
+      vim.api.nvim_create_autocmd("BufDelete", {
+        group = augroup,
+        callback = function(event)
+          -- alphaバッファ自体や特殊バッファは無視
+          local buftype = vim.bo[event.buf].buftype
+          if buftype ~= "" then
+            return
+          end
+          -- 残りのリストされたバッファ数をチェック
+          local listed_bufs = vim.fn.getbufinfo({ buflisted = 1 })
+          -- 削除されるバッファを除いて1つ以下なら表示
+          if #listed_bufs <= 1 then
+            show_alpha_if_empty()
+          end
+        end,
       })
 
       -- フッター設定
