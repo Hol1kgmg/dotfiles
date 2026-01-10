@@ -1,5 +1,7 @@
 -- :LspInfo - LSP情報表示コマンド
 
+local float_window = require("config.utils.float-window")
+
 -- 設定済みLSPサーバーリストをlsp.luaから取得
 local lsp_config = require("config.lsp")
 local configured_servers = lsp_config.servers
@@ -72,31 +74,6 @@ local function build_footer()
   }
 end
 
--- 情報ウィンドウ表示
-local function show_info_window(lines)
-  local info_buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(info_buf, 0, -1, false, lines)
-  vim.bo[info_buf].modifiable = false
-  vim.bo[info_buf].filetype = "lspinfo"
-
-  local width = 70
-  local height = #lines
-  local row = math.floor((vim.o.lines - height) / 2)
-  local col = math.floor((vim.o.columns - width) / 2)
-
-  vim.api.nvim_open_win(info_buf, true, {
-    relative = "editor",
-    width = width,
-    height = height,
-    row = row,
-    col = col,
-    style = "minimal",
-    border = "rounded",
-  })
-
-  vim.api.nvim_buf_set_keymap(info_buf, "n", "q", ":close<CR>", { noremap = true, silent = true })
-end
-
 -- コマンド定義
 vim.api.nvim_create_user_command("LspInfo", function()
   local buf = vim.api.nvim_get_current_buf()
@@ -109,5 +86,5 @@ vim.api.nvim_create_user_command("LspInfo", function()
   vim.list_extend(lines, build_all_clients(all_clients))
   vim.list_extend(lines, build_footer())
 
-  show_info_window(lines)
+  float_window.show(lines, { width = 70, filetype = "lspinfo" })
 end, {})

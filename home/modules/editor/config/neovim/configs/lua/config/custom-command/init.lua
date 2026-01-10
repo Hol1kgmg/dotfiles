@@ -6,3 +6,6 @@ require("config.custom-command.lsp-restart")
 
 -- Health check
 require("config.custom-command.health-check")
+
+-- Keymap info
+require("config.custom-command.keymap-info")

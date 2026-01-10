@@ -1,19 +1,9 @@
--- Git・ターミナルキーマップ
+-- gitsigns.nvim バッファローカルキーマップ
+-- plugins/gitsigns.lua の on_attach から呼び出される
 
-local keymap = vim.keymap
 local M = {}
 
--- Git操作（snacks.nvim）
-keymap.set("n", "<leader>gg", function()
-  Snacks.lazygit()
-end, { desc = "LazyGit" })
-
-keymap.set("n", "<leader>gB", function()
-  Snacks.gitbrowse()
-end, { desc = "Git open browser" })
-
--- Gitsigns キーマップ設定（バッファローカル）
-M.setup_gitsigns_keymaps = function(bufnr)
+M.setup = function(bufnr)
   local gs = package.loaded.gitsigns
 
   local function map(mode, l, r, opts)
