@@ -21,6 +21,7 @@ return {
       use_default_keymaps = false,
       keymaps = {
         ["g?"] = { "actions.show_help", mode = "n" },
+        ["."] = { "actions.toggle_hidden", mode = "n" },
         ["L"] = { "actions.select", mode = "n" },
         ["H"] = { "actions.parent", mode = "n" },
         ["<Tab>"] = { "actions.select", mode = "n" },
