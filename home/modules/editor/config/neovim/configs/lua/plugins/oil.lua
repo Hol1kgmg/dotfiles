@@ -1,15 +1,18 @@
 -- ファイラー
+-- Keymaps: lua/config/keymaps/plugins/oil.lua
 return {
   "stevearc/oil.nvim",
   dependencies = { "echasnovski/mini.icons" },
-  config = function ()
+  config = function()
+    local oil_keymaps = require("config.keymaps.plugins.oil")
+
     require("oil").setup({
-      is_hidden_file = function (name)
+      is_hidden_file = function(name)
         return name:match("^%.")
-        or name == "DS_Store"
-        or name == "Thumbs.db"
-        or name:match("%.swp$")
-        or name:match("~$")
+          or name == "DS_Store"
+          or name == "Thumbs.db"
+          or name:match("%.swp$")
+          or name:match("~$")
       end,
 
       lsp_file_methods = {
@@ -19,29 +22,7 @@ return {
       },
 
       use_default_keymaps = false,
-      keymaps = {
-        ["g?"] = { "actions.show_help", mode = "n" },
-        ["."] = { "actions.toggle_hidden", mode = "n" },
-        ["L"] = { "actions.select", mode = "n" },
-        ["H"] = { "actions.parent", mode = "n" },
-        ["<Tab>"] = { "actions.select", mode = "n" },
-        ["<S-Tab>"] = { "actions.parent", mode = "n" },
-        ["<C-t>"] = { "actions.select", opts = { tab = true } },
-        ["<C-p>"] = { "actions.preview", mode = "n" },
-        ["q"] = { "actions.close", mode = "n" },
-        ["<C-r>"] = "actions.refresh",
-        ["pwd"] = { "actions.open_cwd", mode = "n" },
-        ["cd"] = { "actions.cd", mode = "n" },
-        ["tcd"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
-      },
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "oil",
-        callback = function (args)
-          vim.keymap.set("n", "J", "j", { buffer = args.buf, desc = "move down"} )
-          vim.keymap.set("n", "K", "k", { buffer = args.buf, desc = "move up"} )
-        end,
-      }),
+      keymaps = oil_keymaps.keymaps,
 
       float = {
         padding = 1,
@@ -49,7 +30,7 @@ return {
         max_height = 0.9,
         border = "single",
         preview_split = "right",
-        get_win_title = function ()
+        get_win_title = function()
           local oil = require("oil")
           local cwd = oil.get_current_dir()
           local root = vim.fn.getcwd()
@@ -63,5 +44,13 @@ return {
         end,
       },
     })
-  end
+
+    -- バッファ固有キーマップ
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "oil",
+      callback = function(args)
+        oil_keymaps.setup_buffer_keymaps(args.buf)
+      end,
+    })
+  end,
 }

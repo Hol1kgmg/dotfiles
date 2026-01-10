@@ -1,6 +1,6 @@
 -- Git差分表示
 -- Docs: https://github.com/lewis6991/gitsigns.nvim
--- キーマップ: lua/config/keymaps/git.lua で管理
+-- Keymaps: lua/config/keymaps/plugins/gitsigns.lua
 return {
   'lewis6991/gitsigns.nvim',
   event = { "BufReadPre", "BufNewFile" },
@@ -14,7 +14,7 @@ return {
       untracked    = { text = '┆' },
     },
     on_attach = function(bufnr)
-      require('config.keymaps.git').setup_gitsigns_keymaps(bufnr)
+      require('config.keymaps.plugins.gitsigns').setup(bufnr)
     end
   },
 }
