@@ -21,7 +21,7 @@
     # LSPサーバー（10言語）
     nodePackages.typescript-language-server  # TypeScript/TSX
     pyright                                  # Python
-    nil                                      # Nix
+    nixd                                     # Nix
     nodePackages.yaml-language-server        # YAML
     taplo                                    # TOML
     nodePackages.vscode-langservers-extracted # JSON/HTML/CSS/ESLint
