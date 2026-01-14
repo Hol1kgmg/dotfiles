@@ -45,15 +45,8 @@
         },
         {
           "leading_diamond": "\ue0b2",
-          "template": "\ue266 CPU: {{ round .PhysicalPercentUsed .Precision }}% | ",
-          "foreground": "#ffffff",
-          "background": "#516BEB",
-          "type": "sysinfo",
-          "style": "diamond"
-        },
-        {
           "trailing_diamond": "<transparent,#516BEB>\ue0b2</>",
-          "template": "RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB \ue266 ",
+          "template": "\ue266 RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB \ue266 ",
           "foreground": "#ffffff",
           "background": "#516BEB",
           "type": "sysinfo",
