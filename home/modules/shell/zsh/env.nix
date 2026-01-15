@@ -7,5 +7,10 @@
     if [ -d "/run/current-system/sw/bin" ]; then
       export PATH="/run/current-system/sw/bin:$PATH"
     fi
+
+    # Homebrew binaries
+    if [ -d "/opt/homebrew/bin/" ]; then
+      export PATH="/opt/homebrew/bin/:$PATH"
+    fi
   '';
 }

@@ -24,6 +24,9 @@
       streetsidesoftware.code-spell-checker
       esbenp.prettier-vscode
 
+      # AIアシスタント
+      github.copilot
+      github.copilot-chat
     ])
     ++
     # vscode-marketplace拡張機能（nixpkgs標準にないもののみ）
