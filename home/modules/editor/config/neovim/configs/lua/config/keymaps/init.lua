@@ -192,15 +192,6 @@ keymap.set("n", "dC", "<cmd>Trouble lsp_outgoing_calls toggle<cr>", { desc = "Ou
 -- AI - AI連携
 -- ============================================================
 
--- Copilot
-keymap.set("n", "<leader>co", function()
-  if _G.toggle_copilot_completion then
-    _G.toggle_copilot_completion()
-  else
-    vim.notify("Copilot toggle function is not available", vim.log.levels.ERROR)
-  end
-end, { desc = "toggle Copilot completion" })
-
 -- Claude Code
 keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "toggle Claude Code" })
 keymap.set("n", "<leader>cf", "<cmd>ClaudeCodeFocus<CR>", { desc = "focus Claude Code" })
