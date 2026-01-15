@@ -60,11 +60,18 @@ keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "previous buffer" })
 keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next buffer" })
 
 -- Bufferで開いているファイル相対パスをコピー
-keymap.set("n", "<Space>y", function()
+keymap.set("n", "<leader>y", function()
   local relative_path = vim.fn.expand("%:.")
   vim.fn.setreg("+", relative_path)
   vim.notify("Copy: " .. relative_path)
 end, { desc = "copy file path", silent = true })
+
+-- Bufferで開いているファイル名をコピー
+keymap.set("n", "<leader>Y", function ()
+  local filename = vim.fn.expand("%:t")
+  vim.fn.setreg("+", filename)
+  vim.notify("Copy: " .. filename)
+end, { desc = "copy file name", silent = true })
 
 -- Buffer削除
 keymap.set("n", "q", function()
@@ -161,6 +168,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>mf", function()
       vim.lsp.buf.format({ async = true })
     end, "format")
+
+    -- LSPのcode actionを実行
+    map("n", "<leader>mc", vim.lsp.buf.code_action, "LSP:code_action")
   end,
 })
 
