@@ -22,7 +22,7 @@ return {
       clues = {
         { mode = "n", keys = "<Leader>f", desc = "+Find" },
         { mode = "n", keys = "<Leader>l", desc = "+Lazy" },
-        { mode = "n", keys = "<Leader>g", desc = "+Git" },
+        { mode = "n", keys = "<Leader>g", desc = "+Go" },
         { mode = "n", keys = "<Leader>c", desc = "+Coding Agent" },
         { mode = "n", keys = "<Leader>r", desc = "+Re-Action" },
         { mode = "n", keys = "<leader>m", desc = "+Make Action" },

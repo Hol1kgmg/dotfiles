@@ -1,8 +1,12 @@
 -- ファイラー
--- Keymaps: lua/config/keymaps/plugins/oil.lua
+-- Buffer keymaps: lua/config/keymaps/plugins/oil.lua
 return {
   "stevearc/oil.nvim",
   dependencies = { "echasnovski/mini.icons" },
+  keys = {
+    { "<leader>e", "<cmd>Oil --float<cr>", desc = "open filer (this file)" },
+    { "<leader>E", "<cmd>Oil . --float<cr>", desc = "open filer (cwd)" },
+  },
   config = function()
     local oil_keymaps = require("config.keymaps.plugins.oil")
 
