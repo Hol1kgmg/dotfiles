@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
 {
-  # 開発用パッケージ
+  # nodejs
   home.packages = with pkgs; [
     nodejs_24
-    pnpm
   ];
 }
