@@ -2,6 +2,14 @@
 return {
   "coder/claudecode.nvim",
   dependencies = { "folke/snacks.nvim" },
+  keys = {
+    { "<leader>cc", "<cmd>ClaudeCode<CR>", desc = "toggle Claude Code" },
+    { "<leader>cf", "<cmd>ClaudeCodeFocus<CR>", desc = "focus Claude Code" },
+    { "<leader>cm", "<cmd>ClaudeCodeSelectModel<CR>", desc = "select Model Claude Code" },
+    { "<leader>cs", "<cmd>ClaudeCodeSend<CR>", mode = "v", desc = "send selection to Claude" },
+    { "<leader>cA", "<cmd>ClaudeCodeDiffAccept<CR>", desc = "accept Claude diff" },
+    { "<leader>cD", "<cmd>ClaudeCodeDiffDeny<CR>", desc = "deny Claude diff" },
+  },
   opts = {
     -- Server Configuration
     port_range = { min = 10000, max = 65535 },
