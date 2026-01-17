@@ -5,6 +5,8 @@
     ./uv.nix
     ./mise.nix
     ./ghq-zoxide.nix
-    ./packages.nix
+    ./ni.nix
+    ./nodejs.nix
+    ./pnpm.nix
   ];
 }
