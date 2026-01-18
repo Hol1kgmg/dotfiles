@@ -83,6 +83,18 @@ vim.lsp.config.taplo = {
   filetypes = { "toml" },
   root_dir = vim.fs.root(0, { "*.toml" }),
   on_attach = on_attach,
+  settings = {
+    evenBetterToml = {
+      schema = {
+        associations = {
+          -- .mise.toml を mise のスキーマに紐付ける
+          ["\\.mise\\.toml$"] = "https://mise.jdx.dev/schema/mise.json",
+          -- 必要に応じて他のファイルも追加可能
+          -- ["cargo\\.toml$"] = "https://json.schemastore.org/cargo.json",
+        },
+      },
+    },
+  },
 }
 
 -- JSON
