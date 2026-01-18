@@ -4,6 +4,7 @@
     # 開発ツール
     "docker-desktop"
     "smoothcsv"
+    "devtoys"
 
     # AIエージェント
     "claude-code"
