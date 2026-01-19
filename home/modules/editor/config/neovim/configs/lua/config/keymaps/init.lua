@@ -20,6 +20,26 @@ keymap.set("t", "<C-\\>", "<C-\\><C-n>", { desc = "exit terminal mode" })
 -- 検索ハイライトをクリア
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
+-- hlslens 検索
+local opts = { silent = true }
+keymap.set("n", "*", function()
+  local hlslens = require("hlslens")
+  local current_word = vim.fn.expand("<cword>")
+  vim.fn.histadd("search", current_word)
+  vim.fn.setreg("/", current_word)
+  vim.opt.hlsearch = true
+  hlslens.start()
+end, opts)
+
+keymap.set("n", "#", function()
+  local hlslens = require("hlslens")
+  local current_word = vim.fn.expand("<cword>")
+  vim.api.nvim_feedkeys(":%s/" .. current_word .. "//g", "n", false)
+  local ll = vim.api.nvim_replace_termcodes("<Left><Left>", true, true, true)
+  vim.api.nvim_feedkeys(ll, "n", false)
+  vim.opt.hlsearch = true
+  hlslens.start()
+end, opts)
 -- Lazy.nvim
 keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "open Lazy.nvim" })
 keymap.set("n", "<leader>lu", "<cmd>Lazy update<cr>", { desc = "open Lazy update" })
