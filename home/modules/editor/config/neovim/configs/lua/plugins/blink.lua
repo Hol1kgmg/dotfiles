@@ -4,6 +4,7 @@
 return {
   'saghen/blink.cmp',
   version = 'v0.*',
+  dependencies = { "L3MON4D3/LuaSnip" },
   event = { "InsertEnter", "CmdLineEnter" },
   config = function()
     require('blink.cmp').setup({
