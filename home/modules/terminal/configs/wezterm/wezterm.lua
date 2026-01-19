@@ -12,7 +12,7 @@ config.ime_preedit_rendering = "Builtin"
 -- ウィンドウ・透過設定
 ----------------------------------------------------
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.80
 config.macos_window_background_blur = 20
 
 ----------------------------------------------------
