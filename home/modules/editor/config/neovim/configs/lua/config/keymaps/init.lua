@@ -126,6 +126,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- ホバー・シグネチャヘルプ
     map("n", "<C-k>", vim.lsp.buf.signature_help, "signature help")
 
+    -- vim.lsp.buf.hover
+    map("n", "<C-K>", vim.lsp.buf.hover, "displays hover information")
+
     -- コード操作
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "code action")
     map("n", "<leader>rn", vim.lsp.buf.rename, "rename")
