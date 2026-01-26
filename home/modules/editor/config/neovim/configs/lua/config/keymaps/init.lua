@@ -61,11 +61,20 @@ keymap.set("n", "<leader>gl", "<C-w>l", { desc = "to right window" })
 keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "previous buffer" })
 keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next buffer" })
 
--- Bufferで開いているファイル相対パスをコピー
+-- Bufferで開いているファイルのリポジトリルートからのパスをコピー
 keymap.set("n", "<leader>y", function()
-  local relative_path = vim.fn.expand("%:.")
-  vim.fn.setreg("+", relative_path)
-  vim.notify("Copy: " .. relative_path)
+  local file_path = vim.fn.expand("%:p") -- 絶対パス
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  if git_root and vim.v.shell_error == 0 then
+    local relative_path = file_path:sub(#git_root + 2) -- +2 は "/" の分
+    vim.fn.setreg("+", relative_path)
+    vim.notify("Copy: " .. relative_path)
+  else
+    -- gitリポジトリでない場合は従来通り
+    local relative_path = vim.fn.expand("%:.")
+    vim.fn.setreg("+", relative_path)
+    vim.notify("Copy: " .. relative_path)
+  end
 end, { desc = "copy file path", silent = true })
 
 -- Bufferで開いているファイル名をコピー
