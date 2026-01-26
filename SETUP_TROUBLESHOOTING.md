@@ -152,6 +152,28 @@ nvim --headless "+lua require('fff')" "+lua print('fff.nvim loaded successfully'
 
 ---
 
+## home-manager switch 後に設定が反映されない
+
+### 症状
+
+`home-manager switch --flake .#$(whoami) --impure` を実行しても、Neovimのキーマップやプラグイン設定の変更が反映されない。
+
+### 原因
+
+Neovimは起動高速化のため、Luaファイルをコンパイルしたbytecodeを `~/.cache/nvim/luac/` にキャッシュしています。設定ファイルが更新されても、古いbytecodeキャッシュが優先して読み込まれるため、変更が反映されません。
+
+### 解決方法
+
+Neovimを終了してから以下を実行し、キャッシュを削除します：
+
+```zsh
+rm -rf ~/.local/state/nvim/ ~/.cache/nvim/luac/
+```
+
+その後、Neovimを再起動してください。
+
+---
+
 ## プラグインの一般的なトラブルシューティング
 
 ### lazy.nvimの状態確認

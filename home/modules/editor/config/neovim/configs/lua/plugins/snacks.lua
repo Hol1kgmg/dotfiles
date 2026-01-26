@@ -29,7 +29,7 @@ return {
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "live grep" },
 
     -- Git
-    { "<leader>lg", function() Snacks.lazygit() end, desc = "LazyGit" },
+    { "<leader>gg", function() Snacks.lazygit() end, desc = "LazyGit" },
   },
   opts = {
     -- 必須機能
