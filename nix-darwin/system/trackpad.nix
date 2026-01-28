@@ -7,4 +7,8 @@
     # Clicking = true;                  # タップでクリック
     # TrackpadThreeFingerDrag = true;   # 3本指ドラッグ
   };
+
+  system.defaults.NSGlobalDomain = {
+    "com.apple.trackpad.scaling" = 3.0; # トラックパッド感度(0.0-3.0, 高速)
+  };
 }
