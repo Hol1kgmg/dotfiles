@@ -8,6 +8,7 @@
 
     # AIエージェント
     "claude-code"
+    "copilot-cli"
 
     # ターミナル
     "wezterm"  # NixのmacOSビルドに問題があるためHomebrewで管理

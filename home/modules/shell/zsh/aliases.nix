@@ -26,5 +26,8 @@
 
     # nix
     nix-store-gc = "nix store gc";
+
+    # copilot
+    copilot = "copilot --deny-tool 'bash(git push*)' --deny-tool 'bash(gh * delete*)' --deny-tool 'bash(rm *)' --allow-tool view glob grep --allow-tool 'bash(ls*)' 'bash(cat*)' 'bash(find*)' 'bash(cd*)' --allow-tool 'bash(git status*)' 'bash(git log*)' 'bash(git show*)' 'bash(git diff*)' 'bash(git branch*)' 'bash(git remote -v)' --allow-tool 'bash(gh repo view*)' 'bash(gh repo list*)' --allow-tool 'bash(gh pr view*)' 'bash(gh pr list*)' 'bash(gh pr diff*)' 'bash(gh pr checks*)' --allow-tool 'bash(gh issue view*)' 'bash(gh issue list*)' --allow-tool 'bash(gh run view*)' 'bash(gh run list*)' --allow-tool 'bash(gh browse*)' 'bash(gh search*)' 'bash(gh status*)'";
   };
 }
