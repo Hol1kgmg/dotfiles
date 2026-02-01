@@ -8,48 +8,20 @@
 
 
   home.activation.rectangleSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    # Rectangle設定を適用
     echo "Applying Rectangle settings..."
 
-    # Rectangleがインストールされているか確認
-    if [ ! -d "/Applications/Rectangle.app" ]; then
+    # ヘルパー関数を読み込み
+    source ${./lib/app-control.sh}
+
+    # インストール確認
+    if ! check_app_installed "/Applications/Rectangle.app"; then
       echo "Rectangle is not installed yet. Skipping settings..."
       exit 0
     fi
 
-    # Rectangleが開いている場合は終了させる
-    RECTANGLE_RUNNING=$(/bin/ps aux | /usr/bin/grep -v grep | /usr/bin/grep -c "Rectangle.app/Contents/MacOS/Rectangle$" 2>/dev/null || echo "0")
-    RECTANGLE_RUNNING=$(echo "$RECTANGLE_RUNNING" | /usr/bin/tr -d '\n')
-
-    # 元々起動していたかどうかを記録
-    RECTANGLE_WAS_RUNNING="$RECTANGLE_RUNNING"
-
-    if [ "$RECTANGLE_RUNNING" -gt 0 ] 2>/dev/null; then
-      echo "Rectangle起動中のため終了します..."
-      /usr/bin/osascript -e 'quit app "Rectangle"' || true
-
-      # 終了を確認（最大10秒待機）
-      COUNTER=0
-      while [ $COUNTER -lt 10 ]; do
-        STILL_RUNNING=$(/bin/ps aux | /usr/bin/grep -v grep | /usr/bin/grep -c "Rectangle.app/Contents/MacOS/Rectangle$" 2>/dev/null || echo "0")
-        STILL_RUNNING=$(echo "$STILL_RUNNING" | /usr/bin/tr -d '\n')
-
-        if [ "$STILL_RUNNING" -eq 0 ] 2>/dev/null; then
-          echo "Rectangleの終了を確認しました"
-          break
-        fi
-        sleep 1
-        COUNTER=$((COUNTER + 1))
-      done
-
-      # まだ起動している場合は警告して終了
-      STILL_RUNNING=$(/bin/ps aux | /usr/bin/grep -v grep | /usr/bin/grep -c "Rectangle.app/Contents/MacOS/Rectangle$" 2>/dev/null || echo "0")
-      STILL_RUNNING=$(echo "$STILL_RUNNING" | /usr/bin/tr -d '\n')
-
-      if [ "$STILL_RUNNING" -gt 0 ] 2>/dev/null; then
-        echo -e "\033[1;33mWARNING: Rectangleが終了しませんでした。設定をスキップします\033[0m"
-        exit 0
-      fi
+    # 起動中なら終了
+    if ! stop_app_if_running "Rectangle" "Rectangle.app/Contents/MacOS/Rectangle$"; then
+      exit 0
     fi
 
     # 基本設定
@@ -87,9 +59,6 @@
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle reflowTodo -dict || true
 
     # 元々起動していた場合は再起動
-    if [ "$RECTANGLE_WAS_RUNNING" -gt 0 ] 2>/dev/null; then
-      echo "Rectangleを再起動します..."
-      /usr/bin/open -a Rectangle || true
-    fi
+    restart_app_if_was_running "Rectangle"
   '';
 }

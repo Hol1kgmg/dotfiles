@@ -28,5 +28,6 @@
     # ウィンドウ管理
     "rectangle"
     "autoraiseapp"  # dimentium/autoraise tap
+    "alt-tab"
   ];
 }
