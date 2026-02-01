@@ -22,6 +22,7 @@
     zda = "zellij delete-all-sessions";
 
     # nvim
+    n = "nvim";
     nvt = "nvim -c 'terminal' -c 'startinsert'";
 
     # nix

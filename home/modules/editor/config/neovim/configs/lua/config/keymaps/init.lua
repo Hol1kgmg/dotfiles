@@ -11,7 +11,7 @@ local keymap = vim.keymap
 
 -- ファイル操作
 keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "save" })
-keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit" })
+keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "quit" })
 keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "force quit(not save)" })
 
 -- ターミナルモード終了
