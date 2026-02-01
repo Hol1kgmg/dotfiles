@@ -1,14 +1,12 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # AutoRaise - マウスオーバーでウィンドウを自動的にフォーカス
-  # help: ターミナルから起動するコマンド `AutoRaise`
-
-  home.packages = [ pkgs.autoraise ];
+  # インストールはHomebrewで管理 (nix-darwin/homebrew/cask)
 
   launchd.agents.autoraise = {
     enable = true;
     config = {
-      ProgramArguments = [ "${pkgs.autoraise}/bin/AutoRaise" ];
+      ProgramArguments = [ "/opt/homebrew/bin/AutoRaise" ];
       KeepAlive = true;
       RunAtLoad = true;
     };
