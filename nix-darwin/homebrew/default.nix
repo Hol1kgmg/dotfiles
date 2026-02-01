@@ -6,6 +6,9 @@
       upgrade = true;
       cleanup = "uninstall";
     };
+    taps = [
+      "dimentium/autoraise"
+    ];
   };
 
   imports = [
