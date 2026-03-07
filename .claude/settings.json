@@ -1,7 +1,20 @@
 {
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git log --oneline -5"
+          }
+        ]
+      }
+    ]
+  },
   "alwaysThinkingEnabled": true,
   "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": ["nixos"],
+  "enabledMcpjsonServers": [],
   "permissions": {
     "allow": [
       "Bash(git add:*)",
@@ -28,12 +41,16 @@
       "Bash(source ~/.zshrc)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:nixos.wiki)",
-      "mcp__nixos",
       "WebSearch",
       "Write(*.md)",
-      "Write(**/*.md)"
+      "Write(**/*.md)",
+      "Skill"
     ],
     "deny": [],
     "ask": []
+  },
+  "statusLine": {
+    "type": "command",
+    "command": ".claude/statusline.sh"
   }
 }
