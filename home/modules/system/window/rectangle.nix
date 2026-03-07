@@ -1,10 +1,10 @@
 {lib, ...}: {
 # windowマネージャー Rectangle設定
 # help: キーバインド
-# Left Half   : ctrl + h
-# Right Half  : ctrl + l
-# Max Size    : ctrl + a
-# Next Display: ctrl + u
+# Left Third      : ctrl + h
+# Right Two Thirds: ctrl + l
+# Max Size        : ctrl + a
+# Next Display    : ctrl + u
 
 
   home.activation.rectangleSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -39,8 +39,8 @@
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle maximize -dict keyCode -float 0 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle nextDisplay -dict keyCode -float 32 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle restore -dict keyCode -float 51 modifierFlags -float 262144 || true
-    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle rightHalf -dict keyCode -float 37 modifierFlags -float 262144 || true
-    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle leftHalf -dict keyCode -float 4 modifierFlags -float 262144 || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle lastTwoThirds -dict keyCode -float 37 modifierFlags -float 262144 || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle firstThird -dict keyCode -float 4 modifierFlags -float 262144 || true
     
     # ショートカット設定（空）
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle almostMaximize -dict || true
@@ -49,8 +49,10 @@
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle bottomRight -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle center -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle larger -dict || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle leftHalf -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle maximizeHeight -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle previousDisplay -dict || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle rightHalf -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle smaller -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle topHalf -dict || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle topLeft -dict || true
