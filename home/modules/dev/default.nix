@@ -8,5 +8,6 @@
     ./ni.nix
     ./nodejs.nix
     ./pnpm.nix
+    ./nix-tools.nix
   ];
 }
