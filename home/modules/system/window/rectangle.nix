@@ -1,6 +1,8 @@
 {lib, ...}: {
 # windowマネージャー Rectangle設定
 # help: キーバインド
+# Left Half       : ctrl + alt + h
+# Right Half      : ctrl + alt + l
 # Left Third      : ctrl + h
 # Right Two Thirds: ctrl + l
 # Max Size        : ctrl + a
@@ -39,6 +41,8 @@
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle maximize -dict keyCode -float 0 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle nextDisplay -dict keyCode -float 32 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle restore -dict keyCode -float 51 modifierFlags -float 262144 || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle rightHalf -dict keyCode -float 37 modifierFlags -float 786432 || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle leftHalf -dict keyCode -float 4 modifierFlags -float 786432 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle lastTwoThirds -dict keyCode -float 37 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle firstThird -dict keyCode -float 4 modifierFlags -float 262144 || true
     
