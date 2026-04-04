@@ -55,17 +55,19 @@ return {
       group = augroup,
       pattern = "alpha",
       callback = function()
+        vim.opt_local.showtabline = 0
         vim.schedule(function()
           require("mini.clue").ensure_buf_triggers()
         end)
       end,
     })
 
-    vim.api.nvim_create_autocmd("User", {
+    vim.api.nvim_create_autocmd({"BufEnter", "WinEnter"}, {
       group = augroup,
-      pattern = { "AlphaReady", "AlphaClosed" },
-      callback = function(event)
-        vim.opt.showtabline = event.match == "AlphaReady" and 0 or 2
+      callback = function()
+        if vim.bo.filetype ~= "alpha" then
+          vim.opt.showtabline = 2
+        end
       end,
     })
 
