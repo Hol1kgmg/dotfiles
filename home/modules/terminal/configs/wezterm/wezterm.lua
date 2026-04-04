@@ -18,7 +18,20 @@ config.macos_window_background_blur = 20
 ----------------------------------------------------
 -- タブバー設定
 ----------------------------------------------------
-config.enable_tab_bar = false
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = false
+config.show_new_tab_button_in_tab_bar = false
+config.window_background_gradient = {
+  colors = { "#000000" },
+}
+-- タブバーにワークスペース名を表示
+wezterm.on("update-right-status", function(window, _)
+	window:set_right_status(wezterm.format({
+		{ Foreground = { AnsiColor = "Silver" } },
+		{ Text = " " .. window:active_workspace() .. " " },
+	}))
+end)
 
 ----------------------------------------------------
 -- フォント設定
@@ -33,16 +46,15 @@ config.adjust_window_size_when_changing_font_size = false
 config.disable_default_key_bindings = false
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
-config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
 
 ----------------------------------------------------
 -- イベントハンドラ
 ----------------------------------------------------
 -- フォントサイズトグル
-wezterm.on('toggle-font-size', function(window, pane)
-  local overrides = window:get_config_overrides() or {}
-  overrides.font_size = not overrides.font_size and 18.0 or nil
-  window:set_config_overrides(overrides)
+wezterm.on("toggle-font-size", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	overrides.font_size = not overrides.font_size and 18.0 or nil
+	window:set_config_overrides(overrides)
 end)
 
 return config

@@ -25,6 +25,10 @@
     n = "nvim";
     nvt = "nvim -c 'terminal' -c 'startinsert'";
 
+    # dotfiles
+    dots = "cd ~/dotfiles";
+    ndots = "nvim -c \"lua require('oil').open_float(vim.fn.expand('~/dotfiles'))\"" ;
+
     # nix
     nix-store-gc = "nix store gc";
 

@@ -4,22 +4,43 @@ local act = wezterm.action
 return {
 	keys = {
 		-- タブ切り替え
-		{ key = "[", mods = "SUPER", action = act.ActivateTabRelative(-1) },
-		{ key = "]", mods = "SUPER", action = act.ActivateTabRelative(1) },
+		{ key = "h", mods = "ALT", action = act.ActivateTabRelative(-1) },
+		{ key = "l", mods = "ALT", action = act.ActivateTabRelative(1) },
 
-		-- ペイン操作
-		{ key = "d", mods = "SUPER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-		{ key = "w", mods = "ALT", action = act.CloseCurrentPane({ confirm = true }) },
-		{ key = "[", mods = "ALT|SUPER", action = act.ActivatePaneDirection("Left") },
-		{ key = "LeftArrow", mods = "SUPER", action = act.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "]", mods = "ALT|SUPER", action = act.ActivatePaneDirection("Right") },
-		{ key = "RightArrow", mods = "SUPER", action = act.AdjustPaneSize({ "Right", 1 }) },
+		-- 新しいタブ (WezTermデフォルトのCmd+t を明示)
+		{ key = "t", mods = "SUPER", action = act.SpawnTab("CurrentPaneDomain") },
 
-		-- Zenモードフォントサイズトグル（Neovimから呼び出し用）
-		{ key = ";", mods = "CTRL", action = act.EmitEvent "toggle-font-size" },
+		-- 新しいワークスペース (cdiでディレクトリ選択)
+		{
+			key = "T",
+			mods = "SUPER",
+			action = act.SwitchToWorkspace({
+				name = "new",
+				spawn = { args = { "zsh", "-i", "-c", "cdi; exec zsh" } },
+			}),
+		},
+
+		-- ワークスペース名変更 (カレントディレクトリ名)
+		{
+			key = "R",
+			mods = "SUPER",
+			action = wezterm.action_callback(function(window, pane)
+				local current = window:active_workspace()
+				local cwd_uri = pane:get_current_working_dir()
+				local new_name = cwd_uri and cwd_uri.file_path:match("([^/]+)$") or nil
+				if new_name and new_name ~= "" then
+					wezterm.mux.rename_workspace(current, new_name)
+				end
+			end),
+		},
+
+		-- ワークスペース切り替え
+		{ key = "Tab", mods = "CTRL",       action = act.SwitchWorkspaceRelative(1) },
+		{ key = "Tab", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
+
+		-- Zenモードフォントサイズトグル (Neovimから呼び出し用)
+		{ key = ";", mods = "CTRL", action = act.EmitEvent("toggle-font-size") },
 	},
 
-	key_tables = {
-		-- デフォルトのkey_tablesを使用
-	},
+	key_tables = {},
 }
