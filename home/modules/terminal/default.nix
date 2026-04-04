@@ -1,6 +1,6 @@
 {
   imports = [
     ./wezterm.nix
-    ./zellij.nix
+    # ./zellij.nix
   ];
 }
