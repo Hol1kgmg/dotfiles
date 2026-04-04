@@ -92,6 +92,7 @@ keymap.set("n", "q", function()
     vim.cmd("bd")   -- 通常バッファは警告あり
   end
 end, { desc = "quit buffer" })
+keymap.set("n", "Q", "<cmd>bd!<cr>", { desc = "force quit buffer" })
 
 -- ============================================================
 -- EDITING - 編集操作
@@ -113,11 +114,11 @@ keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "行を上に移動" })
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
-    local opts = { buffer = ev.buf, silent = true }
+    local lsp_opts = { buffer = ev.buf, silent = true }
 
     -- ヘルパー関数（冗長性削減）
     local function map(mode, lhs, rhs, desc)
-      keymap.set(mode, lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
+      keymap.set(mode, lhs, rhs, vim.tbl_extend("force", lsp_opts, { desc = desc }))
     end
 
     -- 定義・参照
