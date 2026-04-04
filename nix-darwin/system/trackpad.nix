@@ -9,6 +9,6 @@
   };
 
   system.defaults.NSGlobalDomain = {
-    "com.apple.trackpad.scaling" = 3.0; # トラックパッド感度(0.0-3.0, 高速)
+    "com.apple.trackpad.scaling" = 4.0; # トラックパッド感度(0.0-3.0, 高速)
   };
 }

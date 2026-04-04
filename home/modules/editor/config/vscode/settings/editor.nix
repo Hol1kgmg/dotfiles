@@ -1,5 +1,8 @@
 {
   programs.vscode.profiles.default.userSettings = {
+    # アクセシビリティ
+    "editor.accessibilitySupport" = "on";
+
     # フォーマット設定
     "editor.formatOnSave" = true;
     "editor.defaultFormatter" = "esbenp.prettier-vscode";
