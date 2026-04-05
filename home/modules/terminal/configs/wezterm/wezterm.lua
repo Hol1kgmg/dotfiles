@@ -70,6 +70,7 @@ local TAB_RIGHT_SHAPE = wezterm.nerdfonts.ple_upper_left_triangle
 -- タブバーにワークスペース名を表示
 wezterm.on("update-right-status", function(window, _)
   window:set_right_status(wezterm.format({
+    { Background = { Color = "none" } },
     { Foreground = { Color = "#daa4ff" } },
     { Text = " " .. window:active_workspace() .. "  " },
   }))
