@@ -11,7 +11,7 @@
     "copilot-cli"
 
     # ターミナル
-    "wezterm"  # NixのmacOSビルドに問題があるためHomebrewで管理
+    "wezterm@nightly"  # NixのmacOSビルドに問題があるためHomebrewで管理
 
     # ファイル管理
     "symboliclinker"

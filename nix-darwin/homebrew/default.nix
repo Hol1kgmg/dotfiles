@@ -8,6 +8,7 @@
     };
     taps = [
       "dimentium/autoraise"
+      "wezterm/wezterm"
     ];
   };
 
