@@ -27,9 +27,12 @@ return {
 			action = wezterm.action_callback(function(window, pane)
 				local current = window:active_workspace()
 				local cwd_uri = pane:get_current_working_dir()
-				local new_name = cwd_uri and cwd_uri.file_path:match("([^/]+)$") or nil
-				if new_name and new_name ~= "" then
-					wezterm.mux.rename_workspace(current, new_name)
+				if cwd_uri then
+					local path = cwd_uri.file_path:gsub("/$", "")
+					local new_name = path:match("([^/]+)$")
+					if new_name and new_name ~= "" then
+						wezterm.mux.rename_workspace(current, new_name)
+					end
 				end
 			end),
 		},
