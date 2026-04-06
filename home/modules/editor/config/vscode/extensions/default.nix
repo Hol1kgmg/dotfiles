@@ -36,6 +36,9 @@
 
       # TypeScript型プレビュー
       mylesmurphy.prettify-ts
+
+      # Markmap(マインドマップ)
+      gera2ld.markmap-vscode
     ]);
 
   # TODO: プログラミング言語別の拡張機能を追加

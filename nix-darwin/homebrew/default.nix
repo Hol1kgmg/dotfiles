@@ -7,7 +7,7 @@
       cleanup = "uninstall";
     };
     taps = [
-      "dimentium/autoraise"
+      # "dimentium/autoraise"
       "wezterm/wezterm"
     ];
   };
