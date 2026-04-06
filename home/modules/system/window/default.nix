@@ -1,7 +1,7 @@
 {
   imports = [
     ./rectangle.nix
-    ./autoraise.nix
+    # ./autoraise.nix
     ./alt-tab-macos.nix
     ./scroll-reverser.nix
   ];
