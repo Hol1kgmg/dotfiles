@@ -83,7 +83,10 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, _)
   local edge_background = "none"
   local edge_foreground = background
 
-  local title = wezterm.truncate_right(tab.active_pane.title, TAB_WIDTH - 2)
+  local title = wezterm.truncate_right(
+    (tab.tab_title ~= "" and tab.tab_title or "tab"),
+    TAB_WIDTH - 2
+  )
   local pad = TAB_WIDTH - wezterm.column_width(title) - 2
   if pad > 0 then
     local left = math.floor(pad / 2)
