@@ -10,6 +10,9 @@
       # 言語サポート
       bbenoist.nix
       bierner.markdown-mermaid
+      bierner.markdown-preview-github-styles
+      bierner.markdown-emoji
+      bierner.markdown-checkbox
 
       # UI。UX
       catppuccin.catppuccin-vsc-icons
