@@ -7,7 +7,7 @@
     g = "git";
     gm = "git merge";
     gm-dev = "git merge develop";
-    gbdel = "git branch --merge|egrep -v '\\*|develop|main'|xargs git branch -d";
+    gbdel = "git gbdel";
     greset = "git reset --soft HEAD^";
     groot = "git rev-parse --show-toplevel";
 
