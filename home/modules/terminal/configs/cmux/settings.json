@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux-settings.schema.json",
+  "schemaVersion": 1,
+  "app": {
+    "warnBeforeQuit": false
+  },
+  "shortcuts": {
+    "bindings": {
+      // タブ切り替え (WezTerm: Alt+h/l)
+      "prevSurface": "alt+h",
+      "nextSurface": "alt+l",
+
+      // 新規タブ (WezTerm: Cmd+t)
+      "newSurface": "cmd+t",
+
+      // 新規ワークスペース (WezTerm: Cmd+Shift+T)
+      "newTab": "cmd+shift+t",
+
+      // ワークスペース切り替え (WezTerm: Ctrl+Tab / Ctrl+Shift+Tab)
+      "nextSidebarTab": "ctrl+tab",
+      "prevSidebarTab": "ctrl+shift+tab"
+    }
+  }
+}

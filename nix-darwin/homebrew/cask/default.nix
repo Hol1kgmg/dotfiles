@@ -12,6 +12,8 @@
 
     # ターミナル
     "wezterm@nightly"  # NixのmacOSビルドに問題があるためHomebrewで管理
+    # "cmux"             # バグが多かったので、導入見送り
+    # "ghostty"
 
     # ファイル管理
     "symboliclinker"
