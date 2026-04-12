@@ -27,13 +27,13 @@ config.adjust_window_size_when_changing_font_size = false
 ----------------------------------------------------
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
--- config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = false
 config.show_tab_index_in_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
-config.show_close_tab_button_in_tabs = false
 config.tab_max_width = 12
 config.colors = {
   tab_bar = {
+    background = "rgba(0, 0, 0, 0.8)",
     inactive_tab_edge = "none",
   },
 }
@@ -42,9 +42,9 @@ config.window_frame = {
   active_titlebar_bg = "none",
   font_size = 16.0,
 }
-config.window_background_gradient = {
-  colors = { "#000000" },
-}
+-- config.window_background_gradient = {
+--   colors = { "#000000" },
+-- }
 
 ----------------------------------------------------
 -- キーバインド設定
@@ -67,20 +67,11 @@ local TAB_RIGHT_SHAPE = wezterm.nerdfonts.ple_upper_left_triangle
 ----------------------------------------------------
 -- イベントハンドラ
 ----------------------------------------------------
--- タブバーにワークスペース名を表示
-wezterm.on("update-right-status", function(window, _)
-  window:set_right_status(wezterm.format({
-    { Background = { Color = "none" } },
-    { Foreground = { Color = "#daa4ff" } },
-    { Text = " " .. window:active_workspace() .. "  " },
-  }))
-end)
-
 -- タブタイトルを固定幅にパディング（色設定込み）
 wezterm.on("format-tab-title", function(tab, _, _, _, _, _)
   local background = tab.is_active and "#9ddb23" or "#bfbdb5"
   local foreground = "#000000"
-  local edge_background = "none"
+  local edge_background = "rgba(0, 0, 0, 0.8)"
   local edge_foreground = background
 
   local title = wezterm.truncate_right(
