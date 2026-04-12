@@ -8,7 +8,7 @@
     };
     taps = [
       # "dimentium/autoraise"
-      "wezterm/wezterm"
+      # "wezterm/wezterm"
       # "manaflow-ai/cmux"
     ];
   };
