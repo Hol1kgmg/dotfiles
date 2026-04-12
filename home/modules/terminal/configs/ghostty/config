@@ -1,0 +1,24 @@
+# フォント設定
+font-family = PlemolJP Console NF
+font-size = 13
+
+# 背景設定
+background = #000000
+background-opacity = 0.6
+background-blur = 20
+
+# タブバー
+macos-window-buttons = visible
+
+# スクロール
+scrollback-limit = 10000
+scrollbar = never
+
+# フォント設定
+# Zenモード
+keybind = all:ctrl+semicolon=set_font_size:18
+# サイズリセット
+keybind = all:cmd+0=reset_font_size
+
+# 確認ダイアログ設定
+confirm-close-surface = false
