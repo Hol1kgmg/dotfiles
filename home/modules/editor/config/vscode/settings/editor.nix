@@ -27,6 +27,9 @@
     "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono'";
     "terminal.integrated.fontSize" = 13;
 
+    # Git設定
+    "git.openRepositoryInParentFolders" = "always";
+
     # その他
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
