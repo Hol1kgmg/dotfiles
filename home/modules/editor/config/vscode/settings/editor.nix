@@ -30,6 +30,50 @@
     # Git設定
     "git.openRepositoryInParentFolders" = "always";
 
+    # メモリ最適化
+    "files.watcherExclude" = {
+      "**/node_modules/**" = true;
+      "**/.git/**" = true;
+      "**/dist/**" = true;
+    };
+    "editor.minimap.enabled" = false;
+    "workbench.enableExperiments" = false;
+
+    # アクセシビリティ：シグナルサウンドを無効化
+    "accessibility.signals.chatEditModifiedFile"= { sound = "off"; };
+    "accessibility.signals.lineHasError"= { sound = "off"; };
+    "accessibility.signals.chatRequestSent"= { sound = "off"; };
+    "accessibility.signals.clear"= { sound = "off"; };
+    "accessibility.signals.lineHasFoldedArea"= { sound = "off"; };
+    "accessibility.signals.lineHasInlineSuggestion"= { sound = "off"; };
+    "accessibility.signals.noInlayHints"= { sound = "off"; };
+    "accessibility.signals.notebookCellCompleted"= { sound = "off"; };
+    "accessibility.signals.onDebugBreak"= { sound = "off"; };
+    "accessibility.signals.notebookCellFailed"= { sound = "off"; };
+    "accessibility.signals.taskCompleted"= { sound = "off"; };
+    "accessibility.signals.terminalQuickFix"= { sound = "off"; };
+    "accessibility.signals.terminalCommandFailed"= { sound = "off"; };
+    "accessibility.signals.terminalBell"= { sound = "off"; };
+    "accessibility.signals.taskFailed"= { sound = "off"; };
+    "accessibility.signals.lineHasWarning"= { sound = "off"; };
+    "accessibility.signals.lineHasBreakpoint"= { sound = "off"; };
+    "accessibility.signals.diffLineModified"= { sound = "off"; };
+    "accessibility.signals.diffLineInserted"= { sound = "off"; };
+    "accessibility.signals.diffLineDeleted"= { sound = "off"; };
+    "accessibility.signals.voiceRecordingStopped"= { sound = "off"; };
+    "accessibility.signals.terminalCommandSucceeded"= { sound = "off"; };
+    "accessibility.signals.chatResponseReceived"= { sound = "off"; };
+    "accessibility.signals.chatUserActionRequired"= { sound = "off"; };
+    "accessibility.signals.codeActionApplied"= { sound = "off"; };
+    "accessibility.signals.codeActionTriggered"= { sound = "off"; };
+    "accessibility.signals.editsKept"= { sound = "off"; };
+    "accessibility.signals.editsUndone"= { sound = "off"; };
+    "accessibility.signals.nextEditSuggestion"= { sound = "off"; };
+    "accessibility.signals.positionHasError"= { sound = "off"; };
+    "accessibility.signals.positionHasWarning"= { sound = "off"; };
+    "accessibility.signals.progress"= { sound = "off"; };
+    "accessibility.signals.voiceRecordingStarted"= { sound = "off"; };
+
     # その他
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;

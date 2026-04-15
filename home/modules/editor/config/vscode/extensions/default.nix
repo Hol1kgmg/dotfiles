@@ -30,6 +30,9 @@
       # AIアシスタント
       github.copilot
       github.copilot-chat
+
+      # エディタ操作
+      vscodevim.vim
     ])
     ++
     # vscode-marketplace拡張機能（nixpkgs標準にないもののみ）
@@ -42,6 +45,9 @@
 
       # Markmap(マインドマップ)
       gera2ld.markmap-vscode
+
+      # コラボレーション
+      ms-vsliveshare.vsliveshare
     ]);
 
   # TODO: プログラミング言語別の拡張機能を追加
