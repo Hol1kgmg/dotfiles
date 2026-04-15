@@ -13,6 +13,15 @@
       key = "alt+left";
       command = "workbench.action.previousEditor";
     }
+    {
+      key = "alt+l";
+      command = "workbench.action.nextEditor";
+    }
+    {
+      key = "alt+h";
+      command = "workbench.action.previousEditor";
+    }
+
 
     # エディタグループの移動
     {
@@ -40,6 +49,13 @@
     # ============================================
     # ファイル内操作
     # ============================================
+
+    # Markdownプレビューを新規タブで開く
+    {
+      key = "alt+m";
+      command = "markdown.showPreview";
+      when = "editorLangId == 'markdown'";
+    }
 
     # 定義へ移動
     {
