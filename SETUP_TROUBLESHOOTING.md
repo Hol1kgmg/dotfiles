@@ -209,6 +209,42 @@ rm -rf ~/.local/state/nvim/ ~/.cache/nvim/luac/
 
 ---
 
+# nix-darwin / darwin-rebuild
+
+## `brew bundle` でヘルプテキストが表示されてビルドが失敗する
+
+### 症状
+
+`sudo darwin-rebuild switch --flake .#default --impure` 実行時に以下のようなメッセージが表示されてビルドが失敗する：
+
+```
+Homebrew bundle...
+Usage: brew bundle [subcommand]
+
+Bundler for non-Ruby dependencies from Homebrew, Homebrew Cask, ...
+```
+
+### 原因
+
+Homebrew 5.x 以降、`brew bundle` はサブコマンドなしでは動作しなくなった（`brew bundle install` と明示的な指定が必要）。nix-darwin の古いバージョンがサブコマンドなしで呼び出しているため、互換性の問題が発生する。
+
+### 解決方法
+
+nix-darwin を最新版に更新する：
+
+```zsh
+# nix-darwin のみ更新（推奨）
+nix flake update nix-darwin
+
+# または全 inputs を更新
+nix flake update
+
+# 再ビルド
+sudo darwin-rebuild switch --flake .#default --impure
+```
+
+---
+
 ## 参考リンク
 
 - [fff.nvim GitHub](https://github.com/dmtrKovalenko/fff.nvim)

@@ -29,6 +29,7 @@
 
     # Git設定
     "git.openRepositoryInParentFolders" = "always";
+    "git.confirmSync" = false;
 
     # メモリ最適化
     "files.watcherExclude" = {
@@ -73,6 +74,10 @@
     "accessibility.signals.positionHasWarning"= { sound = "off"; };
     "accessibility.signals.progress"= { sound = "off"; };
     "accessibility.signals.voiceRecordingStarted"= { sound = "off"; };
+
+
+    # marp markdown
+    "markdown.marp.enableHtml" = true;
 
     # その他
     "explorer.confirmDelete" = false;

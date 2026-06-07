@@ -9,5 +9,6 @@
     ./nodejs.nix
     ./pnpm.nix
     ./nix-tools.nix
+    ./vite-plus.nix
   ];
 }

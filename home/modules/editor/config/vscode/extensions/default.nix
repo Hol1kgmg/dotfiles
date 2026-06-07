@@ -9,11 +9,10 @@
 
       # 言語サポート
       bbenoist.nix
-      bierner.markdown-mermaid
       bierner.markdown-preview-github-styles
       bierner.markdown-emoji
       bierner.markdown-checkbox
-
+      
       # UI。UX
       catppuccin.catppuccin-vsc-icons
       oderwat.indent-rainbow
@@ -31,6 +30,9 @@
       github.copilot
       github.copilot-chat
 
+      # Github連携
+      github.vscode-pull-request-github
+
       # エディタ操作
       vscodevim.vim
     ])
@@ -45,6 +47,12 @@
 
       # Markmap(マインドマップ)
       gera2ld.markmap-vscode
+      
+      # Marpスライド
+      marp-team.marp-vscode
+      
+      # ブラウザで開く
+      techer.open-in-browser
 
       # コラボレーション
       ms-vsliveshare.vsliveshare

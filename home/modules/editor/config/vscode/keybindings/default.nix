@@ -50,6 +50,20 @@
     # ファイル内操作
     # ============================================
 
+    # 開いているファイルのパスをコピー
+    {
+      key = "alt+y";
+      command = "copiFilePath";
+      when = "editorTextFocus";
+    }
+
+    # ブラウザで開く
+    {
+      key = "alt+o";
+      command = "extension.openInDefauultBrowser";
+      when = "editorTextFocus";
+    }
+
     # Markdownプレビューを新規タブで開く
     {
       key = "alt+m";
