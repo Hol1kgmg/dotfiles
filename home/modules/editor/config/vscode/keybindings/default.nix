@@ -53,14 +53,14 @@
     # 開いているファイルのパスをコピー
     {
       key = "alt+y";
-      command = "copiFilePath";
+      command = "copyFilePath";
       when = "editorTextFocus";
     }
 
     # ブラウザで開く
     {
       key = "alt+o";
-      command = "extension.openInDefauultBrowser";
+      command = "extension.openInDefaultBrowser";
       when = "editorTextFocus";
     }
 
