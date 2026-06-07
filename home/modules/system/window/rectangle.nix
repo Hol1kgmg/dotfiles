@@ -6,7 +6,7 @@
 # Left Third      : ctrl + h
 # Right Two Thirds: ctrl + l
 # Max Size        : ctrl + a
-# Next Display    : ctrl + u
+# Next Display    : ctrl + ,
 
 
   home.activation.rectangleSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -39,7 +39,7 @@
 
     # ショートカット設定（設定済み）
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle maximize -dict keyCode -float 0 modifierFlags -float 262144 || true
-    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle nextDisplay -dict keyCode -float 32 modifierFlags -float 262144 || true
+    $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle nextDisplay -dict keyCode -float 43 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle restore -dict keyCode -float 51 modifierFlags -float 262144 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle rightHalf -dict keyCode -float 37 modifierFlags -float 786432 || true
     $DRY_RUN_CMD /usr/bin/defaults write com.knollsoft.Rectangle leftHalf -dict keyCode -float 4 modifierFlags -float 786432 || true
