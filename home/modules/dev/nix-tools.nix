@@ -8,5 +8,6 @@
     ripgrep     # 高速grep
     fd          # 高速find
     tree-sitter # パーサーライブラリ
+    go-task     # タスクランナー (Taskfile)
   ];
 }
