@@ -96,19 +96,20 @@
       when = "explorerViewletVisible && filesExplorerFocus";
     }
 
-    # エクスプローラーを表示
+    # ============================================
+    # プライマリ サイド バー操作
+    # ============================================
+
+    # ファイル名前保存のショートカット削除(重複キーバインドの回避)
     {
-      key = "cmd+shift+e";
-      command = "workbench.view.explorer";
+      key = "cmd+shift+s";
+      command = "-workbench.action.files.saveAs";
     }
 
-    # ============================================
-    # Git操作
-    # ============================================
-    # Gitページを表示
+    # プライマリ サイド バーの表示/非表示 操作
     {
-      key = "cmd+shift+g";
-      command = "workbench.view.scm";
+      key = "cmd+shift+s";
+      command = "workbench.action.toggleSidebarVisibility";
     }
 
     # ============================================
