@@ -1,3 +1,35 @@
+-- help: wezterm cli コマンド (ターミナルからペイン/タブ操作)
+--
+-- ## ペイン分割
+-- | コマンド                                      | 動作             |
+-- |-----------------------------------------------|------------------|
+-- | wezterm cli split-pane --right                | 右に分割         |
+-- | wezterm cli split-pane --bottom               | 下に分割         |
+-- | wezterm cli split-pane --left                 | 左に分割         |
+-- | wezterm cli split-pane --top                  | 上に分割         |
+-- | wezterm cli split-pane --right --percent 40   | 割合指定で分割   |
+--
+-- ## ペイン移動
+-- | コマンド                                      | 動作             |
+-- |-----------------------------------------------|------------------|
+-- | wezterm cli activate-pane-direction Right      | 右ペインへ移動   |
+-- | wezterm cli activate-pane-direction Left       | 左ペインへ移動   |
+-- | wezterm cli activate-pane-direction Up         | 上ペインへ移動   |
+-- | wezterm cli activate-pane-direction Down       | 下ペインへ移動   |
+--
+-- ## ペイン情報・操作
+-- | コマンド                                      | 動作                       |
+-- |-----------------------------------------------|----------------------------|
+-- | wezterm cli list                              | ペイン/タブ一覧 (IDを確認) |
+-- | wezterm cli kill-pane --pane-id <id>          | 指定ペインを閉じる         |
+-- | wezterm cli send-text --pane-id <id> "cmd\n"  | 指定ペインにコマンド送信   |
+--
+-- ## 活用例: 開発用レイアウトを一発展開
+-- dev_layout() {
+--   wezterm cli split-pane --right --percent 40
+--   wezterm cli split-pane --bottom --percent 30
+-- }
+
 local wezterm = require("wezterm")
 local act = wezterm.action
 
@@ -77,6 +109,16 @@ return {
 
 		-- Zenモードフォントサイズトグル (Neovimから呼び出し用)
 		{ key = ";", mods = "CTRL", action = act.EmitEvent("toggle-font-size") },
+
+    -- Markdown view (Alt+M で右分割してleafを起動)
+		{
+			key = "m",
+			mods = "ALT",
+			action = act.SplitPane({
+				direction = "Right",
+				command = { args = { "zsh", "-i", "-c", "leaf" } },
+			}),
+		},
 	},
 
 	key_tables = {
