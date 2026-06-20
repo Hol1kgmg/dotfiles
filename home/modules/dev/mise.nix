@@ -13,4 +13,6 @@
       idiomatic_version_file = true;
     };
   };
+
+  xdg.configFile."mise/config.toml".force = true;
 }

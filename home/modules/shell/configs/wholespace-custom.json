@@ -50,7 +50,8 @@
           "foreground": "#ffffff",
           "background": "#516BEB",
           "type": "sysinfo",
-          "style": "diamond"
+          "style": "diamond",
+          "min_width": 120
         },
         {
           "properties": {
@@ -58,19 +59,13 @@
             "threshold": 0
           },
           "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b0",
+          "trailing_diamond": "<transparent,#575656>\ue0b2</>",
           "template": " {{ .FormattedMs }} ",
           "foreground": "#d6deeb",
           "background": "#575656",
           "type": "executiontime",
           "style": "diamond"
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "right",
-      "segments": [
+        },
         {
           "properties": {
             "fetch_package_manager": true,
@@ -83,7 +78,8 @@
           "foreground": "#000000",
           "background": "#ffffff",
           "type": "node",
-          "style": "diamond"
+          "style": "diamond",
+          "min_width": 120
         },
         {
           "properties": {
@@ -98,7 +94,21 @@
           "foreground": "#011627",
           "background": "#17D7A0",
           "type": "git",
-          "style": "diamond"
+          "style": "diamond",
+          "min_width": 120
+        },
+        {
+          "properties": {
+            "fetch_status": true
+          },
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b0",
+          "template": " {{ if .Working.Changed }}\uf044 {{ .Working.String }}{{ end }}{{ if and .Working.Changed .Staging.Changed }} |{{ end }}{{ if .Staging.Changed }}\uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}\ueb4b {{ .StashCount }}{{ end }} ",
+          "foreground": "#011627",
+          "background": "#17D7A0",
+          "type": "git",
+          "style": "diamond",
+          "max_width": 120
         }
       ]
     },
