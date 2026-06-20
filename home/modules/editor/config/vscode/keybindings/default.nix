@@ -66,9 +66,16 @@
 
     # Markdownプレビューを新規タブで開く
     {
-      key = "alt+m";
+      key = "cmd+shift+m";
       command = "markdown.showPreview";
       when = "editorLangId == 'markdown'";
+    }
+
+    # 表示:問題の切り替え の削除(重複したキーバインドの回避)
+    {
+      key = "cmd+shift+m";
+      command = "-workbench.actions.view.problems";
+      when = "workbench.panel.markers.view.active";
     }
 
     # 定義へ移動
