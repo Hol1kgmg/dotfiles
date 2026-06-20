@@ -9,7 +9,6 @@
 
       # 言語サポート
       bbenoist.nix
-      bierner.markdown-preview-github-styles
       bierner.markdown-emoji
       bierner.markdown-checkbox
       
@@ -32,6 +31,9 @@
 
       # Github連携
       github.vscode-pull-request-github
+
+      # devcontainer
+      ms-vscode-remote.remote-containers
 
       # エディタ操作
       vscodevim.vim

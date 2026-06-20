@@ -14,11 +14,21 @@
 
     # 指定したアプリをDockに追加
     $DOCKUTIL --add "/System/Applications/Apps.app" --no-restart
+    
+    # ブラウザ
     $DOCKUTIL --add "/Applications/Safari.app" --no-restart
+    $DOCKUTIL --add "/Applications/Firefox.app" --no-restart
     $DOCKUTIL --add "/Applications/Google Chrome.app" --no-restart
-    $DOCKUTIL --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
-    $DOCKUTIL --add "${config.home.homeDirectory}/.nix-profile/Applications/Visual Studio Code.app" --no-restart
+
+    # 開発ツール
+    $DOCKUTIL --add "${pkgs.vscode}/Applications/Visual Studio Code.app" --no-restart
     $DOCKUTIL --add "/Applications/WezTerm.app" --no-restart
+    $DOCKUTIL --add "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app" --no-restart
+
+    # ユーティリティ
+    $DOCKUTIL --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
+    $DOCKUTIL --add "/System/Applications/Preview.app" --no-restart
+    $DOCKUTIL --add "/System/Applications/QuickTime Player.app" --no-restart
 
     # フォルダを追加
     $DOCKUTIL --add "${config.home.homeDirectory}/Downloads" --no-restart

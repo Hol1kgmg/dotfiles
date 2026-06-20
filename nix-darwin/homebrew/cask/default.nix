@@ -4,7 +4,6 @@
     # 開発ツール
     "docker-desktop"
     "smoothcsv"
-    "devtoys"
 
     # AIエージェント
     "claude-code"
@@ -22,6 +21,7 @@
 
     # ブラウザ
     "google-chrome"
+    "firefox"
 
     # 入力管理
     # goole-japanese-imeはRosettaが必要なので不採用
@@ -29,9 +29,14 @@
     "logi-options+"
     "scroll-reverser"
 
+    # ランチャーアプリ
+    "raycast"
+
     # ウィンドウ管理
     "rectangle"
-    # "autoraiseapp"  # dimentium/autoraise tap
     "alt-tab"
+    
+    # bookmark管理
+    "raindropio"
   ];
 }

@@ -5,6 +5,7 @@
       autoUpdate = true;
       upgrade = true;
       cleanup = "uninstall";
+      extraFlags = [ "--force" ];
     };
     taps = [
       # "dimentium/autoraise"
