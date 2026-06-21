@@ -33,6 +33,12 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local function repeat_action(action, count)
+	local t = {}
+	for _ = 1, count do t[#t + 1] = action end
+	return act.Multiple(t)
+end
+
 return {
 	keys = {
 		-- タブ切り替え
@@ -119,6 +125,9 @@ return {
 				command = { args = { "zsh", "-i", "-c", "leaf" } },
 			}),
 		},
+
+		-- コピーモード (Leader+V)
+		{ key = "v", mods = "LEADER", action = act.ActivateCopyMode },
 	},
 
 	key_tables = {
@@ -140,6 +149,38 @@ return {
 			{ key = "k",      action = act.AdjustPaneSize({ "Up", 3 }) },
 			{ key = "l",      action = act.AdjustPaneSize({ "Right", 3 }) },
 			{ key = "Escape", action = act.PopKeyTable },
+		},
+		copy_mode = {
+			-- 移動
+			{ key = "h",      action = act.CopyMode("MoveLeft") },
+			{ key = "j",      action = act.CopyMode("MoveDown") },
+			{ key = "k",      action = act.CopyMode("MoveUp") },
+			{ key = "l",      action = act.CopyMode("MoveRight") },
+			{ key = "H",      action = repeat_action(act.CopyMode("MoveLeft"), 10) },
+			{ key = "J",      action = repeat_action(act.CopyMode("MoveDown"), 10) },
+			{ key = "K",      action = repeat_action(act.CopyMode("MoveUp"),   10) },
+			{ key = "L",      action = repeat_action(act.CopyMode("MoveRight"), 10) },
+			{ key = "w",      action = act.CopyMode("MoveForwardWord") },
+			{ key = "b",      action = act.CopyMode("MoveBackwardWord") },
+			{ key = "0",      action = act.CopyMode("MoveToStartOfLine") },
+			{ key = "$",      action = act.CopyMode("MoveToEndOfLineContent") },
+			{ key = "g",      action = act.CopyMode("MoveToScrollbackTop") },
+			{ key = "G",      action = act.CopyMode("MoveToScrollbackBottom") },
+			-- 選択
+			{ key = "v",                action = act.CopyMode({ SetSelectionMode = "Cell" }) },
+			{ key = "V",                action = act.CopyMode({ SetSelectionMode = "Line" }) },
+			{ key = "v", mods = "CTRL", action = act.CopyMode({ SetSelectionMode = "Block" }) },
+			-- ヤンク
+			{
+				key = "y",
+				action = act.Multiple({
+					act.CopyTo("Clipboard"),
+					act.CopyMode("Close"),
+				}),
+			},
+			-- 終了
+			{ key = "q",      action = act.CopyMode("Close") },
+			{ key = "Escape", action = act.CopyMode("Close") },
 		},
 	},
 }
