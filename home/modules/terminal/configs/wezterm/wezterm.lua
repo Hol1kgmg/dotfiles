@@ -49,6 +49,7 @@ config.window_frame = {
 ----------------------------------------------------
 -- キーバインド設定
 ----------------------------------------------------
+config.leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 1000 }
 config.disable_default_key_bindings = false
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
