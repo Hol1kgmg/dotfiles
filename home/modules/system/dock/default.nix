@@ -21,7 +21,7 @@
     $DOCKUTIL --add "/Applications/Google Chrome.app" --no-restart
 
     # 開発ツール
-    $DOCKUTIL --add "${pkgs.vscode}/Applications/Visual Studio Code.app" --no-restart
+    $DOCKUTIL --add "/Applications/Visual Studio Code.app" --no-restart
     $DOCKUTIL --add "/Applications/WezTerm.app" --no-restart
     $DOCKUTIL --add "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app" --no-restart
 
