@@ -19,7 +19,7 @@ open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
 ### 2. Nix のインストール
 
 ```.zsh
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+sh <(curl -L https://nixos.org/nix/install)
 ```
 
 ### 3. リポジトリのクローン
@@ -92,7 +92,7 @@ home-manager switch --flake .#$(whoami) --impure
 ### nix-darwin 設定を適用
 
 ```.zsh
-sudo darwin-rebuild switch --flake .#default --impure
+darwin-rebuild switch --flake .#default --impure
 ```
 
 ### flake 更新 + home-manager 適用（一括実行）

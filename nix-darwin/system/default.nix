@@ -4,8 +4,12 @@
     primaryUser = "mypc";
   };
 
-  # Determinate Nix を使用しているため、nix-darwin の Nix 管理を無効化
-  nix.enable = false;
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   # シェル管理を無効化（home-manager で管理）
   programs.bash.enable = false;
