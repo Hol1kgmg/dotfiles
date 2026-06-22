@@ -1,6 +1,5 @@
 {
   imports = [
-    ./secrets.nix
     ./dev
     ./shell
     ./editor

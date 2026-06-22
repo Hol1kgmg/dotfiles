@@ -29,21 +29,21 @@ git clone https://github.com/Hol1kgmg/dotfiles.git
 cd dotfiles
 ```
 
-### 4. Git 設定（初回のみ）
+### 4. ユーザー個別設定（初回のみ）
 
-Git のユーザー情報を設定します。
-
-```.zsh
-cp home/secrets/default.nix.example home/secrets/default.nix
-```
-
-gitUsername と gitEmail を編集
+Git のユーザー情報などの個別設定を行います。
 
 ```.zsh
-vim home/secrets/default.nix
+cp local/secrets.nix.example local/secrets.nix
 ```
 
-> **Note**: `home/secrets/default.nix` は `.gitignore` されているため、リポジトリにコミットされません。
+`gitUsername` と `gitEmail` を編集
+
+```.zsh
+vim local/secrets.nix
+```
+
+> **Note**: `local/secrets.nix` は `.gitignore` されているため、リポジトリにコミットされません。
 
 ### 5. home-manager の適用
 
