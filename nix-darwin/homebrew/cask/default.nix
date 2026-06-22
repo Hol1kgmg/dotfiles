@@ -2,6 +2,7 @@
   # GUIアプリケーション
   homebrew.casks = [
     # 開発ツール
+    "visual-studio-code"
     "docker-desktop"
     "smoothcsv"
 
