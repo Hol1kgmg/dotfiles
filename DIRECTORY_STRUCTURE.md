@@ -14,6 +14,15 @@ dotfiles/
 ├── MANUAL_SETUP.md              # 手動セットアップ手順
 ├── DIRECTORY_STRUCTURE.md       # このファイル
 │
+├── local/                       # マシン・ユーザー個別設定
+│   ├── secrets.nix              # 機密情報（.gitignore対象）
+│   ├── secrets.nix.example      # 機密情報テンプレート
+│   ├── home/                    # home-manager個別設定
+│   │   ├── default.nix
+│   │   └── git.nix              # Git個別設定（ユーザー名・メール・署名）
+│   └── nix-darwin/              # nix-darwin個別設定
+│       └── default.nix
+│
 ├── nix-darwin/                  # nix-darwin設定（システムレベル）
 │   ├── default.nix              # darwinConfigurationのメイン
 │   ├── homebrew/                # Homebrew管理
@@ -31,13 +40,9 @@ dotfiles/
 │
 └── home/                        # home-manager設定（ユーザーレベル）
     ├── default.nix              # home-manager統合ポイント
-    ├── options.nix              # 環境変数・機密情報
-    ├── secrets/                 # 機密情報管理（Git管理外）
-    │   ├── default.nix          # 実際の機密情報（.gitignore対象）
-    │   └── default.nix.example  # テンプレートファイル
+    ├── options.nix              # ユーザー名などの共通オプション
     └── modules/
         ├── default.nix
-        ├── secrets.nix          # 環境変数経由の機密情報管理
         ├── system/              # システムUI・外観設定
         │   ├── default.nix
         │   ├── browser/         # ブラウザ設定(safari)
@@ -81,6 +86,12 @@ dotfiles/
 ### .claude/
 
 Claude Code 設定ディレクトリ。Claude AI アシスタントの動作設定を管理。
+
+### local/
+
+マシンやユーザーごとに異なる設定を管理する。`home/` や `nix-darwin/` と同じ構造を持ち、それぞれのモジュールとして読み込まれる。
+`local/secrets.nix` のみ `.gitignore` 対象で、それ以外は Git 管理対象。
+初回セットアップ時は `local/secrets.nix.example` をコピーして `local/secrets.nix` を作成する。
 
 ### nix-darwin/
 

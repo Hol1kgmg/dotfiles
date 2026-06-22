@@ -30,6 +30,15 @@
       inherit (import ./home/options.nix) username;
       system = "aarch64-darwin";
       hostname = "default";
+      secrets =
+        if builtins.pathExists ./local/secrets.nix then
+          import ./local/secrets.nix
+        else
+          {
+            gitUsername = "";
+            gitEmail = "";
+            gitSigningkey = "";
+          };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -71,12 +80,19 @@
             config.allowUnfree = true;
             overlays = [ inputs.nix-vscode-extensions.overlays.default ];
           };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [ ./home ];
+          extraSpecialArgs = { inherit inputs secrets; };
+          modules = [
+            ./home
+            ./local/home
+          ];
         };
         darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
           inherit system;
-          modules = [ ./nix-darwin ];
+          specialArgs = { inherit secrets; };
+          modules = [
+            ./nix-darwin
+            ./local/nix-darwin
+          ];
         };
       };
     };

@@ -14,6 +14,6 @@ result
 
 # Unique Settings
 ## Secrets - Git管理外（--impureフラグで読み込み）
-home/secrets/default.nix
+local/secrets.nix
 
 
