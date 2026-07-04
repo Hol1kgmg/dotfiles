@@ -107,20 +107,6 @@
           modules = [
             ./nix-darwin
             ./local/nix-darwin
-            inputs.nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                enable = true;
-                enableRosetta = true;
-                user = username;
-                autoMigrate = true;
-                taps = {
-                  "homebrew/homebrew-core" = inputs.homebrew-core;
-                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
-                };
-                mutableTaps = false;
-              };
-            }
           ];
         };
       };
