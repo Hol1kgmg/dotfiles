@@ -245,6 +245,81 @@ sudo darwin-rebuild switch --flake .#default --impure
 
 ---
 
+## サードパーティ tap のツールを追加するとビルドが失敗する
+
+### 症状
+
+公式 tap 以外のツール（例: `hashicorp/tap/terraform` のような形式）を `nix-darwin/homebrew/brew/` や `cask/` に追加して `sudo darwin-rebuild switch --flake .#default --impure` を実行すると、以下のようなエラーでビルドが失敗する：
+
+```
+Error: Tap <owner>/<tap名> not installed
+```
+
+または `brew tap` を手動実行しても失敗する：
+
+```
+Error: Tap ... is read-only
+```
+
+### 原因
+
+この dotfiles では `nix-homebrew` の `mutableTaps = false` により、tap を flake input として固定管理している（`nix-darwin/homebrew/taps.nix`）。そのため：
+
+- Homebrew が未登録の tap を自動取得できない
+- `brew tap` / `brew untap` による手動操作もできない（tap の実体は nix store への read-only シンボリックリンク）
+
+登録済みなのは公式の `homebrew/homebrew-core`（CLI）と `homebrew/homebrew-cask`（GUI）のみ。この 2 つに収録されたツールはリストに名前を書くだけで導入できるが、サードパーティ tap のツールは tap 自体の登録が必要。
+
+### 解決方法
+
+3 箇所を変更して tap を flake で固定登録する：
+
+1. `flake.nix` の inputs に tap リポジトリを宣言
+
+   ```nix
+   homebrew-<名前> = {
+     url = "github:<owner>/homebrew-<repo>";
+     flake = false;
+   };
+   ```
+
+2. `nix-darwin/homebrew/taps.nix` の `taps` に登録
+
+   ```nix
+   "<owner>/homebrew-<repo>" = inputs.homebrew-<名前>;
+   ```
+
+3. `brew/` または `cask/` のリストに完全修飾名で追加
+
+   ```nix
+   "<owner>/<tap名>/<ツール名>"
+   ```
+
+その後、lock ファイルを更新して再ビルド：
+
+```zsh
+nix flake lock
+sudo darwin-rebuild switch --flake .#default --impure
+```
+
+tap を削除する場合も同様に、上記 3 箇所から削除して `nix flake lock` → 再ビルドする（`onActivation.cleanup = "uninstall"` によりツール本体と tap も自動削除される）。
+
+### 補足: 新規ファイル作成後に `path '...' does not exist` エラー
+
+tap 登録のために新しい `.nix` ファイルを作成した直後、評価時に以下のエラーが出ることがある：
+
+```
+error: path '/nix/store/...-source/nix-darwin/homebrew/taps.nix' does not exist
+```
+
+flake は Git 管理下のファイルのみをソースとして扱うため、**未追跡（untracked）のファイルは flake から見えない**。以下でステージングすれば解決する：
+
+```zsh
+git add <新規ファイル>
+```
+
+---
+
 ## 参考リンク
 
 - [fff.nvim GitHub](https://github.com/dmtrKovalenko/fff.nvim)

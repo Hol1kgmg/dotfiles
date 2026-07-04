@@ -27,6 +27,7 @@ dotfiles/
 │   ├── default.nix              # darwinConfigurationのメイン
 │   ├── homebrew/                # Homebrew管理
 │   │   ├── default.nix
+│   │   ├── taps.nix             # nix-homebrew設定（tapをflake inputで固定）
 │   │   ├── brew/                # CLI tools
 │   │   └── cask/                # GUI apps
 │   └── system/                  # システム設定
@@ -46,7 +47,8 @@ dotfiles/
         │   ├── default.nix
         │   ├── browser/         # ブラウザ設定(safari)
         │   ├── dock/            # Dock設定（dockutil）
-        │   └── fonts/           # フォント設定
+        │   ├── fonts/           # フォント設定
+        │   └── window/          # ウィンドウ管理（rectangle, alt-tab, scroll-reverser）
         ├── dev/                 # 開発環境
         │   ├── default.nix
         │   ├── git.nix          # Git設定
