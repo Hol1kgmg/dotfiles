@@ -16,6 +16,15 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs =
@@ -27,9 +36,6 @@
       ...
     }:
     let
-      inherit (import ./home/options.nix) username;
-      system = "aarch64-darwin";
-      hostname = "default";
       secrets =
         if builtins.pathExists ./local/secrets.nix then
           import ./local/secrets.nix
@@ -39,6 +45,15 @@
             gitEmail = "";
             gitSigningkey = "";
           };
+      # sudo実行時はUSER=rootになるためSUDO_USERを優先（--impureが必要）
+      username =
+        let
+          sudoUser = builtins.getEnv "SUDO_USER";
+          envUser = builtins.getEnv "USER";
+        in
+        if sudoUser != "" then sudoUser else envUser;
+      system = "aarch64-darwin";
+      hostname = "default";
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -80,7 +95,7 @@
             config.allowUnfree = true;
             overlays = [ inputs.nix-vscode-extensions.overlays.default ];
           };
-          extraSpecialArgs = { inherit inputs secrets; };
+          extraSpecialArgs = { inherit inputs secrets username; };
           modules = [
             ./home
             ./local/home
@@ -88,10 +103,24 @@
         };
         darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
           inherit system;
-          specialArgs = { inherit secrets; };
+          specialArgs = { inherit inputs secrets username; };
           modules = [
             ./nix-darwin
             ./local/nix-darwin
+            inputs.nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = username;
+                autoMigrate = true;
+                taps = {
+                  "homebrew/homebrew-core" = inputs.homebrew-core;
+                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                };
+                mutableTaps = false;
+              };
+            }
           ];
         };
       };

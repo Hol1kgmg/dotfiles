@@ -1,4 +1,31 @@
-.PHONY: up restart destroy bash claude claude-r
+.PHONY: up restart destroy bash claude claude-r init-home init-darwin home darwin update fmt gc
+
+# ===== 環境構築（初回） =====
+
+init-home:
+	nix run nixpkgs#home-manager -- switch --flake .#$$(whoami) --impure
+
+init-darwin:
+	sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure
+
+# ===== 日常運用 =====
+
+home:
+	home-manager switch --flake .#$$(whoami) --impure
+
+darwin:
+	sudo darwin-rebuild switch --flake .#default --impure
+
+update:
+	nix run .#default --impure
+
+fmt:
+	nix fmt
+
+gc:
+	nix store gc
+
+# ===== devcontainer =====
 
 up:
 	devcontainer up --workspace-folder .
