@@ -35,7 +35,7 @@
 
     # ウィンドウ管理
     "rectangle"
-    "alt-tab"
+    "dockdoor"
     
     # bookmark管理
     "raindropio"
