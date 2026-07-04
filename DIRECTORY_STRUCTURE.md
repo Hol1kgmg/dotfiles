@@ -40,7 +40,6 @@ dotfiles/
 │
 └── home/                        # home-manager設定（ユーザーレベル）
     ├── default.nix              # home-manager統合ポイント
-    ├── options.nix              # ユーザー名などの共通オプション
     └── modules/
         ├── default.nix
         ├── system/              # システムUI・外観設定

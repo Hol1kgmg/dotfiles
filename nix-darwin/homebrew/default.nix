@@ -7,11 +7,7 @@
       cleanup = "uninstall";
       extraFlags = [ "--force" ];
     };
-    taps = [
-      # "dimentium/autoraise"
-      # "wezterm/wezterm"
-      # "manaflow-ai/cmux"
-    ];
+    # taps は nix-homebrew で flake input として管理
   };
 
   imports = [

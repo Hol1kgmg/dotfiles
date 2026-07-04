@@ -3,11 +3,9 @@
   lib,
   config,
   pkgs,
+  username,
   ...
 }:
-let
-  inherit (import ./options.nix) username;
-in
 {
   nixpkgs = {
     config = {
