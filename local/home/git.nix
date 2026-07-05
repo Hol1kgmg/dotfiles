@@ -1,4 +1,4 @@
-{ lib, secrets, ... }:
+{ lib, pkgs, secrets, ... }:
 {
   home.sessionVariables = lib.mkIf (secrets.gitUsername != "") (
     {
@@ -15,10 +15,10 @@
     signByDefault = true;
   };
 
-  programs.git.settings = lib.optionalAttrs (secrets.gitUsername != "" && secrets.gitEmail != "") {
-    user = {
-      name = secrets.gitUsername;
-      email = secrets.gitEmail;
-    };
-  };
+  home.activation.setGitUser = lib.mkIf (secrets.gitUsername != "" && secrets.gitEmail != "") (
+    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      $DRY_RUN_CMD ${pkgs.git}/bin/git config --file "$HOME/.gitconfig" user.name "${secrets.gitUsername}"
+      $DRY_RUN_CMD ${pkgs.git}/bin/git config --file "$HOME/.gitconfig" user.email "${secrets.gitEmail}"
+    ''
+  );
 }
