@@ -17,5 +17,11 @@
     if [ -d "/opt/homebrew/bin/" ]; then
       export PATH="/opt/homebrew/bin/:$PATH"
     fi
+
+    # user local binaries (e.g. cargo install, manual installs)
+    if [ -d "$HOME/.local/bin" ]; then
+      export PATH="$HOME/.local/bin:$PATH"
+    fi
+
   '';
 }
