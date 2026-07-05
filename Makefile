@@ -33,6 +33,9 @@ up:
 restart:
 	devcontainer up --workspace-folder . --remove-existing-container
 
+upgrade:
+	devcontainer update --workspace-folder .
+
 destroy:
 	docker ps -a --filter "label=devcontainer.local_folder=$(PWD)" --format "{{.ID}}" | xargs -r docker rm -f
 	docker volume rm -f frontend-env-mask backend-env-mask
