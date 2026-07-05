@@ -1,3 +1,5 @@
+{ pkgs, ...}:
+
 {
   programs.vscode.profiles.default.userSettings = {
     # アクセシビリティ
@@ -74,6 +76,9 @@
     "accessibility.signals.positionHasWarning"= { sound = "off"; };
     "accessibility.signals.progress"= { sound = "off"; };
     "accessibility.signals.voiceRecordingStarted"= { sound = "off"; };
+
+    # todo-tree: Nixでインストールしたripgrepを指定
+    "todo-tree.ripgrep.ripgrep" = "${pkgs.ripgrep}/bin/rg";
 
 
     # marp markdown
