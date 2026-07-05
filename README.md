@@ -22,6 +22,13 @@ open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
 sh <(curl -L https://nixos.org/nix/install)
 ```
 
+新しいターミナルセッションを開いた後、実験的機能を有効化します（`make init-darwin` 適用前は `/etc/nix/nix.conf` が存在しないため必要）。
+
+```.zsh
+mkdir -p ~/.config/nix
+echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
+```
+
 ### 3. リポジトリのクローン
 
 ```.zsh
@@ -35,6 +42,7 @@ Git のユーザー情報などの個別設定を行います。
 
 ```.zsh
 cp local/secrets.nix.example local/secrets.nix
+chmod 600 local/secrets.nix
 ```
 
 `gitUsername` と `gitEmail` を編集

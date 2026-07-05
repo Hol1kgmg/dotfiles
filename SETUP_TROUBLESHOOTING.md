@@ -209,6 +209,31 @@ rm -rf ~/.local/state/nvim/ ~/.cache/nvim/luac/
 
 ---
 
+# Nix
+
+## `make init-home` で `nix-command` が無効というエラーが出る
+
+### 症状
+
+```
+error: experimental Nix feature 'nix-command' is disabled; add '--extra-experimental-features nix-command' to enable it
+```
+
+### 原因
+
+Nix のインストール直後は `nix-command` と `flakes` が実験的機能として無効になっている。`nix run` 自体がこれらの機能を必要とするため、有効化せずに実行しても動作しない。
+
+### 解決方法
+
+```zsh
+mkdir -p ~/.config/nix
+echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
+```
+
+その後、`make init-home` を再実行する。
+
+---
+
 # nix-darwin / darwin-rebuild
 
 ## `brew bundle` でヘルプテキストが表示されてビルドが失敗する

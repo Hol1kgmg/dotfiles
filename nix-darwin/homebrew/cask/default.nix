@@ -5,6 +5,7 @@
     "visual-studio-code"
     "docker-desktop"
     "smoothcsv"
+    "utm" # nix環境の検証用仮想化ツール
 
     # AIエージェント
     "claude-code"
@@ -36,8 +37,5 @@
     # ウィンドウ管理
     "rectangle"
     "dockdoor"
-    
-    # bookmark管理
-    "raindropio"
   ];
 }
