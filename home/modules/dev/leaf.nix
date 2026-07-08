@@ -1,5 +1,6 @@
 { pkgs, lib, ... }:
 
+# markdown viewツール moの導入によりコメントアウト
 let
   leaf = pkgs.rustPlatform.buildRustPackage {
     pname = "leaf";

@@ -8,5 +8,8 @@
 
     # ツール試運転ツール
     "pkgx"
+
+    # morkdown viewツール
+    "k1LoW/tap/mo"
   ];
 }
