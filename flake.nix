@@ -40,9 +40,10 @@
       ...
     }:
     let
+      secretPath = builtins.getEnv "PWD" + "/local/secrets.nix";
       secrets =
-        if builtins.pathExists ./local/secrets.nix then
-          import ./local/secrets.nix
+        if builtins.getEnv "PWD" != "" && builtins.pathExists secretPath then
+          import secretPath
         else
           {
             gitUsername = "";
