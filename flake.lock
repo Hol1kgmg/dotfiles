@@ -87,6 +87,22 @@
         "type": "github"
       }
     },
+    "homebrew-k1low": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783493427,
+        "narHash": "sha256-BJlaXY8+9BVZdTn6bYfRh1zWKCP/QL7wNniTTVnQwxY=",
+        "owner": "k1LoW",
+        "repo": "homebrew-tap",
+        "rev": "dbfce45ab8b646459080a8ada2a79db3f8911489",
+        "type": "github"
+      },
+      "original": {
+        "owner": "k1LoW",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -182,6 +198,7 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "homebrew-k1low": "homebrew-k1low",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nix-vscode-extensions": "nix-vscode-extensions",

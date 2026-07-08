@@ -25,6 +25,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-k1low = {
+      url = "github:k1LoW/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =

@@ -11,6 +11,6 @@
     ./nix-tools.nix
     ./vite-plus.nix
     ./devcontainer.nix
-    ./leaf.nix
+    # ./leaf.nix
   ];
 }
