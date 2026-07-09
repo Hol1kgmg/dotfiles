@@ -54,6 +54,8 @@ config.disable_default_key_bindings = false
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 
+require("plugins").apply_to_config(config)
+
 ----------------------------------------------------
 -- 定数
 ----------------------------------------------------

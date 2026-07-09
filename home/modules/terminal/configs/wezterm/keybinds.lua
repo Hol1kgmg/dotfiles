@@ -150,12 +150,6 @@ return {
 			{ key = "l",      action = act.AdjustPaneSize({ "Right", 3 }) },
 			{ key = "Escape", action = act.PopKeyTable },
 		},
-		search_mode = {
-			{ key = "Escape", action = act.Multiple({
-				act.CopyMode("ClearPattern"),
-				act.CopyMode("Close"),
-			}) },
-		},
 		copy_mode = {
 			-- 移動
 			{ key = "h",      action = act.CopyMode("MoveLeft") },
