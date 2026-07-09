@@ -4,7 +4,6 @@
     # 開発ツール
     "lazygit"
     "lazydocker"
-    "ffmpeg"
 
     # ツール試運転ツール
     "pkgx"
