@@ -1,0 +1,96 @@
+onboarding = false
+
+[update]
+channel = "stable"
+version_check = true
+
+[terminal]
+default_shell = "zsh"
+shell_mode = "auto"
+new_cwd = "follow"
+
+[keys]
+prefix = "shift+space"
+
+# pane
+focus_pane_left = "alt+shift+h"
+focus_pane_down = "alt+shift+j"
+focus_pane_up = "alt+shift+k"
+focus_pane_right = "alt+shift+l"
+cycle_pane_previous = ""
+cycle_pane_next = ""
+
+# tab
+previous_tab = "alt+h"
+next_tab = "alt+l"
+new_tab = "prefix+t"
+close_tab = "prefix+w"
+rename_tab = ""
+
+# workspace
+workspace_picker = "prefix+shift+w"
+new_workspace = "prefix+shift+t"
+next_workspace = ["prefix+tab", "tab"]
+previous_workspace = ["prefix+shift+tab", "shift+tab"]
+rename_workspace = ""
+close_workspace = "prefix+shift+d"
+
+# navigate
+navigate_workspace_up = ["up", "k"]
+navigate_workspace_down = ["down", "j"]
+navigate_pane_left = ""
+navigate_pane_down = ""
+navigate_pane_up = ""
+navigate_pane_right = ""
+
+# worktree
+new_worktree = ""
+
+# agent
+focus_agent = "prefix+1..9"
+
+# mode
+resize_mode = "prefix+r"
+copy_mode = "prefix+v"
+
+# sidebar
+toggle_sidebar = "cmd+s"
+
+# pane 分割 (4方向) - [[keys.command]] で定義
+[[keys.command]]
+key = "prefix+h"
+type = "shell"
+command = "herdr pane split --direction right --ratio 0.333 && herdr pane swap --direction right --current"
+description = "Split pane to the left (33%)"
+
+[[keys.command]]
+key = "prefix+j"
+type = "shell"
+command = "herdr pane split --direction down"
+description = "Split pane downward"
+
+[[keys.command]]
+key = "prefix+k"
+type = "shell"
+command = "herdr pane split --direction up"
+description = "Split pane upward"
+
+[[keys.command]]
+key = "prefix+l"
+type = "shell"
+command = "herdr pane split --direction right"
+description = "Split pane to the right"
+
+[theme]
+auto_switch = true
+dark_name = "kanagawa"
+
+[ui]
+sidebar_width = 32
+pane_borders = true
+pane_gaps = true
+confirm_close = true
+prompt_new_tab_name = false
+
+[ui.toast]
+delivery = "terminal"

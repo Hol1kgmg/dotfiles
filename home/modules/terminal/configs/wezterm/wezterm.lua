@@ -49,10 +49,11 @@ config.window_frame = {
 ----------------------------------------------------
 -- キーバインド設定
 ----------------------------------------------------
-config.leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 1000 }
+local keybinds = require("keybinds.default")
+if keybinds.leader then config.leader = keybinds.leader end
 config.disable_default_key_bindings = false
-config.keys = require("keybinds").keys
-config.key_tables = require("keybinds").key_tables
+config.keys = keybinds.keys
+config.key_tables = keybinds.key_tables
 
 require("plugins").apply_to_config(config)
 
