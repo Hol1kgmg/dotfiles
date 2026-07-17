@@ -28,10 +28,10 @@ close_tab = "prefix+w"
 rename_tab = ""
 
 # workspace
-workspace_picker = "prefix+shift+w"
+workspace_picker = ""
 new_workspace = "prefix+shift+t"
-next_workspace = ["prefix+tab", "tab"]
-previous_workspace = ["prefix+shift+tab", "shift+tab"]
+next_workspace = ["ctrl+tab"]
+previous_workspace = ["ctrl+shift+tab"]
 rename_workspace = ""
 close_workspace = "prefix+shift+d"
 

@@ -18,10 +18,23 @@ return {
 		{ key = "LeftArrow",  mods = "ALT", action = act.ActivateTabRelative(-1) },
 		{ key = "RightArrow", mods = "ALT", action = act.ActivateTabRelative(1) },
 
+    -- 新しいタブ ("tab"で固定命名)
+    {
+      key = "t",
+      mods = "LEADER",
+      action = wezterm.action_callback(function(window,_)
+        local tab, _, _ = window:mux_window():spawn_tab({})
+        tab:set_title("tab")
+      end),
+    },
+
+    -- タブを閉じる
+    { key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true}) },
+
 		-- 新しいワークスペース (cdiでディレクトリ選択)
 		{
 			key = "T",
-			mods = "SUPER",
+			mods = "LEADER|SHIFT",
 			action = act.SwitchToWorkspace({
 				spawn = { args = { "zsh", "-i", "-c", "cdi; exec zsh" } },
 			}),
