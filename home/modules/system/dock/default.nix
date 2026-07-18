@@ -17,7 +17,6 @@
     
     # ブラウザ
     $DOCKUTIL --add "/Applications/Safari.app" --no-restart
-    $DOCKUTIL --add "/Applications/Firefox.app" --no-restart
     $DOCKUTIL --add "/Applications/Google Chrome.app" --no-restart
 
     # 開発ツール

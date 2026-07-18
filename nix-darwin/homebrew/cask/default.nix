@@ -23,13 +23,13 @@
 
     # ブラウザ
     "google-chrome"
-    "firefox"
 
     # 入力管理
     # goole-japanese-imeはRosettaが必要なので不採用
     # "keycastr"  # 入力キーを可視化するツール(普段は使わない)
     "logi-options+"
     "scroll-reverser"
+    "hammerspoon" # chrome browser用 sidebarのショートカット有効化ツール
 
     # ランチャーアプリ
     "raycast"
