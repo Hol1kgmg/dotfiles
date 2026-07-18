@@ -67,12 +67,13 @@ WezTerm window
 | 操作 | キー | 備考 |
 |---|---|---|
 | 新規タブ | `Prefix+T` | |
-| タブを閉じる | `Prefix+W` | 確認あり |
+| タブを閉じる | `Prefix+W` | 確認なし |
 | タブ切り替え | `Alt+H` / `Alt+L` | |
 | 新規 workspace | `Prefix+Shift+T` | native は cdi でディレクトリ選択 |
 | workspace 切り替え | `Ctrl+Tab` / `Ctrl+Shift+Tab` | |
 | ペイン分割 | `Prefix+H/J/K/L` | 左分割は 33% 幅 |
 | ペイン移動 | `Alt+Shift+H/J/K/L` | |
+| ペインを閉じる | `Prefix+X` | 確認なし |
 | リサイズモード | `Prefix+R` | 下記「リサイズモード」参照 |
 | コピーモード | `Prefix+V` | 下記「コピーモード」参照 |
 
