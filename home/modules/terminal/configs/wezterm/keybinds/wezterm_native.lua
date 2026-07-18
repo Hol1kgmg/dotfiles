@@ -29,7 +29,10 @@ return {
     },
 
     -- タブを閉じる
-    { key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true}) },
+    { key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = false}) },
+
+    -- ペインを閉じる
+    { key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = false}) },
 
 		-- 新しいワークスペース (cdiでディレクトリ選択)
 		{
