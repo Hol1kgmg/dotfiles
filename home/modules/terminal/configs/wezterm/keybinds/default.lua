@@ -30,8 +30,8 @@ local common_keys = {
 }
 
 -- マルチプレクサ切り替え (どちらか1行を有効にする)
--- local multiplexer = require("keybinds.used_tmux")        -- herdr など tmux 系マルチプレクサ使用時
-local multiplexer = require("keybinds.wezterm_native") -- WezTerm ネイティブ多重化に戻す場合
+local multiplexer = require("keybinds.used_tmux")        -- herdr など tmux 系マルチプレクサ使用時
+-- local multiplexer = require("keybinds.wezterm_native") -- WezTerm ネイティブ多重化に戻す場合
 
 local merged_keys = {}
 for _, k in ipairs(multiplexer.keys) do merged_keys[#merged_keys + 1] = k end
