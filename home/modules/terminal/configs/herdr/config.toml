@@ -29,7 +29,7 @@ rename_tab = ""
 
 ## workspace
 workspace_picker = ""
-new_workspace = "prefix+shift+t"
+new_workspace = ""
 next_workspace = ["ctrl+tab"]
 previous_workspace = ["ctrl+shift+tab"]
 rename_workspace = ""
@@ -61,25 +61,32 @@ toggle_sidebar = "cmd+s"
 key = "prefix+h"
 type = "shell"
 command = "herdr pane split --direction right --ratio 0.333 && herdr pane swap --direction right --current"
-description = "Split pane to the left (33%)"
+description = "Split pane left (33%)"
 
 [[keys.command]]
 key = "prefix+j"
 type = "shell"
 command = "herdr pane split --direction down"
-description = "Split pane downward"
+description = "Split pane bottom"
 
 [[keys.command]]
 key = "prefix+k"
 type = "shell"
 command = "herdr pane split --direction up"
-description = "Split pane upward"
+description = "Split pane top"
 
 [[keys.command]]
 key = "prefix+l"
 type = "shell"
 command = "herdr pane split --direction right"
-description = "Split pane to the right"
+description = "Split pane right"
+
+# 新規workspaceを ~ に作成し、そのpaneでcdi(ディレクトリ選択)を実行
+[[keys.command]]
+key = "prefix+shift+t"
+type = "shell"
+command = "pane_id=$(herdr workspace create --cwd ~ --focus | jq -r '.result.root_pane.pane_id'); herdr pane run \"$pane_id\" cdi"
+description = "Custom New workspace"
 
 ##  popup pane
 # exit action: terminal command 'exit'
