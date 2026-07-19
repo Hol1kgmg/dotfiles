@@ -12,7 +12,7 @@ new_cwd = "follow"
 [keys]
 prefix = "shift+space"
 
-# pane
+## pane
 focus_pane_left = "alt+shift+h"
 focus_pane_down = "alt+shift+j"
 focus_pane_up = "alt+shift+k"
@@ -20,14 +20,14 @@ focus_pane_right = "alt+shift+l"
 cycle_pane_previous = ""
 cycle_pane_next = ""
 
-# tab
+## tab
 previous_tab = "alt+h"
 next_tab = "alt+l"
 new_tab = "prefix+t"
 close_tab = "prefix+w"
 rename_tab = ""
 
-# workspace
+## workspace
 workspace_picker = ""
 new_workspace = "prefix+shift+t"
 next_workspace = ["ctrl+tab"]
@@ -35,7 +35,7 @@ previous_workspace = ["ctrl+shift+tab"]
 rename_workspace = ""
 close_workspace = "prefix+shift+d"
 
-# navigate
+## navigate
 navigate_workspace_up = ["up", "k"]
 navigate_workspace_down = ["down", "j"]
 navigate_pane_left = ""
@@ -43,17 +43,17 @@ navigate_pane_down = ""
 navigate_pane_up = ""
 navigate_pane_right = ""
 
-# worktree
+## worktree
 new_worktree = ""
 
-# agent
+## agent
 focus_agent = "prefix+1..9"
 
-# mode
+## mode
 resize_mode = "prefix+r"
 copy_mode = "prefix+v"
 
-# sidebar
+## sidebar
 toggle_sidebar = "cmd+s"
 
 # pane 分割 (4方向) - [[keys.command]] で定義
@@ -80,6 +80,25 @@ key = "prefix+l"
 type = "shell"
 command = "herdr pane split --direction right"
 description = "Split pane to the right"
+
+##  popup pane
+# exit action: terminal command 'exit'
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "$SHELL"
+description = "Open shell in popup"
+width = "80%"
+height = "80%"
+
+# exit action: btop quit
+[[keys.command]]
+key = "prefix+b"
+type = "popup"
+command = "btop"
+description = "Open btop in popup"
+width = "80%"
+height = "80%"
 
 [theme]
 auto_switch = true
