@@ -5,6 +5,7 @@
     "visual-studio-code"
     "docker-desktop"
     "smoothcsv"
+    "obsidian"
 
     # AIエージェント
     "claude-code"
