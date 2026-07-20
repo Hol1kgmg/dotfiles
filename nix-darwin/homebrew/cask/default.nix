@@ -5,7 +5,6 @@
     "visual-studio-code"
     "docker-desktop"
     "smoothcsv"
-    "utm" # nix環境の検証用仮想化ツール
 
     # AIエージェント
     "claude-code"
@@ -27,7 +26,6 @@
     # 入力管理
     # goole-japanese-imeはRosettaが必要なので不採用
     # "keycastr"  # 入力キーを可視化するツール(普段は使わない)
-    "logi-options+"
     "scroll-reverser"
     "hammerspoon" # chrome browser用 sidebarのショートカット有効化ツール
 
