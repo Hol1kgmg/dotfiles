@@ -27,7 +27,7 @@ dotfiles/
 │   ├── default.nix              # darwinConfigurationのメイン
 │   ├── homebrew/                # Homebrew管理
 │   │   ├── default.nix
-│   │   ├── taps.nix             # nix-homebrew設定（tapをflake inputで固定）
+│   │   ├── taps.nix             # Homebrew tap一覧
 │   │   ├── brew/                # CLI tools
 │   │   └── cask/                # GUI apps
 │   └── system/                  # システム設定
