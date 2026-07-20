@@ -61,7 +61,15 @@ make init-home
 nix run nixpkgs#home-manager -- switch --flake .#$(whoami) --impure
 ```
 
-### 6. nix-darwin の初回セットアップ（システムレベル設定）
+### 6. Homebrew のインストール
+
+Homebrew 本体は公式インストーラーで事前にインストールしておく必要があります。
+
+```.zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### 7. nix-darwin の初回セットアップ（システムレベル設定）
 
 初回のみ（パスワード入力が求められます）
 
@@ -71,9 +79,7 @@ make init-darwin
 sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure
 ```
 
-> **Note**: Homebrew 本体は [nix-homebrew](https://github.com/zhaofengli/nix-homebrew) により自動でインストールされるため、事前の手動インストールは不要です。既存の Homebrew 環境がある場合も自動で移行されます（`autoMigrate`）。
-
-### 7. home-manager の再適用（Homebrew アプリへの設定反映）
+### 8. home-manager の再適用（Homebrew アプリへの設定反映）
 
 nix-darwin で Homebrew 経由のアプリ（Rectangle など）がインストールされた後、設定を反映させます。
 
@@ -83,7 +89,7 @@ make home
 home-manager switch --flake .#$(whoami) --impure
 ```
 
-### 8. 手動対応が必要な項目
+### 9. 手動対応が必要な項目
 
 [MANUAL_SETUP.md](./MANUAL_SETUP.md)の内容を参考に対応
 
@@ -106,8 +112,6 @@ make darwin
 # または
 sudo darwin-rebuild switch --flake .#default --impure
 ```
-
-> **Note**: Homebrew の tap（homebrew-core / homebrew-cask）は flake input として固定されています。formula や cask の定義を更新したい場合は `nix flake update` を実行してから適用してください。
 
 ### flake 更新 + home-manager 適用（一括実行）
 
