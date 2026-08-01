@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  # macOS標準のpath_helper(/etc/zprofile)が/usr/local/binを
+  # PATH先頭に割り込ませてくるため、その後に読まれる.zprofileで
+  # /opt/homebrew/binを再度先頭に戻す
+  # (path_helperがない場合はenvExtraの設定がそのまま活きる)
+  programs.zsh.profileExtra = ''
+    if [ -d "/opt/homebrew/bin" ]; then
+      export PATH="/opt/homebrew/bin:$PATH"
+    fi
+  '';
+
   # 環境変数設定 (.zshenv)
   programs.zsh.envExtra = ''
     # Nix daemon (PATH, NIX_PROFILES等)
