@@ -26,8 +26,8 @@ return {
 		{ key = "s",     mods = "SUPER",   action = wezterm.action.SendString("\x1b[115;9u") },
     -- Ctrl+Tab / Ctrl+Shift+Tab をKKPシーケンスとして転送(herdrのworkspace切り替えへ)
     -- WezTerm workspaceは意図的に未割り当て(デフォルトのタブ切り替えもここで上書き)
-    { key = "Tab", mods = "CTRL",      action = wezterm.action.SendString("\x1b[9;5u]") },
-    { key = "Tab", mods = "CTRL|SHIFT",action = wezterm.action.SendString("\x1b[9;6u]") },
+    { key = "Tab", mods = "CTRL",      action = wezterm.action.SendString("\x1b[9;5u") },
+    { key = "Tab", mods = "CTRL|SHIFT",action = wezterm.action.SendString("\x1b[9;6u") },
 		-- タブが複数あればnext/prev tab、単独ならそのまま送信
 		{ key = "Tab",   mods = "",        action = wezterm.action_callback(tab_or_next) },
 		{ key = "Tab",   mods = "SHIFT",   action = wezterm.action_callback(shift_tab_or_prev) },
