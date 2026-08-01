@@ -18,6 +18,9 @@ local common_keys = {
 	-- Zenモードフォントサイズトグル (Neovimから呼び出し用)
 	{ key = ";", mods = "CTRL", action = act.EmitEvent("toggle-font-size") },
 
+	-- デバッグオーバーレイのデフォルト割り当てを無効化 (ctrl+shift+l を別用途で使うため)
+	{ key = "L", mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment },
+
 	-- 新しいタブ ("tab" で固定命名)
 	{
 		key = "t",
