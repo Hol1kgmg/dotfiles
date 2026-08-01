@@ -77,6 +77,10 @@
     "accessibility.signals.progress"= { sound = "off"; };
     "accessibility.signals.voiceRecordingStarted"= { sound = "off"; };
 
+    # デバック:パネル自動表示を抑制
+    "debug.openDebug" = "neverOpen";
+    "debug.internalConsoleOptions" = "neverOpen";
+
     # todo-tree: Nixでインストールしたripgrepを指定
     "todo-tree.ripgrep.ripgrep" = "${pkgs.ripgrep}/bin/rg";
 
