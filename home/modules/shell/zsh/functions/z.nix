@@ -6,7 +6,6 @@
 { config, pkgs, ... }:
 
 {
-  # zsh関数定義
   programs.zsh.initContent = ''
     z() {
       local layout=$(ls ~/.config/zellij/layouts/*.kdl 2>/dev/null | xargs -n 1 basename -s .kdl | fzf --reverse --prompt="適用するレイアウトを選択 > ")
