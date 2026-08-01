@@ -1,0 +1,52 @@
+[tasks.home]
+description = "home-manager 設定を適用"
+run = "home-manager switch --flake .#$(whoami) --impure"
+
+[tasks.darwin]
+description = "nix-darwin 設定を適用"
+run = "sudo darwin-rebuild switch --flake .#default --impure"
+
+[tasks.update]
+description = "flake更新 + home-manager適用（一括実行）"
+run = "nix run .#default --impure"
+
+[tasks.fmt]
+description = "nix fmt でフォーマット"
+run = "nix fmt"
+
+[tasks.gc]
+description = "nix の古い環境をリセット"
+run = "nix store gc"
+
+[tasks.up]
+description = "devcontainer を起動"
+run = "devcontainer up --workspace-folder ."
+
+[tasks.restart]
+description = "devcontainer を再作成して起動"
+run = "devcontainer up --workspace-folder . --remove-existing-container"
+
+[tasks.upgrade]
+description = "devcontainer を更新"
+run = "devcontainer update --workspace-folder ."
+
+[tasks.destroy]
+description = "devcontainer関連のコンテナ・ボリューム・イメージを削除"
+run = '''
+docker ps -a --filter "label=devcontainer.local_folder=$PWD" --format "{{.ID}}" | xargs -r docker rm -f
+docker volume rm -f frontend-env-mask backend-env-mask
+docker volume ls --filter "name=nix-store" --format "{{.Name}}" | xargs -r docker volume rm -f
+docker images --filter "reference=vsc-pj_ai_transcribe_speech-*" --format "{{.ID}}" | xargs -r docker rmi -f
+'''
+
+[tasks.bash]
+description = "devcontainer内でbashを起動"
+run = "devcontainer exec --workspace-folder . bash"
+
+[tasks.claude]
+description = "devcontainer内でclaudeを起動"
+run = "devcontainer exec --workspace-folder . claude"
+
+[tasks."claude-r"]
+description = "devcontainer内でclaude -rを起動"
+run = "devcontainer exec --workspace-folder . claude -r"
