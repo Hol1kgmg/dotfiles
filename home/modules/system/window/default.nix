@@ -5,6 +5,6 @@
     # ./alt-tab-macos.nix
     ./dockdoor.nix
     ./scroll-reverser.nix
-    ./hammerspoon.nix
+    # ./hammerspoon.nix
   ];
 }

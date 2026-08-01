@@ -9,7 +9,7 @@
   #     {id = "cofdbpoegempjloogbagkncekinflcnj";} # DeepL
   #     {id = "pejdijmoenmkgeppbflobdenhhabjlaj";} # iCloud Passwords
   #     {id = "lmgbdjfoaihhgdphombpgjpaohjfeapp";} # CopyTabTitleUrl
-  #     {id = "jdbnofccmhefkmjbkkdkfiicjkgofkdh";} # Bookmark Sidebar
+  #     {id = "medapdbncneneejhbgcjceippjlfkmkg";} # Markdown Reader
   #   ];
   # };
 }
