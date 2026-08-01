@@ -17,7 +17,7 @@
     
     # ブラウザ
     $DOCKUTIL --add "/Applications/Safari.app" --no-restart
-    $DOCKUTIL --add "/Applications/Google Chrome.app" --no-restart
+    $DOCKUTIL --add "/Applications/Google Chrome Canary.app" --no-restart
 
     # 開発ツール
     $DOCKUTIL --add "/Applications/Visual Studio Code.app" --no-restart
