@@ -84,7 +84,7 @@ sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" --
 nix-darwin で Homebrew 経由のアプリ（Rectangle など）がインストールされた後、設定を反映させます。
 
 ```.zsh
-make home
+mise run home
 # または
 home-manager switch --flake .#$(whoami) --impure
 ```
@@ -100,7 +100,7 @@ home-manager switch --flake .#$(whoami) --impure
 ### home-manager 設定を適用
 
 ```.zsh
-make home
+mise run home
 # または
 home-manager switch --flake .#$(whoami) --impure
 ```
@@ -108,7 +108,7 @@ home-manager switch --flake .#$(whoami) --impure
 ### nix-darwin 設定を適用
 
 ```.zsh
-make darwin
+mise run darwin
 # または
 sudo darwin-rebuild switch --flake .#default --impure
 ```
@@ -118,7 +118,7 @@ sudo darwin-rebuild switch --flake .#default --impure
 > **⚠️ 警告**: このコマンドは `flake.lock` を最新版に更新します。依存関係の破壊的変更により、動作していた機能が壊れる可能性があります。日常的な設定変更には上記の `home-manager switch` または `darwin-rebuild switch` を使用してください。
 
 ```.zsh
-make update
+mise run update
 # または
 nix run .#default --impure
 ```
@@ -126,7 +126,7 @@ nix run .#default --impure
 ### nix の古い環境のリセット
 
 ```.zsh
-make gc
+mise run gc
 # または
 nix store gc
 ```
@@ -134,7 +134,7 @@ nix store gc
 ### フォーマット
 
 ```.zsh
-make fmt
+mise run fmt
 # または
 nix fmt
 ```

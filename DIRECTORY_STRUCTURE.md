@@ -4,6 +4,8 @@
 dotfiles/
 ├── flake.nix                    # エントリーポイント
 ├── flake.lock                   # 依存関係ロックファイル
+├── Makefile                     # 初期環境セットアップ用（init-home, init-darwin）
+├── mise.toml                    # 日常運用・devcontainer操作タスク定義（mise run）
 ├── .mcp.json                    # MCP server設定（Claude Code）
 ├── .claude/                     # Claude Code設定
 ├── LICENSE                      # ライセンスファイル
