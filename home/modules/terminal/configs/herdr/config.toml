@@ -21,8 +21,8 @@ cycle_pane_previous = ""
 cycle_pane_next = ""
 
 ## tab
-previous_tab = "alt+h"
-next_tab = "alt+l"
+previous_tab = ["alt+h","alt+left"]
+next_tab = ["alt+l","alt+right"]
 new_tab = "prefix+t"
 close_tab = "prefix+w"
 rename_tab = ""
