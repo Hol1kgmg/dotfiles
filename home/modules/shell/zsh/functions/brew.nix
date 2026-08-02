@@ -12,7 +12,7 @@
 #
 # brew-versions
 #   - インストール済みのcask/formulaについて、ローカルにインストールされている
-#     バージョンディレクトリの最終更新日時を一覧表示します(brewが最後に更新した日時の目安)
+#     バージョンディレクトリの最終更新日時とバージョンを一覧表示します(brewが最後に更新した日時の目安)
 
 { config, pkgs, ... }:
 
@@ -53,11 +53,14 @@
     _brew_list_versions() {
       local root_dir="$1"
       shift
-      local pkg dir latest
+      local pkg dir latest version
       for pkg in "$@"; do
         dir="$root_dir/$pkg"
         latest=$(ls -td "$dir"/*/ 2>/dev/null | head -1)
-        [[ -n "$latest" ]] && echo "$(stat -f "%Sm" -t "%Y-%m-%d %H:%M:%S" "$latest")  $pkg"
+        if [[ -n "$latest" ]]; then
+          version=$(basename "$latest")
+          echo "$(stat -f "%Sm" -t "%Y-%m-%d %H:%M:%S" "$latest")  $pkg ($version)"
+        fi
       done | sort
     }
 
