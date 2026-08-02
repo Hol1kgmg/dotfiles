@@ -50,7 +50,12 @@ dotfiles/
         │   ├── browser/         # ブラウザ設定(safari)
         │   ├── dock/            # Dock設定（dockutil）
         │   ├── fonts/           # フォント設定
-        │   └── window/          # ウィンドウ管理（rectangle, alt-tab, scroll-reverser）
+        │   ├── window/          # ウィンドウ管理（rectangle, alt-tab, scroll-reverser, trex）
+        │   └── launcher/        # ランチャーアプリ設定
+        │       ├── default.nix
+        │       ├── vicinae.nix  # vicinae設定（xdg.configFile）
+        │       └── configs/
+        │           └── vicinae/ # vicinae設定ファイル（settings.json）
         ├── dev/                 # 開発環境
         │   ├── default.nix
         │   ├── git.nix          # Git設定

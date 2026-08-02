@@ -1,0 +1,107 @@
+{
+  "global_shortcuts": {
+    "toggle": "cmd+space"
+  },
+  "theme": {
+    "light": {
+      "name": "nord-light",
+      "icon_theme": "auto"
+    },
+    "dark": {
+      "name": "nord-light",
+      "icon_theme": "auto"
+    }
+  },
+  "font": {
+    "normal": {
+      "family": ".AppleSystemUIFont",
+      "size": 15
+    }
+  },
+  "favorites": [
+    "clipboard:history",
+    "scripts:recognize-text.sh",
+    "@thomas/store.raycast.color-picker:pick-color"
+  ],
+  "pop_to_root_on_close": true,
+  "close_on_focus_loss": true,
+  "providers": {
+    "font": {
+       "enabled": false
+    },
+    "macos-settings": {
+       "enabled": false
+    },
+    "manage-shortcuts": {
+       "enabled": false
+    },
+    "system": {
+       "enabled": false
+    },
+    "theme": {
+       "enabled": false
+    },
+    "wm": {
+       "enabled": false
+    },
+    "clipboard": {
+      "preferences": {
+        "eraseOnStartup": true,
+        "monitoring": true
+      }
+    },
+    "scripts": {
+      "preferences": {
+        "customDirs": [
+          "@HOME@/.config/vicinae/scripts"
+        ]
+      },
+      "entrypoints": {
+        "recognize-text.sh": {
+          "alias": "screen"
+        }
+      }
+    },
+    "power": {
+      "entrypoints": {
+        "reboot": {
+          "alias": "reboot"
+        }
+      }
+    },
+    "@thomas/store.raycast.color-picker": {
+         "preferences": {
+            "colorFormat": "hex"
+         },
+         "entrypoints": {
+            "color-names": {
+               "enabled": false
+            },
+            "color-wheel": {
+               "enabled": false
+            },
+            "convert-color": {
+               "enabled": false
+            },
+            "extract-color": {
+               "enabled": false
+            },
+            "generate-colors": {
+               "enabled": false
+            },
+            "organize-colors": {
+               "enabled": false
+            },
+            "pick-color": {
+               "alias": "color"
+            }
+         }
+      }
+  },
+  "launcher_window": {
+    "rounding": 5,
+    "compact_mode": {
+      "enabled": false
+    }
+  }
+}
