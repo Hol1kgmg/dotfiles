@@ -6,6 +6,7 @@
   
   home.packages = [
   pkgs.plemoljp-nf
+  pkgs.unifont
   ];
   # home.packages = with pkgs; [
   #   # Nerd Fonts（oh my posh用）

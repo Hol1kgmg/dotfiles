@@ -1,0 +1,32 @@
+{
+  "favorites": [
+    "@huzef44/store.raycast.screenocr:recognize-text"
+  ],
+  "providers": {
+    "@huzef44/store.raycast.screenocr": {
+         "preferences": {
+            "ignoreLineBreaks": false,
+            "keepImage": false,
+            "languageCorrection": true,
+            "ocrMode": "accurate",
+            "playSound": false,
+            "primaryLanguage": "en-US",
+            "showToast": true
+         },
+         "entrypoints": {
+            "detect-barcode": {
+               "enabled": false
+            },
+            "preferences": {
+               "enabled": false
+            },
+            "recognize-text": {
+               "alias": "screen"
+            },
+            "recognize-text-fullscreen": {
+               "enabled": false
+            }
+         }
+      }
+  }
+}

@@ -4,5 +4,6 @@
     ./fonts
     ./dock
     ./window
+    ./launcher
   ];
 }
