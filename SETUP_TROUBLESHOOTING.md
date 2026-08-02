@@ -279,7 +279,6 @@ sudo darwin-rebuild switch --flake .#default --impure
 homebrew.taps = [
   "homebrew/homebrew-core"
   "homebrew/homebrew-cask"
-  "k1LoW/homebrew-tap"
   "<owner>/<tap名>"
 ];
 ```

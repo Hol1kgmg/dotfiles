@@ -9,6 +9,6 @@
     "pkgx"
 
     # morkdown viewツール
-    "k1LoW/tap/mo"
+    # "k1LoW/tap/mo"
   ];
 }
