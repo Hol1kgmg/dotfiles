@@ -2,6 +2,6 @@
   homebrew.taps = [
     "homebrew/homebrew-core"
     "homebrew/homebrew-cask"
-    "k1LoW/homebrew-tap"
+    # "k1LoW/homebrew-tap"
   ];
 }
