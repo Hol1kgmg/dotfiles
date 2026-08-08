@@ -17,17 +17,10 @@
     "allow": [
       "Bash(git *)",
       "Bash(gh *)",
-      "Bash(task *)",
-      "Bash(make *)",
+      "Bash(mise *)",
       "Bash(which *)",
       "Bash(type *)",
       "Bash(tree *)",
-      "WebFetch",
-      "WebSearch",
-      "Write",
-      "Skill"
-    ],
-    "deny": [
       "Bash(ls:*)",
       "Bash(cat:*)",
       "Bash(grep:*)",
@@ -36,8 +29,13 @@
       "Bash(awk:*)",
       "Bash(head:*)",
       "Bash(tail:*)",
-      "Bash(curl *)"
-    ]
+      "Bash(curl *)",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "Skill"
+    ],
+    "deny": []
   },
   "statusLine": {
     "type": "command",
