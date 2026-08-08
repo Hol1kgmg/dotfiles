@@ -4,6 +4,8 @@
   imports = [
     ./zsh
     ./oh-my-posh.nix
+    # ./starship.nix
+
     ./fzf.nix
   ];
 

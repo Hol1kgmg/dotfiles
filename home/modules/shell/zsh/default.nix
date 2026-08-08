@@ -11,6 +11,8 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    # compaudit(全fpathの権限チェック)をスキップして起動を高速化
+    completionInit = "autoload -U compinit && compinit -C";
 
     # 自動補完提案
     autosuggestion = {
