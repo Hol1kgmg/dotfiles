@@ -4,7 +4,8 @@
   # mise設定
   programs.mise = {
     enable = true;
-    enableZshIntegration = true;
+    # home/modules/shell/zsh/functions/tool-init-cache.nix でキャッシュして source するため無効化
+    enableZshIntegration = false;
     enableBashIntegration = true;
 
     # mise settings の管理
