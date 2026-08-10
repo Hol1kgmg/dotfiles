@@ -4,11 +4,18 @@ font-size = 13
 
 # 背景設定
 background = #000000
-background-opacity = 0.6
+background-opacity = 0.85
 background-blur = 20
 
 # タブバー
-macos-window-buttons = visible
+macos-window-buttons = hidden
+
+# タイトルバー new tabが使えなくなる
+macos-titlebar-style = hidden
+
+# 余白
+window-padding-x = 10
+window-padding-y = 10
 
 # スクロール
 scrollback-limit = 10000
@@ -18,7 +25,20 @@ scrollbar = never
 # Zenモード
 keybind = all:ctrl+semicolon=set_font_size:18
 # サイズリセット
+keybind = all:ctrl+shift+semicolon=reset_font_size
 keybind = all:cmd+0=reset_font_size
+
+# Option/Altキーを特殊文字入力ではなく修飾キーとして扱う
+macos-option-as-alt = true
+
+# キーバインド (herdr連携: WezTerm used_tmuxモードと揃える)
+keybind = shift+space=csi:32;2u
+keybind = cmd+s=csi:115;9u
+keybind = ctrl+tab=csi:9;5u
+keybind = ctrl+shift+tab=csi:9;6u
+
+# 新規タブ
+keybind = cmd+t=new_tab
 
 # 確認ダイアログ設定
 confirm-close-surface = false
