@@ -4,6 +4,7 @@
     # 開発ツール
     "lazygit"
     "lazydocker"
+    "imagemagick"
 
     # ツール試運転ツール
     "pkgx"
