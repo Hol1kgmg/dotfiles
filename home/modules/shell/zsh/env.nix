@@ -21,6 +21,12 @@
       . "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
     fi
 
+    # home-manager user profile binaries (ghq/zoxide/mise/fzf等)
+    # NIX_PROFILESが非空のままPATHだけ失われるケース(fish経由等)があるため
+    if [ -d "$HOME/.nix-profile/bin" ]; then
+      export PATH="$HOME/.nix-profile/bin:$PATH"
+    fi
+
     # Homebrew binaries
     if [ -d "/opt/homebrew/bin" ]; then
       export PATH="/opt/homebrew/bin:$PATH"
