@@ -23,6 +23,9 @@
     "scripts:recognize-text.sh",
     "@thomas/store.raycast.color-picker:pick-color"
   ],
+  "input_server": {
+    "enabled": true
+  },
   "pop_to_root_on_close": true,
   "close_on_focus_loss": true,
   "providers": {
