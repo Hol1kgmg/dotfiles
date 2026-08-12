@@ -141,6 +141,17 @@ nix fmt
 
 ---
 
+## 設定管理の方針
+
+日常的な設定変更で `sudo` を必要としないよう、管理場所を分けている。
+
+- **home-manager（`home/`）**: ユーザー権限で完結する設定。Dock/Finder/Trackpad/Keyboardのシステム設定、`nix.settings` など。`home-manager switch` のみで反映され、sudo 不要
+- **nix-darwin（`nix-darwin/`）**: root 権限が本質的に必要な設定のみ。Touch ID sudo 認証（`security.nix`）、Homebrew 管理（`homebrew/`。home-manager への移行は [#1](https://github.com/Hol1kgmg/dotfiles/issues/1) で検討中）。`darwin-rebuild switch`（sudo 必須）でのみ反映される
+
+`nix-darwin/system/` 配下の一部ファイル（`dock.nix` / `finder.nix` / `trackpad.nix` / `keyboard.nix`）は home-manager 側へ移行済みのため import を無効化し、参照用として残している。
+
+---
+
 ## 各機能の使い方を調べる
 
 各ツールやコマンドの使用方法を知りたい場合は、`help`で検索してください。

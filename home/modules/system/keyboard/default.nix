@@ -1,9 +1,8 @@
 { lib, ... }:
 
 {
-  # 元 nix-darwin system.defaults.hitoolbox / NSGlobalDomain / CustomUserPreferences（sudoなし運用への移行）
-  # 注意: Caps LockキーをControlキーにリマップする設定(system.keyboard.remapCapsLockToControl)は
-  # root権限のLaunchDaemonを必要とするためhome-managerには移行不可。nix-darwin/system/keyboard.nixを参照。
+  # Caps LockキーをControlキーにリマップする設定(remapCapsLockToControl)はroot権限の
+  # LaunchDaemonを必要とするためhome-managerには移行不可。nix-darwin/system/keyboard.nixを参照。
   home.activation.configureKeyboard = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     # Fn/地球儀キーを押したときの動作（他の選択肢: "Change Input Source", "Show Emoji & Symbols", "Start Dictation"）
     /usr/bin/defaults write com.apple.HIToolbox AppleFnUsageType -string "Do Nothing"

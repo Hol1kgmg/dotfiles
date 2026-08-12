@@ -13,7 +13,7 @@
     };
   };
 
-  # 元 nix-darwin nix.settings（sudoなし運用への移行、~/.config/nix/nix.conf に反映）
+  # ~/.config/nix/nix.conf に反映される（nix.package の指定が必須）
   nix.package = pkgs.nix;
   nix.settings = {
     experimental-features = [
