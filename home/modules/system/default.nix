@@ -3,6 +3,8 @@
     ./browser
     ./fonts
     ./dock
+    ./trackpad
+    ./keyboard
     ./window
     ./launcher
   ];

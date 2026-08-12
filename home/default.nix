@@ -13,6 +13,15 @@
     };
   };
 
+  # 元 nix-darwin nix.settings（sudoなし運用への移行、~/.config/nix/nix.conf に反映）
+  nix.package = pkgs.nix;
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
