@@ -65,6 +65,8 @@
             fi
           '';
 
+          devShells.default = pkgs.mkShellNoCC { };
+
           apps.default = {
             type = "app";
             program = toString (
