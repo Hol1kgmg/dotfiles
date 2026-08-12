@@ -6,6 +6,7 @@
     "docker-desktop"
     "smoothcsv"
     "obsidian"
+    "Hol1kgmg/localhost-top/localhost-top"
 
     # AIエージェント
     "claude-code"
