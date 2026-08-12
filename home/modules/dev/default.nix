@@ -4,6 +4,7 @@
     ./gh.nix
     ./uv.nix
     ./mise.nix
+    ./direnv.nix
     ./ghq-zoxide.nix
     ./ni.nix
     ./nodejs.nix
