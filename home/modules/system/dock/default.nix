@@ -6,7 +6,6 @@
 
   # Dockの設定を適用
   home.activation.configureDock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    # 元nix-darwin system.defaults.dock（sudoなし運用への移行）
     # Dockを自動的に隠す/表示
     /usr/bin/defaults write com.apple.dock autohide -bool true
     # 最近使ったアプリケーションをDockに表示しない

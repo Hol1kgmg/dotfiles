@@ -5,7 +5,7 @@
     primaryUser = "mypc";
   };
 
-  # sudoなし運用への移行に伴い home/default.nix (home-manager の nix.settings) へ移管。
+  # home/default.nix の nix.settings で管理（README.md「設定管理の方針」参照）。
   # nix.settings = {
   #   experimental-features = [
   #     "nix-command"
@@ -19,8 +19,7 @@
 
   imports = [
     ./security.nix
-    # sudoなし運用への移行に伴い home-manager (home/modules/system/) へ設定を移管。
-    # ファイルは参照用に残しつつ、ここでのimportを無効化する。
+    # home-manager (home/modules/system/) で管理（README.md「設定管理の方針」参照）。
     # ./keyboard.nix
     # ./dock.nix
     # ./finder.nix
