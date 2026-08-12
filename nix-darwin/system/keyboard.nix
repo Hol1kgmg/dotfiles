@@ -10,7 +10,9 @@
     enableKeyMapping = true;
 
     # Caps LockキーをControlキーにリマップ
-    remapCapsLockToControl = true;
+    # 無効化理由: ログイン画面/全ユーザーに適用するLaunchDaemon(root権限)を必要とするため、
+    # sudoなし運用(home-manager移行)の対象から除外。将来sudoを許容する場合のみ再有効化する。
+    # remapCapsLockToControl = true;
   };
 
   # ========================================
