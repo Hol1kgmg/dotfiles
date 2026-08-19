@@ -98,7 +98,7 @@ description = "Open shell in popup"
 width = "80%"
 height = "80%"
 
-# exit action: btop quit
+# exit action: tui quit
 [[keys.command]]
 key = "prefix+b"
 type = "popup"
@@ -106,6 +106,16 @@ command = "btop"
 description = "Open btop in popup"
 width = "80%"
 height = "80%"
+
+# exit action: tui quit
+[[keys.command]]
+key = "prefix+p"
+type = "popup"
+command = "localhost-top"
+description = "Open localhost-top in popup"
+width = "80%"
+height = "80%"
+
 
 [theme]
 auto_switch = true
@@ -120,3 +130,6 @@ prompt_new_tab_name = false
 
 [ui.toast]
 delivery = "terminal"
+
+[experimental]
+kitty_graphics = true
