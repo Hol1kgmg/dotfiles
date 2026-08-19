@@ -4,8 +4,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "ogulcancelik";
     repo = "herdr";
-    rev = "v0.7.4";
-    hash = "sha256-dBOQYLFitJ+E3XNz44Ag3CIrBxFj16CmVPp7qil0ssg=";
+    rev = "v0.8.0";
+    hash = "sha256-empFQ+hrnCh2JhOzQRWSCLV0YoZC3DXW3bY6k8YuJjk=";
   };
 
   zigDeps = pkgs.callPackage "${src}/vendor/libghostty-vt/build.zig.zon.nix" {
@@ -25,7 +25,7 @@ in
   home.packages = [
     (pkgs.rustPlatform.buildRustPackage {
       pname = "herdr";
-      version = "0.7.4";
+      version = "0.8.0";
       inherit src;
 
       cargoLock = {
