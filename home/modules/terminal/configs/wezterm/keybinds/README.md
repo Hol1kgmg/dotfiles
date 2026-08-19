@@ -84,6 +84,13 @@ WezTerm window
 | workspace を閉じる | `Prefix+Shift+D` | herdr のみ |
 | サイドバー | `Cmd+S` | herdr のみ (used_tmux が KKP 転送) |
 
+## 専用ツール起動
+
+| 操作 | キー | used_tmux (herdr) | wezterm_native |
+|---|---|---|---|
+| btop | `Prefix+B` | popup 表示 | 新規タブで起動 (タブ名 "tool" 固定) |
+| localhost-top | `Prefix+P` | popup 表示 | 新規タブで起動 (タブ名 "tool" 固定) |
+
 ## 共通キー (common_keys、両モードで常に有効)
 
 | 操作 | キー | 備考 |

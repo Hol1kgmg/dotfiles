@@ -8,6 +8,11 @@ local function repeat_action(action, count)
 	return act.Multiple(t)
 end
 
+-- 対話シェル経由でコマンドを実行するargs (Homebrew等、対話シェルのPATHが必要なコマンド用)
+local function interactive_shell(cmd)
+	return { "/bin/zsh", "-i", "-c", cmd }
+end
+
 return {
 	leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 1000 },
 
@@ -39,7 +44,7 @@ return {
 			key = "T",
 			mods = "LEADER|SHIFT",
 			action = act.SwitchToWorkspace({
-				spawn = { args = { "zsh", "-i", "-c", "cdi; exec zsh" } },
+				spawn = { args = interactive_shell("cdi; exec zsh") },
 			}),
 		},
 
@@ -72,6 +77,24 @@ return {
 
 		-- コピーモード (Leader+V)
 		{ key = "v", mods = "LEADER", action = act.ActivateCopyMode },
+
+		-- 専用ツール起動 (herdr の popup 相当を新規タブで実行、対話シェル経由でPATH解決)
+		{
+			key = "b",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(window, _)
+				local tab, _, _ = window:mux_window():spawn_tab({ args = interactive_shell("btop") })
+				tab:set_title("tool")
+			end),
+		},
+		{
+			key = "p",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(window, _)
+				local tab, _, _ = window:mux_window():spawn_tab({ args = interactive_shell("localhost-top") })
+				tab:set_title("tool")
+			end),
+		},
 	},
 
 	key_tables = {
