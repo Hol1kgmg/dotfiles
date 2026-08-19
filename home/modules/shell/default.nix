@@ -16,4 +16,5 @@
   ];
 
   xdg.configFile."btop/btop.conf".source = ./configs/btop/btop.conf;
+  xdg.configFile."localhost-top/config.json".source = ./configs/localhost-top/config.json;
 }
