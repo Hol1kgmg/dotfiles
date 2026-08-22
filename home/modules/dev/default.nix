@@ -12,6 +12,7 @@
     ./nix-tools.nix
     ./vite-plus.nix
     ./devcontainer.nix
+    ./devenv.nix
     ./ffmpeg.nix
     ./zig.nix
     # ./leaf.nix
