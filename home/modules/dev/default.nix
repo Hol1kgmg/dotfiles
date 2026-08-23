@@ -10,6 +10,7 @@
     ./nodejs.nix
     ./pnpm.nix
     ./nix-tools.nix
+    ./just.nix
     ./vite-plus.nix
     ./devcontainer.nix
     ./devenv.nix
