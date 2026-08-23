@@ -4,6 +4,7 @@
   imports = [
     ./env.nix
     ./aliases.nix
+    ./completions.nix
     ./functions
   ];
 
