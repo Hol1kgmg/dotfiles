@@ -11,6 +11,9 @@
     greset = "git reset --soft HEAD^";
     groot = "git rev-parse --show-toplevel";
 
+    # シェル
+    e = "exit";
+
     # 開発ツール
     lg = "lazygit";
     ld = "lazydocker";
@@ -20,6 +23,11 @@
     za = "zellij a";
     zl = "zellij ls";
     zda = "zellij delete-all-sessions";
+
+    # tmux
+    ta = "tmux attach";
+    tl = "tmux ls";
+    tk = "tmux kill-server";
 
     # nvim
     n = "nvim";
