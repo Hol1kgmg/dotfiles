@@ -31,7 +31,7 @@ keybind = all:cmd+0=reset_font_size
 # Option/Altキーを特殊文字入力ではなく修飾キーとして扱う
 macos-option-as-alt = true
 
-# キーバインド (herdr連携: WezTerm used_tmuxモードと揃える)
+# キーバインド (herdr連携: WezTerm used_herdrモードと揃える)
 keybind = shift+space=csi:32;2u
 keybind = cmd+s=csi:115;9u
 keybind = ctrl+tab=csi:9;5u
