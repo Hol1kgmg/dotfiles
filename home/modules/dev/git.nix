@@ -8,6 +8,7 @@
       pull.rebase = false;
       push.default = "current";
       core.editor = "vim";
+      fetch.prune = true;
 
       alias.gbdel = "!git branch --merged | grep -Ev '\\*|develop|main' | xargs git branch -d";
     };
