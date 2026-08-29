@@ -1,3 +1,47 @@
+-- ============================================================
+-- native (WezTerm ネイティブ多重化) 運用モデル (詳細: 同ディレクトリの README.md)
+-- ============================================================
+--
+--   WezTerm window
+--   └─┬─── アクティブスペース (WezTerm の1プロセスが担当) ───────────
+--     └── WezTerm workspace (= プロジェクト単位)
+--         └── WezTerm タブ (= 作業単位)
+--             ├── WezTerm ペイン
+--             └── WezTerm ペイン
+--
+-- ## アクティブスペース内の操作 (Leader = Shift+Space)
+--   | 操作                | キー                        |
+--   |----------------------|-----------------------------|
+--   | 新規タブ(作業単位)   | Leader+T                    |
+--   | タブを閉じる         | Leader+W                    |
+--   | タブ切り替え         | Alt+H / Alt+L               |
+--   | 新規 workspace       | Leader+Shift+T (cdi でディレクトリ選択) |
+--   | workspace 切り替え   | Ctrl+Tab / Ctrl+Shift+Tab   |
+--   | ペイン分割           | Leader+H/J/K/L              |
+--   | ペイン移動           | Alt+Shift+H/J/K/L           |
+--   | ペインを閉じる       | Leader+X                    |
+--   | リサイズモード       | Leader+R                    |
+--   | コピーモード         | Leader+V                    |
+--
+-- ## リサイズモード (Leader+R)
+--   | キー     | 動作             |
+--   |----------|------------------|
+--   | h/j/k/l  | 3 セルずつリサイズ |
+--   | Escape   | 終了             |
+--
+-- ## コピーモード (Leader+V) : vim 風の操作体系
+--   | キー               | 動作                       |
+--   |---------------------|----------------------------|
+--   | h/j/k/l             | カーソル移動               |
+--   | H/J/K/L             | 10 ずつ移動                |
+--   | w / b               | 単語単位で前進 / 後退       |
+--   | 0 / $               | 行頭 / 行末                |
+--   | g / G               | スクロールバック先頭 / 末尾 |
+--   | v / V / Ctrl+V      | Cell / Line / Block 選択    |
+--   | y                   | クリップボードへコピーして終了 |
+--   | a / q / Escape      | 終了                       |
+-- ============================================================
+
 local wezterm = require("wezterm")
 local act = wezterm.action
 
@@ -14,6 +58,8 @@ local function interactive_shell(cmd)
 end
 
 return {
+	mode = "native",
+
 	leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 1000 },
 
 	keys = {

@@ -25,7 +25,9 @@ config.adjust_window_size_when_changing_font_size = false
 ----------------------------------------------------
 -- タブバー設定
 ----------------------------------------------------
-config.enable_tab_bar = true
+-- native以外 (herdr/tmux) はマルチプレクサ側が自前のタブ/ステータス表示を持つため、WezTermのタブバーは隠す
+local keybinds = require("keybinds.default")
+config.enable_tab_bar = keybinds.mode == "native"
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.show_tab_index_in_tab_bar = false
@@ -49,7 +51,6 @@ config.window_frame = {
 ----------------------------------------------------
 -- キーバインド設定
 ----------------------------------------------------
-local keybinds = require("keybinds.default")
 if keybinds.leader then config.leader = keybinds.leader end
 config.disable_default_key_bindings = false
 config.keys = keybinds.keys
