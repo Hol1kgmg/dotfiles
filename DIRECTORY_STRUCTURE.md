@@ -16,6 +16,9 @@ dotfiles/
 ├── MANUAL_SETUP.md              # 手動セットアップ手順
 ├── DIRECTORY_STRUCTURE.md       # このファイル
 │
+├── docs/                        # プロジェクトドキュメント
+│   └── adr/                     # Architecture Decision Records
+│
 ├── local/                       # マシン・ユーザー個別設定
 │   ├── secrets.nix              # 機密情報（.gitignore対象）
 │   ├── secrets.nix.example      # 機密情報テンプレート
@@ -94,6 +97,10 @@ dotfiles/
 ### .claude/
 
 Claude Code 設定ディレクトリ。Claude AI アシスタントの動作設定を管理。
+
+### docs/
+
+プロジェクトドキュメントを管理する。`adr/` にはArchitecture Decision Record（ADR）を格納する。
 
 ### local/
 
