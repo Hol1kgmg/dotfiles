@@ -5,7 +5,7 @@
 -- ## アクティブスペース運用の方針
 --   アクティブスペース = セクション(workspace)・タブ・ペインを束ねる作業領域
 --   操作キーは両モードで同じ体系に統一する (Prefix = Shift+Space)
---     マルチプレクサあり (used_tmux)       : herdr が相当 (WezTerm workspace は未使用)
+--     マルチプレクサあり (used_herdr)      : herdr が相当 (WezTerm workspace は未使用)
 --     マルチプレクサなし (wezterm_native)  : WezTerm が相当 (workspace = プロジェクト単位)
 --   モード切り替えは下記 multiplexer の require を差し替える
 -- ============================================================
@@ -33,7 +33,7 @@ local common_keys = {
 }
 
 -- マルチプレクサ切り替え (どちらか1行を有効にする)
--- local multiplexer = require("keybinds.used_tmux")        -- herdr など tmux 系マルチプレクサ使用時
+-- local multiplexer = require("keybinds.used_herdr")       -- herdr など tmux 系マルチプレクサ使用時
 local multiplexer = require("keybinds.wezterm_native") -- WezTerm ネイティブ多重化に戻す場合
 
 local merged_keys = {}

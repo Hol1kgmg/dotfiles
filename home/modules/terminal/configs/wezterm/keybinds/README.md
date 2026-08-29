@@ -5,7 +5,7 @@
 | ファイル | 役割 |
 |---|---|
 | `default.lua` | エントリポイント。共通キー (common_keys) の定義と、モードの選択 |
-| `used_tmux.lua` | herdr など tmux 系マルチプレクサ使用時のキーバインド |
+| `used_herdr.lua` | herdr など tmux 系マルチプレクサ使用時のキーバインド |
 | `wezterm_native.lua` | WezTerm ネイティブ多重化使用時のキーバインド |
 
 ### モード切り替え
@@ -13,7 +13,7 @@
 `default.lua` 内の `multiplexer` の require を差し替える (どちらか1行を有効にする):
 
 ```lua
-local multiplexer = require("keybinds.used_tmux")        -- herdr など tmux 系マルチプレクサ使用時
+local multiplexer = require("keybinds.used_herdr")       -- herdr など tmux 系マルチプレクサ使用時
 -- local multiplexer = require("keybinds.wezterm_native") -- WezTerm ネイティブ多重化に戻す場合
 ```
 
@@ -26,7 +26,7 @@ local multiplexer = require("keybinds.used_tmux")        -- herdr など tmux �
 
 ## 運用モデル
 
-### マルチプレクサあり (used_tmux)
+### マルチプレクサあり (used_herdr)
 
 - ※ WezTerm workspace は封印(操作キーバインドを空で設定)
 - ※ WezTerm タブも基本 1 枚運用 (Cmd+T で追加は可能だが常用しない)
@@ -82,11 +82,11 @@ WezTerm window
 | 操作 | キー | モード |
 |---|---|---|
 | workspace を閉じる | `Prefix+Shift+D` | herdr のみ |
-| サイドバー | `Cmd+S` | herdr のみ (used_tmux が KKP 転送) |
+| サイドバー | `Cmd+S` | herdr のみ (used_herdr が KKP 転送) |
 
 ## 専用ツール起動
 
-| 操作 | キー | used_tmux (herdr) | wezterm_native |
+| 操作 | キー | used_herdr | wezterm_native |
 |---|---|---|---|
 | btop | `Prefix+B` | popup 表示 | 新規タブで起動 (タブ名 "tool" 固定) |
 | localhost-top | `Prefix+P` | popup 表示 | 新規タブで起動 (タブ名 "tool" 固定) |
@@ -98,7 +98,7 @@ WezTerm window
 | 新規 WezTerm タブ | `Cmd+T` | タイトル "tab" 固定 |
 | フォントサイズトグル | `Ctrl+;` | Zen モード用。Neovim から呼び出し |
 
-## used_tmux.lua の詳細 (herdr への転送)
+## used_herdr.lua の詳細 (herdr への転送)
 
 herdr に届ける必要のあるキーを KKP (Kitty Keyboard Protocol) シーケンスとして送信する:
 
