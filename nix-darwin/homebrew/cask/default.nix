@@ -34,8 +34,8 @@
     "trex" # vicinaeで使用
 
     # ランチャーアプリ
-    # "raycast"
-    "vicinae"
+    "raycast"
+    # "vicinae"
 
     # ウィンドウ管理
     "rectangle"

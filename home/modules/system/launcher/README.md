@@ -5,7 +5,11 @@
 Raycastからvicinaeへ移行中。vicinaeで代替できないraycast拡張機能は
 他ツール + scripts機能の併用でカバーする。
 
-## Raycast拡張機能の移行状況
+## 移行状況
+vicinaeへの移行を中断。
+JP・ENの言語切り替えやclipboard historyの連携などの動作不良により、利用体験がよくなかったため。
+
+## Raycast拡張機能の移行計画
 
 | Raycast拡張機能 | 対応方針 | 備考 |
 |---|---|---|
