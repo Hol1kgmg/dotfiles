@@ -31,7 +31,7 @@
     # "keycastr"  # 入力キーを可視化するツール(普段は使わない)
     "scroll-reverser"
     # "hammerspoon" # chrome browser用 sidebarのショートカット有効化ツール
-    "trex" # vicinaeで使用
+    # "trex" # vicinaeで使用
 
     # ランチャーアプリ
     "raycast"
