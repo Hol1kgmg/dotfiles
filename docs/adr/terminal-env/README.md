@@ -10,7 +10,8 @@ WezTerm のターミナルマルチプレクサ運用モード(herdr / native / 
 |---|---|---|---|
 | [0001](./0001-adopt-herdr.md) | herdr を WezTerm のマルチプレクサとして採用する | superseded by [0002](./0002-switch-to-native.md) | 2026-08-29 |
 | [0002](./0002-switch-to-native.md) | WezTerm ネイティブ多重化へ切り替える | superseded by [0003](./0003-switch-to-tmux.md) | 2026-08-29 |
-| [0003](./0003-switch-to-tmux.md) | tmux へ切り替える | accepted | 2026-08-29 |
+| [0003](./0003-switch-to-tmux.md) | tmux へ切り替える | superseded by [0004](./0004-switch-to-herdr.md) | 2026-08-29 |
+| [0004](./0004-switch-to-herdr.md) | herdr へ再切り替える | accepted | 2026-09-05 |
 
 ## 命名規則
 
