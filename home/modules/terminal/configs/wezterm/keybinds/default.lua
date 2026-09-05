@@ -29,8 +29,8 @@ local common_keys = {
 }
 
 -- マルチプレクサ切り替え (いずれか1行を有効にする)
--- local multiplexer = require("keybinds.used_herdr")       -- herdr 使用時
-local multiplexer = require("keybinds.used_tmux")      -- tmux 使用時
+local multiplexer = require("keybinds.used_herdr")       -- herdr 使用時
+-- local multiplexer = require("keybinds.used_tmux")      -- tmux 使用時
 -- local multiplexer = require("keybinds.wezterm_native") -- WezTerm ネイティブ多重化に戻す場合
 
 -- multiplexer.keys を後に重ねることで、common_keys と同じキーは multiplexer 側の定義で上書きされる
