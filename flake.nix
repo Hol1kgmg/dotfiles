@@ -16,6 +16,11 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # yaskkserv2をNixパッケージとして利用するため。
+    nur-packages = {
+      url = "github:Hol1kgmg/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
