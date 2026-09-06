@@ -84,6 +84,5 @@ Nixでの自動化を諦め、README/ADRに手動導入手順を記載するだ�
 ## More Information
 
 - 関連ADR: [0001-adopt-macskk.md](./0001-adopt-macskk.md)(macSKK採用の経緯、SKK方式のトレードオフ)
-- 関連メモ: `SKK-note.md`(macSKKの入力体験上の課題を記録した個人メモ。このADRの検討動機となった)
 - 検討対象リポジトリ: [koyasi777/mozkey](https://github.com/koyasi777/mozkey)
 - 教訓: 今後IME/日本語入力関連ツールを検討する際は、Homebrew cask対応の有無を候補選定の最初のフィルタとする。cask未対応でNix管理パターンに乗らない場合、導入コストが見合わない可能性が高い
