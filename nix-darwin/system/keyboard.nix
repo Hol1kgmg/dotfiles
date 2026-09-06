@@ -56,9 +56,9 @@
   # ========================================
 
   system.defaults.CustomUserPreferences = {
-    # メニューバーに入力メニューを表示しない
+    # メニューバーに入力メニューを表示する
     "com.apple.TextInputMenu" = {
-      visible = false;
+      visible = true;
     };
 
     # ========================================

@@ -27,6 +27,7 @@
     "google-chrome@canary"
 
     # 入力管理
+    "macskk"
     # goole-japanese-imeはRosettaが必要なので不採用
     # "keycastr"  # 入力キーを可視化するツール(普段は使わない)
     "scroll-reverser"

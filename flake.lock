@@ -109,13 +109,56 @@
         "type": "github"
       }
     },
+    "nur-packages": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1788574208,
+        "narHash": "sha256-MnCaLcgY7PUY5DDTYfKjLDa7JbA/wFeSz/Ez1AdPp1c=",
+        "owner": "Hol1kgmg",
+        "repo": "nur-packages",
+        "rev": "a4c3e91fa28368a818b58ac67631a1a8023fb37a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Hol1kgmg",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nur-packages": "nur-packages"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nur-packages",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768100056,
+        "narHash": "sha256-2GWCrsoWIuEXrzdKR2DPnoDhA5SqW7CGNO+Absni054=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "71a69fd633552550de7cb05cc149e4a99ff6f3b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     }
   },

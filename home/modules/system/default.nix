@@ -7,5 +7,6 @@
     ./keyboard
     ./window
     ./launcher
+    ./input
   ];
 }

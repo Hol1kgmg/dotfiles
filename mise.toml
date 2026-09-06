@@ -18,6 +18,10 @@ run = "nix fmt"
 description = "nix の古い環境をリセット"
 run = "nix store gc"
 
+[tasks."macskk-restart"]
+description = "macSKKを再起動して辞書設定を反映"
+run = "pkill -f '/Library/Input Methods/macSKK.app/Contents/MacOS/macSKK' || true"
+
 [tasks.up]
 description = "devcontainer を起動"
 run = "devcontainer up --workspace-folder ."

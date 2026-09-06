@@ -23,7 +23,7 @@
     # インライン予測テキストを表示
     /usr/bin/defaults write -g NSAutomaticInlinePredictionEnabled -bool false
 
-    # メニューバーに入力メニューを表示しない
-    /usr/bin/defaults write com.apple.TextInputMenu visible -bool false
+    # メニューバーに入力メニューを表示する
+    /usr/bin/defaults write com.apple.TextInputMenu visible -bool true
   '';
 }
