@@ -49,12 +49,16 @@ in
     $DRY_RUN_CMD cp -f "${./kana-rule.conf}" "${documentsDir}/Settings/kana-rule.conf"
     $DRY_RUN_CMD chmod 644 "${documentsDir}/Settings/kana-rule.conf"
 
+    # NOTE: defaults writeのNeXT形式({}/())は値がすべて文字列型になり、
+    # macSKK側のas? Bool / as? UInt / as? UInt16キャストに失敗してnil扱いになる
+    # (skkservは必須設定のためfatalErrorでクラッシュする)。
+    # XML plistフラグメント(<true/>, <integer>など)で渡すことで正しい型を書き込む。
     $DRY_RUN_CMD /usr/bin/defaults write net.mtgto.inputmethod.macSKK dictionaries \
-      '( { filename = "SKK-JISYO.L"; enabled = 1; encoding = 3; type = "traditional"; saveToUserDict = 1; } )' || true
+      '<array><dict><key>filename</key><string>SKK-JISYO.L</string><key>enabled</key><true/><key>encoding</key><integer>3</integer><key>type</key><string>traditional</string><key>saveToUserDict</key><true/></dict></array>' || true
 
     # yaskkserv2をskkservとして使用する設定
     # requestEncoding=3(EUC-JP), responseEncoding=4(UTF-8): yaskkserv2はUTF-8で応答を返せるため
     $DRY_RUN_CMD /usr/bin/defaults write net.mtgto.inputmethod.macSKK skkserv \
-      '{ enabled = 1; address = "127.0.0.1"; port = 1178; requestEncoding = 3; responseEncoding = 4; saveToUserDict = 1; enableCompletion = 1; }' || true
+      '<dict><key>enabled</key><true/><key>address</key><string>127.0.0.1</string><key>port</key><integer>1178</integer><key>requestEncoding</key><integer>3</integer><key>responseEncoding</key><integer>4</integer><key>saveToUserDict</key><true/><key>enableCompletion</key><true/></dict>' || true
   '';
 }
