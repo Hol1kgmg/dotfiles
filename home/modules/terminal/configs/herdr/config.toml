@@ -33,7 +33,7 @@ new_workspace = ""
 next_workspace = ["ctrl+tab"]
 previous_workspace = ["ctrl+shift+tab"]
 rename_workspace = ""
-close_workspace = "prefix+shift+d"
+close_workspace = "prefix+shift+w"
 
 ## navigate
 navigate_workspace_up = ["up", "k"]
