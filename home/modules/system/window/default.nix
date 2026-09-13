@@ -5,6 +5,7 @@
     # ./alt-tab-macos.nix # 有料プランによって使いづらくなった
     ./dockdoor.nix
     ./scroll-reverser.nix
+    ./openscreen.nix
     # ./trex.nix # vicinaeで使用
     # ./hammerspoon.nix
   ];
