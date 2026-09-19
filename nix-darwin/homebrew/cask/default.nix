@@ -9,8 +9,6 @@
     "Hol1kgmg/localhost-top/localhost-top"
 
     # AIエージェント
-    "claude-code"
-    "copilot-cli"
 
     # ターミナル
     "wezterm"

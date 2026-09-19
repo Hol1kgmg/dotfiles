@@ -62,6 +62,7 @@ dotfiles/
         ├── dev/                 # 開発環境
         │   ├── default.nix
         │   ├── git.nix          # Git設定
+        │   ├── claude-code.nix  # Claude Code CLI（nix-claude-code flake）
         │   ├── mise.nix         # Mise（開発ツールバージョン管理）
         │   └── packages.nix     # 開発パッケージ定義
         ├── editor/              # エディタ設定

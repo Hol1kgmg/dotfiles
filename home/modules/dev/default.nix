@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./gh.nix
+    ./claude-code.nix
     ./uv.nix
     ./mise.nix
     ./direnv.nix
