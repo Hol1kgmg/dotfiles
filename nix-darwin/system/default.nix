@@ -13,6 +13,17 @@
   #   ];
   # };
 
+  # nix.gc は home-manager に存在しないため nix-darwin 側で管理（方針の例外）。
+  nix.gc = {
+    automatic = true;
+    interval = {
+      Weekday = 0;
+      Hour = 3;
+      Minute = 0;
+    };
+    options = "--delete-older-than 30d";
+  };
+
   # シェル管理を無効化（home-manager で管理）
   programs.bash.enable = false;
   programs.zsh.enable = false;
