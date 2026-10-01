@@ -25,7 +25,7 @@
     "google-chrome@canary"
 
     # 入力管理
-    "macskk"
+    # "macskk" # 撤退 (docs/adr/input-env/0003-retire-macskk.md)
     # goole-japanese-imeはRosettaが必要なので不採用
     # "keycastr"  # 入力キーを可視化するツール(普段は使わない)
     "scroll-reverser"

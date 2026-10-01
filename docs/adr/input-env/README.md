@@ -10,6 +10,7 @@
 |---|---|---|---|
 | [0001](./0001-adopt-macskk.md) | macSKKを導入する | accepted | 2026-09-06 |
 | [0002](./0002-reject-mozkey.md) | mozkeyへの移行を見送る | rejected | 2026-09-06 |
+| [0003](./0003-retire-macskk.md) | macSKKを撤退する | accepted | 2026-10-01 |
 
 ## 命名規則
 

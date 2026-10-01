@@ -1,5 +1,5 @@
 ---
-status: 'accepted'
+status: 'superseded by [macSKKを撤退する](./0003-retire-macskk.md)'
 date: 2026-09-06
 decision-makers: 'Hol1kgmg'
 ---
