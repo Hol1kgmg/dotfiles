@@ -12,6 +12,7 @@
 
     # ターミナル
     "wezterm"
+    "kitty"              # 試用中 (docs/adr/terminal-env/0006-trial-kitty.md)
     # "wezterm@nightly"  # NixのmacOSビルドに問題があるためHomebrewで管理
     # "cmux"             # バグが多かったので、導入見送り
     # "ghostty"
@@ -31,6 +32,9 @@
     "scroll-reverser"
     # "hammerspoon" # chrome browser用 sidebarのショートカット有効化ツール
     # "trex" # vicinaeで使用
+
+    # 音声入力
+    "aqua-voice"
 
     # ランチャーアプリ
     "raycast"
