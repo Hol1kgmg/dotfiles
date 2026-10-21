@@ -2,7 +2,7 @@
 
 WezTerm のターミナルマルチプレクサ運用モード(herdr / native / tmux)、およびターミナルエミュレータ(kitty 等)・代替ツールの選定に関する決定記録。
 
-対象コード: [`home/modules/terminal/configs/wezterm/keybinds/`](/home/modules/terminal/configs/wezterm/keybinds/)、[`home/modules/terminal/configs/kitty/`](/home/modules/terminal/configs/kitty/)
+対象コード: [`home/modules/terminal/configs/wezterm/keybinds/`](/home/modules/terminal/configs/wezterm/keybinds/)、[`home/modules/terminal/configs/kitty/`](/home/modules/terminal/configs/kitty/)、[`home/modules/terminal/configs/orca/`](/home/modules/terminal/configs/orca/)
 
 ## 一覧
 
@@ -12,8 +12,9 @@ WezTerm のターミナルマルチプレクサ運用モード(herdr / native / 
 | [0002](./0002-switch-to-native.md) | WezTerm ネイティブ多重化へ切り替える | superseded by [0003](./0003-switch-to-tmux.md) | 2026-08-29 |
 | [0003](./0003-switch-to-tmux.md) | tmux へ切り替える | superseded by [0004](./0004-switch-to-herdr.md) | 2026-08-29 |
 | [0004](./0004-switch-to-herdr.md) | herdr へ再切り替える | accepted | 2026-09-05 |
-| [0005](./0005-reject-orca.md) | Orca への移行を見送る | rejected | 2026-10-17 |
+| [0005](./0005-reject-orca.md) | Orca への移行を見送る | superseded by [0007](./0007-trial-orca.md) | 2026-10-17 |
 | [0006](./0006-trial-kitty.md) | kitty を WezTerm と並行して試用する | proposed | 2026-10-17 |
+| [0007](./0007-trial-orca.md) | Orca を Prefix なしの操作体系で試用する | proposed | 2026-10-20 |
 
 ## 命名規則
 

@@ -27,6 +27,7 @@
     # 開発ツール
     $DOCKUTIL --add "/Applications/Visual Studio Code.app" --no-restart
     $DOCKUTIL --add "/Applications/kitty.app" --no-restart
+    $DOCKUTIL --add "/Applications/Orca.app" --no-restart # 試用中 (docs/adr/terminal-env/0007-trial-orca.md)
     $DOCKUTIL --add "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app" --no-restart
 
     # ユーティリティ

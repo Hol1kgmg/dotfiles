@@ -1,5 +1,5 @@
 ---
-status: 'rejected'
+status: 'superseded by [0007-trial-orca.md](./0007-trial-orca.md)'
 date: '2026-10-17'
 decision-makers: 'Hol1kgmg'
 ---
@@ -84,6 +84,7 @@ Karabiner-Elements 等で「Shift+Space 後の 1 キーを Cmd 系チョード�
 
 ## More Information
 
+- 後続の決定: [0007-trial-orca.md](./0007-trial-orca.md)(Prefix 体系を手放すことを許容して再検討)
 - 関連ADR: [0004-switch-to-herdr.md](./0004-switch-to-herdr.md)(現行構成)、[0001-adopt-herdr.md](./0001-adopt-herdr.md)(Prefix 体系の起点)
 - 検討対象リポジトリ: [stablyai/orca](https://github.com/stablyai/orca)(MIT、v1.4.227、2026-10-16 時点)
 - 調査時点での Orca の設定管理可否:

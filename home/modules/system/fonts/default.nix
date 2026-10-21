@@ -7,6 +7,7 @@
   home.packages = [
   pkgs.plemoljp-nf
   pkgs.unifont
+  pkgs.nerd-fonts.symbols-only # Orca のフォールバック列に含まれるアイコン専用フォント
   ];
   # home.packages = with pkgs; [
   #   # Nerd Fonts（oh my posh用）

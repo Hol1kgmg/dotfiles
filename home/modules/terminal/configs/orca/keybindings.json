@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "keybindings": {
+    "terminal.focusPreviousPane": ["Alt+Shift+H", "Alt+Shift+K", "Mod+BracketLeft"],
+    "terminal.focusNextPane": ["Alt+Shift+L", "Alt+Shift+J", "Mod+BracketRight"],
+    "terminal.splitRight": ["Mod+Shift+L", "Mod+D"],
+    "terminal.splitDown": ["Mod+Shift+J", "Mod+Shift+D"],
+    "terminal.closePane": ["Mod+Shift+X"],
+
+    "tab.previousAllTypes": ["Alt+H", "Alt+ArrowLeft", "Mod+Shift+BracketLeft"],
+    "tab.nextAllTypes": ["Alt+L", "Alt+ArrowRight", "Mod+Shift+BracketRight"],
+    "tab.previousRecent": [],
+    "tab.reopenClosed": [],
+
+    "worktree.navigateDown": ["Ctrl+Tab", "Mod+Shift+ArrowDown"],
+    "worktree.navigateUp": ["Ctrl+Shift+Tab", "Mod+Shift+ArrowUp"],
+    "workspace.create": ["Mod+Shift+T", "Mod+N"],
+
+    "sidebar.left.toggle": ["Mod+S", "Mod+B"],
+    "editor.save": [],
+    "floatingTerminal.toggle": ["Mod+Shift+F", "Mod+Alt+A"],
+    "sidebar.search.toggle": []
+  }
+}

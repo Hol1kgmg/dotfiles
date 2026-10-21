@@ -9,6 +9,7 @@
     "Hol1kgmg/localhost-top/localhost-top"
 
     # AIエージェント
+    "stablyai/orca/orca" # 試用中 (docs/adr/terminal-env/0007-trial-orca.md)
 
     # ターミナル
     "wezterm"
