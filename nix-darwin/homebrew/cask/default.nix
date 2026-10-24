@@ -44,5 +44,9 @@
     # ウィンドウ管理
     "rectangle"
     "dockdoor"
+
+    # パスワード管理
+    "1password"
+    "1password-cli"
   ];
 }
