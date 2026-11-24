@@ -18,6 +18,7 @@
     lg = "lazygit";
     ld = "lazydocker";
     dc = "docker compose";
+    wi = "witr";
 
     # zellij
     za = "zellij a";

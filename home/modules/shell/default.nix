@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     tree
     btop
+    witr # プロセスの実行理由を調べる
   ];
 
   xdg.configFile."btop/btop.conf".source = ./configs/btop/btop.conf;
